@@ -1,0 +1,4 @@
+/* Optional: load the brand fonts from Google Fonts (Latin, Vietnamese and Cyrillic).
+   For best performance, prefer a <link rel="preconnect"> + <link rel="stylesheet"> in your HTML <head>,
+   or self-host the files. On Apple devices the stacks fall back to SF Pro / New York. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700&family=Instrument+Serif:ital@0;1&display=swap&subset=vietnamese,cyrillic');
