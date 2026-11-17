@@ -6,7 +6,7 @@ Holds one authoritative record of Meduza's address, hours and contacts, and show
 ## Requirements
 
 ### Requirement: Single venue record
-Address, opening hours, contacts, maps and Grab details SHALL be defined once and read by every screen. The address is 157 Nguyễn Thiện Thuật, Nha Trang, and the hours are daily 12:00–02:00 Vietnam time.
+Address, opening hours, contacts and maps SHALL be defined once and read by every screen. The address is 157 Nguyễn Thiện Thuật, Nha Trang, and the hours are daily 12:00–02:00 Vietnam time.
 
 #### Scenario: One place to edit
 - **WHEN** a contact value is changed in the venue record
