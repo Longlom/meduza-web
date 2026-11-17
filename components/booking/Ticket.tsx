@@ -26,8 +26,10 @@ import {
 import type { Locale } from "@/lib/venue";
 import type { ErrorCode } from "@/lib/validation";
 
-/** The Change button is hidden for now. The /book?change=… flow still works; set this to true to bring the button back. */
+/** Buttons hidden for now. The change flow (/book?change=…), the cancel sheet and /api/booking/cancel still work; set a flag to true to bring its button back. */
 const SHOW_CHANGE = false;
+const SHOW_CANCEL = false;
+const SHOW_ANOTHER = false;
 
 type Step = { key: string; label: string; sub: string; time: string; done: boolean; href?: string };
 
@@ -270,12 +272,12 @@ function TicketBody({ locale, booking, now }: { locale: Locale; booking: MyBooki
             )}
           </div>
 
-          {open ? (
+          {SHOW_CANCEL && open ? (
             <button type="button" className="tk-cancel" onClick={() => setSheet(true)}>
               {t.cancel}
             </button>
           ) : null}
-          {pending ? (
+          {SHOW_ANOTHER && pending ? (
             <Link className="tk-another" href={`/${locale}/book`}>
               {t.another}
             </Link>
