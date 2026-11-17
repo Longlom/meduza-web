@@ -51,7 +51,7 @@ export function SentView({
         <h1 className="bk-h1" role="status">
           {t.book.sentTitle}
         </h1>
-        <p className="mz-body bk-sent__text">{t.book.sentText}</p>
+        {t.book.sentText ? <p className="mz-body bk-sent__text">{t.book.sentText}</p> : null}
         <dl className="bk-dl bk-sent__card">
           <dt>{t.book.summaryDate}</dt>
           <dd>{formatDayLong(booking.date, locale)}</dd>

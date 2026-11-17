@@ -8,7 +8,7 @@ export const ru: Dict = {
   meta: {
     title: "Забронировать стол — Meduza",
     description:
-      "Забронируйте стол в Meduza — Cocktails & Cuisine, Нячанг. Хостес подтвердит бронь в Telegram или по телефону."
+      "Забронируйте стол в Meduza — Cocktails & Cuisine, Нячанг."
   },
   brand: "Meduza",
   nav: {
@@ -188,7 +188,7 @@ export const ru: Dict = {
     notes: "Пожелания",
     notesPlaceholder: "День рождения, кальян к приходу, аллергии…",
     optional: "необязательно",
-    hostessNote: "Хостес подтвердит бронь в Telegram или по телефону.",
+    hostessNote: "",
     next: "Продолжить",
     submit: "Забронировать",
     submitting: "Отправляем…",
@@ -198,7 +198,7 @@ export const ru: Dict = {
     summaryGuests: "Гости",
     noSlots: "На этот день больше нельзя оставить заявку. Выберите другую дату.",
     sentTitle: "Заявка отправлена.",
-    sentText: "Хостес подтвердит бронь в Telegram или по телефону.",
+    sentText: "",
     reference: "Номер брони",
     addToCalendar: "Добавить в календарь",
     another: "Новая бронь",

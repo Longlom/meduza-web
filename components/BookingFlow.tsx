@@ -426,7 +426,7 @@ export function BookingFlow({ locale, changeRef = null }: { locale: Locale; chan
                   error={err(errors.notes)}
                 />
 
-                <p className="mz-footnote mz-secondary">{t.book.hostessNote}</p>
+                {t.book.hostessNote ? <p className="mz-footnote mz-secondary">{t.book.hostessNote}</p> : null}
 
                 {/* Honeypot: invisible to guests, tempting to bots. */}
                 <div className="bk-hp" aria-hidden="true">
@@ -468,7 +468,7 @@ export function BookingFlow({ locale, changeRef = null }: { locale: Locale; chan
                 <Button type="submit" size="lg" glow block disabled={sending || !time}>
                   {sending ? t.book.submitting : t.book.submit}
                 </Button>
-                <span className="mz-footnote mz-secondary bk-aside__note">{t.book.hostessNote}</span>
+                {t.book.hostessNote ? <span className="mz-footnote mz-secondary bk-aside__note">{t.book.hostessNote}</span> : null}
               </div>
             </aside>
           </div>
