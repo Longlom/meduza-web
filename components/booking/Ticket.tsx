@@ -91,7 +91,7 @@ function TicketBody({ locale, booking, now }: { locale: Locale; booking: MyBooki
   const note = booking.status === "cancelled" ? t.cancelledNote : booking.status === "changed" ? t.changedNote : "";
 
   const steps: Step[] = [
-    { key: "sent", label: t.sent, sub: t.sentSub, time: formatVenueTime(booking.sentAt), done: true }
+    { key: "sent", label: t.sent, sub: "", time: formatVenueTime(booking.sentAt), done: true }
   ];
   if (booking.status === "pending") {
     steps.push(
@@ -223,9 +223,9 @@ function TicketBody({ locale, booking, now }: { locale: Locale; booking: MyBooki
                 </span>
                 <span className="tk-step__text">
                   <span className="tk-step__label">{s.label}</span>
-                  <span className="tk-step__sub">
-                    {s.href ? <Link href={s.href}>{t.viewNew}</Link> : s.sub}
-                  </span>
+                  {s.href || s.sub ? (
+                    <span className="tk-step__sub">{s.href ? <Link href={s.href}>{t.viewNew}</Link> : s.sub}</span>
+                  ) : null}
                 </span>
                 <span className="tk-step__time">{s.time}</span>
               </li>

@@ -206,7 +206,6 @@ export const en = {
     viewNew: "View the new booking",
     timelineLabel: "Booking progress",
     sent: "Request sent",
-    sentSub: "via meduza-nt.com",
     arrive: "Arrive",
     cancelRequested: "Cancellation requested",
     cancelRequestedSub: "Sent to the venue",

@@ -222,7 +222,6 @@ export const ru: Dict = {
     viewNew: "Открыть новую бронь",
     timelineLabel: "Ход брони",
     sent: "Заявка отправлена",
-    sentSub: "через meduza-nt.com",
     arrive: "Приходите",
     cancelRequested: "Запрос на отмену отправлен",
     cancelRequestedSub: "Отправлено в заведение",
