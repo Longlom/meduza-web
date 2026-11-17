@@ -2,12 +2,12 @@
 
 ## Purpose
 
-Lets a guest ask the hostess to change or cancel a booking without a database, while making clear that the hostess verifies and confirms.
+Lets a guest ask the hostess to change or cancel a booking without a database, treating them as requests the hostess verifies.
 
 ## ADDED Requirements
 
 ### Requirement: Cancel request
-"Cancel booking" SHALL ask for confirmation in a destructive-styled dialog that shows the date, time and the `[DEPOSIT / CANCELLATION POLICY]` text. Confirming SHALL send a cancellation request to the hostess in Telegram with the reference and details, mark the local record Cancelled, and explain that the hostess will be informed.
+"Cancel booking" SHALL ask for confirmation in a destructive-styled dialog that shows the date, time and the `[DEPOSIT / CANCELLATION POLICY]` text. Confirming SHALL send a cancellation request to the hostess in Telegram with the reference and details, mark the local record Cancelled, and show "Cancellation request sent."
 
 #### Scenario: Confirmed cancel
 - **WHEN** a guest confirms the cancellation
@@ -29,11 +29,11 @@ Lets a guest ask the hostess to change or cancel a booking without a database, w
 - **THEN** the form rejects it like any other request
 
 ### Requirement: Requests are verified by the hostess
-Change and cancel requests SHALL be treated as requests for the hostess to verify, not as proof that a booking exists. The wording shown to the guest SHALL say the hostess confirms.
+Change and cancel requests SHALL be treated as requests for the hostess to verify, not as proof that a booking exists. The guest wording SHALL say only that the request was sent, and SHALL NOT promise a confirmation.
 
 #### Scenario: Wording
 - **WHEN** a cancellation is sent
-- **THEN** the guest sees that the hostess has been told and will confirm in Telegram or by phone
+- **THEN** the guest sees "Cancellation request sent." and no promise of a confirmation
 
 ### Requirement: Same protections
 Change and cancel requests SHALL use the same validation, hidden-field check and rate limits as new bookings.

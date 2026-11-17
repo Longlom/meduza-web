@@ -30,9 +30,6 @@ export const MAX_GUESTS = 20;
 /** [HOLD POLICY] — shown on the confirmation screen until the owner confirms the real text. */
 export const HOLD_POLICY_PLACEHOLDER = "[HOLD POLICY]";
 
-/** [CONFIRM TIME] — how fast the hostess usually answers; shown on the pending ticket until the owner confirms. */
-export const CONFIRM_TIME_PLACEHOLDER = "[CONFIRM TIME]";
-
 /** [DEPOSIT / CANCELLATION POLICY] — shown in the cancel confirmation until the owner confirms the real text. */
 export const CANCEL_POLICY_PLACEHOLDER = "[DEPOSIT / CANCELLATION POLICY]";
 

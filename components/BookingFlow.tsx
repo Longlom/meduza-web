@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   Button,
   ChevronLeftIcon,
@@ -13,7 +14,6 @@ import {
   TimeSlots
 } from "@meduza/ui";
 import { SiteNav } from "@/components/SiteNav";
-import { SentView, type SentBooking } from "@/components/SentView";
 import { formatDayMonth, formatDayShort } from "@/lib/format";
 import { getBooking, saveBooking, saveChange, useMyBookings } from "@/lib/my-bookings";
 import { getDict } from "@/lib/i18n";
@@ -60,7 +60,9 @@ export function BookingFlow({ locale, changeRef = null }: { locale: Locale; chan
   const [step, setStep] = useState<0 | 1>(0);
   const [sending, setSending] = useState(false);
   const [errors, setErrors] = useState<Errors>({});
-  const [sent, setSent] = useState<SentBooking | null>(null);
+  const router = useRouter();
+  // Set once the booking is saved and we are on our way to the ticket, so the button stays disabled.
+  const leaving = useRef(false);
 
   // Time only exists in the browser: avoids a server/browser mismatch and keeps slots fresh.
   useEffect(() => {
@@ -172,8 +174,7 @@ export function BookingFlow({ locale, changeRef = null }: { locale: Locale; chan
         fields?: FieldErrors;
       };
       if (res.ok && data.ok && data.reference) {
-        const booking: SentBooking = { reference: data.reference, date, time, guests };
-        // Kept on this device only; the confirmation screen works even if storage is blocked.
+        // Kept on this device only; the ticket page reads it from here.
         const record = {
           reference: data.reference,
           date,
@@ -186,8 +187,9 @@ export function BookingFlow({ locale, changeRef = null }: { locale: Locale; chan
         };
         if (replacing) saveChange(replacing.reference, record);
         else saveBooking(record);
-        setSent(booking);
-        window.scrollTo({ top: 0 });
+        // The Book tab shows the booking: go straight to its ticket.
+        leaving.current = true;
+        router.push(`/${locale}/booking/${data.reference}`);
       } else if (data.fields && Object.keys(data.fields).length) {
         showErrors(data.fields);
       } else {
@@ -196,7 +198,7 @@ export function BookingFlow({ locale, changeRef = null }: { locale: Locale; chan
     } catch {
       showErrors({ form: "network" });
     } finally {
-      setSending(false);
+      if (!leaving.current) setSending(false);
     }
   }
 
@@ -208,32 +210,9 @@ export function BookingFlow({ locale, changeRef = null }: { locale: Locale; chan
     window.scrollTo({ top: 0 });
   }
 
-  function reset() {
-    setSent(null);
-    setStep(0);
-    setNotes("");
-    setErrors({});
-    if (now) {
-      const first = pickableDays(now).find((d) => dayHasSlots(d, now));
-      if (first) {
-        setDate(first);
-        setTime(defaultSlot(first, now));
-      }
-    }
-  }
-
   const err = (code?: ErrorCode | "network") => (code ? t.errors[code] : undefined);
 
   const nav = <SiteNav locale={locale} />;
-
-  if (sent) {
-    return (
-      <div className="bk">
-        {nav}
-        <SentView locale={locale} booking={sent} onAnother={reset} />
-      </div>
-    );
-  }
 
   return (
     <div className="bk" data-step={step}>
@@ -426,8 +405,6 @@ export function BookingFlow({ locale, changeRef = null }: { locale: Locale; chan
                   error={err(errors.notes)}
                 />
 
-                {t.book.hostessNote ? <p className="mz-footnote mz-secondary">{t.book.hostessNote}</p> : null}
-
                 {/* Honeypot: invisible to guests, tempting to bots. */}
                 <div className="bk-hp" aria-hidden="true">
                   <label>
@@ -468,7 +445,6 @@ export function BookingFlow({ locale, changeRef = null }: { locale: Locale; chan
                 <Button type="submit" size="lg" glow block disabled={sending || !time}>
                   {sending ? t.book.submitting : t.book.submit}
                 </Button>
-                {t.book.hostessNote ? <span className="mz-footnote mz-secondary bk-aside__note">{t.book.hostessNote}</span> : null}
               </div>
             </aside>
           </div>

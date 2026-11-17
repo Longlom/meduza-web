@@ -75,12 +75,12 @@ A hidden form field SHALL silently discard bot submissions, returning a normal s
 - **WHEN** the same phone number submits a fourth request within 10 minutes
 - **THEN** the request is rejected with "Too many requests"
 
-### Requirement: Confirmation screen
-After success the guest SHALL see "Request sent." with date, time, guests and reference, the `[HOLD POLICY]` text, "Add to calendar" and "Make another booking".
+### Requirement: After the request
+After success the guest SHALL land on the booking's ticket page (the Book tab), which shows date, time, guests, reference, the `[HOLD POLICY]` text, "Add to calendar" and "Make another booking", without any wording about the hostess confirming.
 
-#### Scenario: Confirmation
+#### Scenario: Landing
 - **WHEN** a request succeeds
-- **THEN** the screen shows the details, the reference and both actions
+- **THEN** the ticket opens with the details and the reference
 
 ### Requirement: Mobile first
 Booking SHALL be designed for the phone first: a two-step flow with a sticky primary button in the thumb zone, 44 px controls and no keyboard before the details step; the one-page desktop layout is an enhancement from 900 px.

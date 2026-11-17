@@ -38,7 +38,6 @@ After a guest sends a booking request they want to see it again, add it to their
 
 ## New [PLACEHOLDER] values
 
-- `[CONFIRM TIME]`: "usually within [CONFIRM TIME]" on the pending ticket.
 - `[HOLD POLICY]`: shown on the confirmation and the ticket.
 - `[DEPOSIT / CANCELLATION POLICY]`: shown in the cancel confirmation.
 - `[MAX_GUESTS]` (20) already exists and is documented in `table-booking`.

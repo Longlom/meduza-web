@@ -12,7 +12,7 @@
 
 ## 3. Ticket page
 
-- [x] 3.1 Create `/{locale}/booking/[ref]` with the ticket card, pending badge with reduced-motion handling, note with `[CONFIRM TIME]`, and the timeline. Check at 390 px against `design/screens/m4-my-booking.dc.html`.
+- [x] 3.1 Create `/{locale}/booking/[ref]` with the ticket card, "Request sent" badge with reduced-motion handling, and the timeline (no hostess-confirmation wording until there is a backend). Check at 390 px against `design/screens/m4-my-booking.dc.html`.
 - [x] 3.2 Add the unknown-booking state with "Make a new booking" and "Message us", and `noindex` metadata. Verify with a reference that is not stored; check at 390 px and desktop width.
 - [x] 3.3 Add Directions, Message us (placeholder-aware) and Add to calendar. Verify the downloaded `.ics` opens with the right time and the reference; check at 390 px and desktop width.
 - [x] 3.4 Add a desktop layout for the ticket page. Check at 1280 px (no desktop design exists; note differences for review).

@@ -23,7 +23,7 @@ import {
   useMyBookings,
   type MyBooking
 } from "@/lib/my-bookings";
-import { CANCEL_POLICY_PLACEHOLDER, CONFIRM_TIME_PLACEHOLDER, HOLD_POLICY_PLACEHOLDER, type Locale } from "@/lib/venue";
+import { CANCEL_POLICY_PLACEHOLDER, HOLD_POLICY_PLACEHOLDER, type Locale } from "@/lib/venue";
 import type { ErrorCode } from "@/lib/validation";
 
 type Step = { key: string; label: string; sub: string; time: string; done: boolean; href?: string };
@@ -87,19 +87,14 @@ function TicketBody({ locale, booking, now }: { locale: Locale; booking: MyBooki
 
   const label =
     booking.status === "pending" ? t.statusPending : booking.status === "cancelled" ? t.statusCancelled : t.statusChanged;
-  const note =
-    booking.status === "pending"
-      ? t.pendingNote(CONFIRM_TIME_PLACEHOLDER)
-      : booking.status === "cancelled"
-        ? t.cancelledNote
-        : t.changedNote;
+  // Pending needs no note: the booking is simply shown. Cancelled and changed say what happened.
+  const note = booking.status === "cancelled" ? t.cancelledNote : booking.status === "changed" ? t.changedNote : "";
 
   const steps: Step[] = [
     { key: "sent", label: t.sent, sub: t.sentSub, time: formatVenueTime(booking.sentAt), done: true }
   ];
   if (booking.status === "pending") {
     steps.push(
-      { key: "checking", label: t.checking, sub: t.checkingSub, time: "", done: false },
       {
         key: "arrive",
         label: t.arrive,
@@ -209,7 +204,7 @@ function TicketBody({ locale, booking, now }: { locale: Locale; booking: MyBooki
               <span>{t.reference}</span>
               <span className="tk-ticket__refvalue">{booking.reference}</span>
             </div>
-            <p className="tk-ticket__note">{note}</p>
+            {note ? <p className="tk-ticket__note">{note}</p> : null}
             {pending ? <p className="tk-ticket__policy">{HOLD_POLICY_PLACEHOLDER}</p> : null}
             {cancelledNote ? (
               <p className="tk-ticket__note tk-ticket__note--ok" role="status">

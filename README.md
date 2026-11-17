@@ -53,7 +53,7 @@ After a request succeeds the app keeps it in the browser's `localStorage` (key `
 - **What is stored on the device:** reference, date, time, guests, name, phone, Instagram handle, notes, when the request was sent, and its status (`pending`, `cancelled` or `changed`, plus when and, for a change, the new reference). Name and phone are kept so Change can pre-fill the form.
 - **What leaves the device:** only the booking, change or cancel request itself, which goes to the hostess in Telegram. Nothing else is sent to a server, and the ticket page is not indexed by search engines.
 - **How long:** a record is removed on the next visit after the opening day it belongs to has ended (after 02:00). Clearing site data removes it earlier; the ticket then says it cannot find the booking on this device.
-- **Statuses:** the ticket only says *Waiting for the hostess*, *Cancelled* or *Changed*. It never claims *Confirmed*, because the hostess confirms in Telegram or by phone and the app cannot know.
+- **Statuses:** the ticket only says *Request sent*, *Cancelled* or *Changed*. It never claims *Confirmed* and never mentions a hostess confirming, because there is no backend to know. After booking, the guest lands on the ticket (the Book tab).
 - **Change** reopens the form pre-filled (`/book?change=MDZ-1234`); the hostess gets "Change request — replaces MDZ-1234" with a new reference. **Cancel** (`POST /api/booking/cancel`) sends "Cancellation requested · MDZ-1234". Both are requests the hostess checks with the guest, use the same honeypot and the same 8-per-IP limit as new bookings, and are offered only until the booked time.
 
 ### Telegram bot setup

@@ -41,4 +41,4 @@ The booking form (`components/BookingFlow.tsx`), the API route (`app/api/booking
 
 ## Open Questions
 
-- The real texts for `[CONFIRM TIME]`, `[HOLD POLICY]` and `[DEPOSIT / CANCELLATION POLICY]` (owner). The layout works with the placeholders.
+- The real texts for `[HOLD POLICY]` and `[DEPOSIT / CANCELLATION POLICY]` (owner). The layout works with the placeholders.

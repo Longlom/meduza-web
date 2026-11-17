@@ -18,22 +18,22 @@ After a request succeeds, the app SHALL store it on the guest's device only: ref
 - **THEN** the record is removed and the Book tab shows the booking form
 
 ### Requirement: Ticket page
-`/{locale}/booking/[ref]` SHALL show a ticket with the area photo, a status badge, the date and time in large type, the guest count and the reference. A pending booking SHALL read "Waiting for the hostess" with a slow pulse, followed by "A hostess will confirm your booking in Telegram or by phone, usually within [CONFIRM TIME]." The page SHALL include the tab bar and a timeline: Request sent (with the time sent), Hostess confirms, Arrive.
+`/{locale}/booking/[ref]` SHALL show a ticket with the area photo, a status badge, the date and time in large type, the guest count and the reference. A pending booking SHALL show the badge "Request sent" with a slow pulse. The page SHALL include the tab bar and a timeline: Request sent (with the time sent), Arrive. Until bookings have a backend, nothing on the ticket SHALL mention the hostess confirming.
 
 #### Scenario: Pending ticket
 - **WHEN** a guest opens the ticket for a booking sent at 18:02
-- **THEN** the ticket shows "Waiting for the hostess", the timeline shows "Request sent 18:02" and the other steps pending
+- **THEN** the ticket shows "Request sent", the timeline shows "Request sent 18:02" and Arrive pending
 
 #### Scenario: Reduced motion
 - **WHEN** the guest prefers reduced motion
 - **THEN** the status badge does not pulse
 
 ### Requirement: Honest status
-Until bookings have a database, the ticket SHALL only show Waiting for the hostess, Cancelled or Changed, and SHALL NOT claim Confirmed or Declined.
+Until bookings have a database, the ticket SHALL only show Request sent, Cancelled or Changed, and SHALL NOT claim Confirmed or Declined or describe a confirmation step.
 
 #### Scenario: No false confirmation
 - **WHEN** the hostess confirms in Telegram
-- **THEN** the ticket still says the hostess will confirm in Telegram or by phone, and never shows "Confirmed"
+- **THEN** the ticket still shows "Request sent" and never shows "Confirmed"
 
 ### Requirement: Unknown booking on this device
 If no record matches the reference on this device, the page SHALL say it cannot find the booking here and offer "Make a new booking" and "Message us".
@@ -43,7 +43,7 @@ If no record matches the reference on this device, the page SHALL say it cannot 
 - **THEN** the page explains the booking is not on this device and shows the two actions
 
 ### Requirement: Book tab shows the active booking
-While a record is active, the Book tab SHALL open that booking's ticket; otherwise it SHALL open the booking form. The confirmation screen SHALL offer "View my booking".
+While a record is active, the Book tab SHALL open that booking's ticket; otherwise it SHALL open the booking form. After a successful request the guest SHALL land on that booking's ticket; there is no separate confirmation screen.
 
 #### Scenario: Active booking
 - **WHEN** a guest with an active booking taps the Book tab
