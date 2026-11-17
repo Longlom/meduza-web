@@ -72,13 +72,7 @@ export const en = {
     kitchen: "Kitchen closes",
     timezone: "Vietnam time (GMT+7)",
     contactTitle: "Talk to the hostess",
-    contacts: { telegram: "Telegram", zalo: "Zalo", instagram: "Instagram", phone: "Call" },
-    knowTitle: "Good to know",
-    dress: "Dress code",
-    payment: "Payment",
-    hookah: "Hookah",
-    languages: "Languages",
-    languagesValue: "EN · RU · VI"
+    contacts: { telegram: "Telegram", zalo: "Zalo", instagram: "Instagram", phone: "Call" }
   },
   venue: {
     dailyHours: `Daily ${OPEN_FROM} – ${OPEN_TO}`,

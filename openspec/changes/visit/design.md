@@ -2,7 +2,7 @@
 
 ## Context
 
-The phone design is `m5-visit.dc.html`: a map block, Directions and "Open in Grab", an hours card with a live badge, a "Talk to the hostess" list (Telegram, Zalo, Instagram, Call) and "Good to know" tiles. Almost every value is a placeholder, and no desktop Visit screen exists; the desktop Home screen has a visit block (hours, address, phone, map). The venue record, `VenueAction` and `OpenStatus` come from `app-shell`. See `proposal.md` for scope.
+The phone design is `m5-visit.dc.html`: a map block, Directions and "Open in Grab", an hours card with a live badge, a "Talk to the hostess" list (Telegram, Zalo, Instagram, Call). The "Good to know" tiles were removed at the owner's request. Almost every value is a placeholder, and no desktop Visit screen exists; the desktop Home screen has a visit block (hours, address, phone, map). The venue record, `VenueAction` and `OpenStatus` come from `app-shell`. See `proposal.md` for scope.
 
 ## Goals / Non-Goals
 

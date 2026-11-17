@@ -30,7 +30,7 @@ describe("VisitContacts", () => {
   });
 
   it("is localised", () => {
-    expect(renderToStaticMarkup(h(VisitContacts, { locale: "ru" }))).toContain("Связь с хостес");
+    expect(renderToStaticMarkup(h(VisitContacts, { locale: "ru" }))).toContain("Связь с нами");
   });
 });
 

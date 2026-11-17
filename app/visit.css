@@ -92,12 +92,7 @@ a.vs-list__row:active { background: var(--mz-surface-pressed); }
 .vs-list__value { color: var(--mz-text-secondary); font-size: var(--mz-type-footnote-size); overflow-wrap: anywhere; }
 .vs-list__chev { flex: none; color: var(--mz-text-tertiary); }
 
-/* ---------- Good to know ---------- */
-.vs-tiles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--mz-space-3); }
-.vs-tile { display: flex; flex-direction: column; gap: var(--mz-space-1); padding: var(--mz-space-4); min-height: 88px; border-radius: var(--mz-radius-md); background: var(--mz-surface); border: 1px solid var(--mz-line); }
-.vs-tile__label { font-size: var(--mz-type-footnote-size); color: var(--mz-text-secondary); }
-.vs-tile__value { font-size: var(--mz-type-callout-size); font-weight: 600; overflow-wrap: anywhere; }
-.vs-tile__value[data-placeholder="true"], .vs-row dd[data-placeholder="true"], .vs-list__value[data-placeholder="true"] { opacity: 1; color: var(--mz-text-secondary); font-weight: 500; }
+.vs-row dd[data-placeholder="true"], .vs-list__value[data-placeholder="true"] { opacity: 1; color: var(--mz-text-secondary); font-weight: 500; }
 
 /* ---------- Desktop (900 px and up) ---------- */
 @media (min-width: 900px) {

@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { VenueAction } from "@/components/VenueAction";
 import { VisitContacts } from "@/components/visit/VisitContacts";
 import { VisitHours } from "@/components/visit/VisitHours";
-import { VisitKnow } from "@/components/visit/VisitKnow";
 import { VisitMap } from "@/components/visit/VisitMap";
 import { getDict } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/metadata";
@@ -40,7 +39,6 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
       <div className="vs-info">
         <VisitHours locale={locale} />
         <VisitContacts locale={locale} />
-        <VisitKnow locale={locale} />
       </div>
     </main>
   );

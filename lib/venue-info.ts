@@ -29,9 +29,6 @@ export const VENUE = {
   grabPickup: venueValue("[GRAB PICKUP POINT]"),
   /** An embeddable map address (https URL). While it is a placeholder the Visit page shows the address and a maps link instead. */
   mapEmbed: venueValue("[MAP EMBED]"),
-  dressCode: venueValue("[DRESS CODE]"),
-  payment: venueValue("[PAYMENT METHODS]"),
-  hookahRule: venueValue("[HOOKAH AGE/ZONE RULE]"),
   brunchHours: venueValue("[BRUNCH HOURS]"),
   dinnerHours: venueValue("[DINNER HOURS]"),
   kitchenCloses: venueValue("[KITCHEN CLOSES]"),

@@ -14,7 +14,7 @@
 
 - [x] 3.1 Build the hours card with `OpenStatus` and the placeholder rows. Verify the badge at 22:00, 01:59, 02:00 and 11:59 with a faked clock; check at 390 px against `m5-visit.dc.html`.
 - [x] 3.2 Build the contact list (Telegram, Zalo, Instagram, Call) with 44 px rows. Verify placeholder rows are not links and a confirmed value becomes a correct link (`t.me`, `zalo.me`, `instagram.com`, `tel:`); check at 390 px.
-- [x] 3.3 Build the "Good to know" tiles. Verify placeholders show in brackets; check at 390 px.
+- [x] 3.3 ~~Build the "Good to know" tiles.~~ Removed at the owner's request; the dress code, payment and hookah placeholders went with it.
 
 ## 4. Desktop and page
 

@@ -28,13 +28,6 @@ A "Talk to the hostess" list SHALL offer Telegram, Zalo, Instagram and Call. Eac
 - **WHEN** the Zalo number is a placeholder
 - **THEN** the Zalo row shows `[ZALO NUMBER]` and is not a link
 
-### Requirement: Good to know
-A "Good to know" section SHALL show tiles for dress code, payment, the hookah age and zone rule, and languages (EN · RU · VI). Dress code, payment and hookah SHALL show their placeholders until confirmed.
-
-#### Scenario: Tiles
-- **WHEN** a guest scrolls to "Good to know"
-- **THEN** four tiles are shown and the three unconfirmed ones show `[DRESS CODE]`, `[PAYMENT METHODS]` and `[HOOKAH AGE/ZONE RULE]`
-
 ### Requirement: Localized content
 All text SHALL come from the locale dictionaries, and times SHALL be shown in Vietnam time.
 
@@ -43,8 +36,8 @@ All text SHALL come from the locale dictionaries, and times SHALL be shown in Vi
 - **THEN** every label is Russian and the hours remain 12:00 – 02:00
 
 ### Requirement: Mobile first
-Hours, contacts and tiles SHALL be designed as a single phone column first, with contact rows of at least 44 px, and the desktop layout added from 900 px.
+Hours and contacts SHALL be designed as a single phone column first, with contact rows of at least 44 px, and the desktop layout added from 900 px.
 
 #### Scenario: Phone first
 - **WHEN** a guest opens Visit at 390 px
-- **THEN** the hours card, contact rows and tiles stack in one column and every row is at least 44 px tall
+- **THEN** the hours card and contact rows stack in one column and every row is at least 44 px tall

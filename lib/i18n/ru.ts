@@ -77,14 +77,8 @@ export const ru: Dict = {
     brunch: "Бранч",
     kitchen: "Кухня закрывается",
     timezone: "Время Вьетнама (GMT+7)",
-    contactTitle: "Связь с хостес",
-    contacts: { telegram: "Telegram", zalo: "Zalo", instagram: "Instagram", phone: "Позвонить" },
-    knowTitle: "Хорошо знать",
-    dress: "Дресс-код",
-    payment: "Оплата",
-    hookah: "Кальян",
-    languages: "Языки",
-    languagesValue: "EN · RU · VI"
+    contactTitle: "Связь с нами",
+    contacts: { telegram: "Telegram", zalo: "Zalo", instagram: "Instagram", phone: "Позвонить" }
   },
   venue: {
     dailyHours: `Ежедневно ${OPEN_FROM} – ${OPEN_TO}`,
