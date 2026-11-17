@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { LanguageSwitch } from "@/components/LanguageSwitch";
+import { MobileLanguageSwitch } from "@/components/MobileLanguageSwitch";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteTabBar } from "@/components/SiteTabBar";
 import { isLocale } from "@/lib/venue";
@@ -17,9 +17,7 @@ export default async function SiteLayout({
   return (
     <>
       <SiteNav locale={locale} />
-      <div className="site-mobile-lang">
-        <LanguageSwitch locale={locale} />
-      </div>
+      <MobileLanguageSwitch locale={locale} />
       <div className="site-body">{children}</div>
       <SiteTabBar locale={locale} />
     </>

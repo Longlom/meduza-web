@@ -269,7 +269,7 @@
 :root {
   --site-nav-space: calc(var(--mz-space-5) + 64px); /* floating nav height (20 px gap + 64 px bar) */
   --site-tabbar-space: calc(var(--mz-space-24) + env(safe-area-inset-bottom)); /* room the phone tab bar covers */
-  --site-lang-space: calc(env(safe-area-inset-top) + 52px); /* room the phone EN / RU pill covers at the top */
+  --site-lang-space: calc(env(safe-area-inset-top) + var(--mz-space-5)); /* top room on phone pages (the EN / RU pill is on the home page only) */
 }
 .site-body { min-height: 60dvh; padding-bottom: var(--site-tabbar-space); }
 .site-tabbar {
