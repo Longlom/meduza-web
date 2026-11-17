@@ -56,6 +56,12 @@
 .mr-main { height: 100%; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; gap: var(--mz-space-3); }
 
 .mr-stage { position: relative; min-height: 0; display: flex; align-items: center; justify-content: center; touch-action: pan-y; container-type: size; }
+/* Phone: the current page and its neighbours sit side by side on a track that follows the finger. */
+.mr { overflow-x: clip; } /* neighbouring pages wait just outside the screen */
+.mr-track { position: absolute; inset: 0; will-change: transform; }
+.mr-slot { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+.mr-slot[data-pos="prev"] { transform: translateX(calc(-100% - var(--mz-space-4))); }
+.mr-slot[data-pos="next"] { transform: translateX(calc(100% + var(--mz-space-4))); }
 .mr-page {
   height: 100%; /* fallback */
   height: min(100cqh, calc(100cqw * 842 / 595)); /* the largest A4 page that fits the stage */

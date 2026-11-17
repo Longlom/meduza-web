@@ -15,6 +15,7 @@ export function PageImage({
   widths = [450, 900],
   fallbackWidth = 900,
   priority = false,
+  eager = false,
   className,
   alt,
   onError,
@@ -27,6 +28,8 @@ export function PageImage({
   widths?: ImageWidth[];
   fallbackWidth?: ImageWidth;
   priority?: boolean;
+  /** Load now without competing with the current page (a neighbour that is off screen). */
+  eager?: boolean;
   className?: string;
   alt?: string;
   onError?: ReactEventHandler<HTMLImageElement>;
@@ -45,7 +48,11 @@ export function PageImage({
         decoding="async"
         onError={onError}
         onLoad={onLoad}
-        {...(priority ? { fetchPriority: "high" as const } : { loading: "lazy" as const })}
+        {...(priority
+          ? { fetchPriority: "high" as const }
+          : eager
+            ? { loading: "eager" as const, fetchPriority: "low" as const }
+            : { loading: "lazy" as const })}
       />
     </picture>
   );
