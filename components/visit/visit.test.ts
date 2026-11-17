@@ -5,6 +5,14 @@ import { VisitContacts } from "@/components/visit/VisitContacts";
 import { VisitMap } from "@/components/visit/VisitMap";
 import { VENUE, directionsHref, openStatus, venueValue } from "@/lib/venue-info";
 
+const unconfirmed = {
+  ...VENUE,
+  phone: venueValue("[PHONE]"),
+  telegram: venueValue("[TELEGRAM @HANDLE]"),
+  zalo: venueValue("[ZALO NUMBER]"),
+  instagram: venueValue("[INSTAGRAM @HANDLE]")
+};
+
 const confirmed = {
   ...VENUE,
   phone: venueValue("+84 90 123 4567"),
@@ -16,7 +24,7 @@ const confirmed = {
 
 describe("VisitContacts", () => {
   it("shows no links while every value is a placeholder", () => {
-    const html = renderToStaticMarkup(h(VisitContacts, { locale: "en" }));
+    const html = renderToStaticMarkup(h(VisitContacts, { locale: "en", venue: unconfirmed }));
     expect(html).not.toContain("<a");
     for (const m of ["[TELEGRAM @HANDLE]", "[ZALO NUMBER]", "[INSTAGRAM @HANDLE]", "[PHONE]"]) expect(html).toContain(m);
   });
@@ -65,7 +73,7 @@ describe("Visit hours badge and directions", () => {
     expect(openStatus(at(11, 59)).open).toBe(false);
     expect(openStatus(at(12, 0)).open).toBe(true);
   });
-  it("directions target the full address", () => {
-    expect(decodeURIComponent(directionsHref())).toContain("157 Nguyễn Thiện Thuật, Nha Trang, Khánh Hòa");
+  it("directions open the venue on Google Maps", () => {
+    expect(directionsHref()).toBe("https://maps.app.goo.gl/aCXWFbkuG3wcHPTB6");
   });
 });

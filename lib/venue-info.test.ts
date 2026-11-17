@@ -1,5 +1,14 @@
 import { describe, expect, it } from "vitest";
-import { VENUE, contactHref, directionsHref, openStatus, venueValue } from "@/lib/venue-info";
+import { MAPS_LINK, VENUE, contactHref, directionsHref, openStatus, venueValue } from "@/lib/venue-info";
+
+// What the record looked like before the owner confirmed the contacts.
+const unconfirmed = {
+  ...VENUE,
+  phone: venueValue("[PHONE]"),
+  telegram: venueValue("[TELEGRAM @HANDLE]"),
+  zalo: venueValue("[ZALO NUMBER]"),
+  instagram: venueValue("[INSTAGRAM @HANDLE]")
+};
 
 const vn = (date: string, hhmm: string) => new Date(`${date}T${hhmm}:00+07:00`);
 
@@ -14,18 +23,35 @@ describe("placeholders", () => {
       .filter(([, v]) => v.value.startsWith("["))
       .every(([, v]) => v.placeholder);
     expect(flagged).toBe(true);
-    expect(VENUE.phone.placeholder).toBe(true);
     expect(VENUE.address.placeholder).toBe(false);
+    expect(VENUE.mapEmbed.placeholder).toBe(true);
   });
 
   it("never gives a link for a placeholder", () => {
-    expect(contactHref("phone")).toBeNull();
-    expect(contactHref("telegram")).toBeNull();
+    expect(contactHref("phone", unconfirmed)).toBeNull();
+    expect(contactHref("telegram", unconfirmed)).toBeNull();
+    expect(contactHref("zalo", unconfirmed)).toBeNull();
+    expect(contactHref("instagram", unconfirmed)).toBeNull();
   });
 
-  it("always gives a directions link with the encoded address", () => {
+  it("builds the confirmed contact links", () => {
+    expect(contactHref("phone")).toBe("tel:+84889761669");
+    expect(contactHref("zalo")).toBe("https://zalo.me/84889761669");
+    expect(contactHref("instagram")).toBe("https://instagram.com/meduza_nhatrang");
+    // Telegram is a phone number, so it opens the chat by number.
+    expect(contactHref("telegram")).toBe("https://t.me/+84889761669");
+  });
+
+  it("holds the confirmed hours", () => {
+    expect(VENUE.brunchHours.value).toBe("12:00 – 16:00");
+    expect(VENUE.kitchenCloses.value).toBe("00:30");
+    expect(VENUE.brunchEnd.value).toBe("16:00");
+  });
+
+  it("always gives the Google Maps link for directions", () => {
     expect(contactHref("directions")).toBe(directionsHref());
-    expect(directionsHref()).toContain("destination=157%20Nguy%E1%BB%85n%20Thi%E1%BB%87n%20Thu%E1%BA%ADt");
+    expect(directionsHref()).toBe(MAPS_LINK);
+    expect(MAPS_LINK).toBe("https://maps.app.goo.gl/aCXWFbkuG3wcHPTB6");
   });
 });
 

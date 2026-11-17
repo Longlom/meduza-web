@@ -1,7 +1,7 @@
 import { LocationIcon } from "@meduza/ui";
 import { getDict } from "@/lib/i18n";
 import type { Locale } from "@/lib/venue";
-import { VENUE, mapsSearchHref } from "@/lib/venue-info";
+import { VENUE, directionsHref } from "@/lib/venue-info";
 
 /**
  * The map slot. While the embed address is a placeholder it is a dark block with a glowing pin, the
@@ -32,7 +32,7 @@ export function VisitMap({ locale, venue = VENUE }: { locale: Locale; venue?: ty
           <small className="vs-map__marker bk-placeholder" data-placeholder="true">{embed.value}</small>
         </div>
       )}
-      <a className="mz-btn mz-btn--secondary mz-btn--sm vs-map__link" href={mapsSearchHref()} target="_blank" rel="noopener noreferrer">
+      <a className="mz-btn mz-btn--secondary mz-btn--sm vs-map__link" href={directionsHref()} target="_blank" rel="noopener noreferrer">
         {t.openInMaps}
       </a>
       <div className="vs-map__fade" aria-hidden="true" />
