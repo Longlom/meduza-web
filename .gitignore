@@ -1,0 +1,14 @@
+node_modules
+.next
+*.tsbuildinfo
+.env
+.env.local
+.env.*.local
+.DS_Store
+
+# Large source media (23 GB): keep on disk, never in git
+info/MEDUZA/
+info/videos/
+info/*.zip
+
+.menu-render/

@@ -1,0 +1,244 @@
+/*
+ * Home (M1). Mobile first: everything below is the 390 px layout; the block at the end adds
+ * desktop (900 px and up). Colours, type, radii and spacing come from --mz-* tokens.
+ */
+
+/* Phone-only content needs no rule (it is simply shown); desktop-only content is hidden until 900 px. */
+.hm-desktop-only { display: none; }
+
+.hm { display: flex; flex-direction: column; }
+.hm-section { padding: var(--mz-space-10) var(--mz-space-5) 0; display: flex; flex-direction: column; gap: var(--mz-space-4); }
+
+.hm-h2 {
+  margin: 0;
+  font-family: var(--mz-font-display);
+  font-size: var(--mz-type-title-2-m-size);
+  line-height: var(--mz-type-title-2-m-line);
+  letter-spacing: var(--mz-type-title-2-m-tracking);
+  font-weight: var(--mz-type-title-2-m-weight);
+  text-wrap: balance;
+}
+.hm-h2__muted { color: var(--mz-text-secondary); }
+
+/* ---------- Hero ---------- */
+.hm-hero { position: relative; min-height: 620px; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; }
+.hm-hero__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 55% center; }
+.hm-hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--mz-bg) 60%, transparent) 0%,
+    transparent 22%,
+    color-mix(in srgb, var(--mz-bg) 25%, transparent) 55%,
+    var(--mz-bg) 100%
+  );
+}
+.hm-hero__logo { position: absolute; top: calc(env(safe-area-inset-top) + var(--mz-space-4)); left: var(--mz-space-5); display: flex; }
+.hm-hero__logo img { height: 34px; width: auto; }
+.hm-hero__content { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: var(--mz-space-3); padding: 0 var(--mz-space-5) var(--mz-space-5); }
+.hm-badge { background: var(--mz-glass-bg); -webkit-backdrop-filter: var(--mz-blur-chip); backdrop-filter: var(--mz-blur-chip); }
+.hm-hero__title {
+  margin: 0;
+  font-family: var(--mz-font-display);
+  font-size: var(--mz-type-display-size);
+  line-height: var(--mz-type-display-line);
+  letter-spacing: var(--mz-type-display-tracking);
+  font-weight: var(--mz-type-display-weight);
+  text-wrap: balance;
+}
+.hm-hero__title .mz-accent-serif { color: var(--mz-accent-text); }
+.hm-hero__intro { margin: 0; font-size: 16px; line-height: 1.45; color: var(--mz-text-on-media); text-wrap: pretty; }
+.hm-hero__ctas { width: 100%; display: flex; flex-wrap: wrap; gap: var(--mz-space-3); margin-top: var(--mz-space-1); }
+.hm-hero__ctas .mz-btn--primary { width: 100%; }
+
+/* ---------- Quick actions ---------- */
+.hm-actions { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--mz-space-2); padding: var(--mz-space-2) var(--mz-space-5) 0; }
+.hm-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  color: var(--mz-text);
+  font-size: var(--mz-type-caption-size);
+  font-weight: 500;
+  text-align: center;
+}
+.hm-action:hover { color: var(--mz-text); }
+.hm-action__icon {
+  width: var(--mz-size-control-lg);
+  height: var(--mz-size-control-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--mz-radius-lg);
+  background: var(--mz-surface-raised);
+}
+.hm-action .bk-placeholder { font-size: var(--mz-type-caption-size); max-width: 100%; overflow-wrap: anywhere; }
+
+/* ---------- Featured carousel (cocktails at night, brunch by day) ---------- */
+.hm-feat__head { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--mz-space-3); }
+.hm-feat__titles { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.hm-feat__tools { display: flex; align-items: center; gap: var(--mz-space-4); flex: none; }
+.hm-feat__nav { gap: var(--mz-space-2); }
+.hm-feat__see {
+  min-height: var(--mz-size-control-sm);
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--mz-type-callout-size);
+  font-weight: 600;
+  color: var(--mz-accent-text);
+}
+/* Full-bleed on a phone so the cards scroll right to the screen edge and the next one peeks in. */
+.hm-feat__track {
+  list-style: none;
+  margin: 0 calc(var(--mz-space-5) * -1);
+  padding: 0 var(--mz-space-5) var(--mz-space-1);
+  display: flex;
+  gap: var(--mz-space-3);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--mz-space-5);
+  scrollbar-width: none;
+}
+.hm-feat__track::-webkit-scrollbar { display: none; }
+.hm-feat__track > li { flex: none; width: 188px; scroll-snap-align: start; }
+.hm-fcard { display: flex; flex-direction: column; gap: 10px; color: var(--mz-text); }
+.hm-fcard:hover { color: var(--mz-text); }
+.hm-fcard__img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 595 / 842;
+  overflow: hidden;
+  border-radius: var(--mz-radius-lg);
+  border: 1px solid var(--mz-line);
+  background: var(--mz-surface-raised);
+  box-shadow: var(--mz-shadow-e1);
+}
+.hm-fcard__img picture, .hm-fcard__img img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.hm-fcard__name { padding: 0 2px; font-size: var(--mz-type-callout-size); font-weight: 600; line-height: 1.3; }
+.hm-fcard__meta { display: flex; align-items: center; gap: 6px; padding: 0 2px; font-size: var(--mz-type-footnote-size); color: var(--mz-text-secondary); font-variant-numeric: tabular-nums; }
+.hm-jelly { display: inline-flex; color: var(--mz-accent-text); }
+
+/* ---------- Experience cards ---------- */
+.hm-cards { display: flex; flex-direction: column; gap: var(--mz-space-4); }
+.hm-card {
+  position: relative;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  border-radius: var(--mz-radius-xl);
+  color: var(--mz-text);
+}
+.hm-card:hover { color: var(--mz-text); }
+.hm-card__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.hm-card__scrim { position: absolute; inset: 0; background: linear-gradient(90deg, color-mix(in srgb, var(--mz-bg) 88%, transparent) 0%, color-mix(in srgb, var(--mz-bg) 10%, transparent) 75%); }
+.hm-card__body { position: relative; display: flex; flex-direction: column; gap: 2px; max-width: 18rem; padding: var(--mz-space-5); }
+.hm-card__title {
+  font-family: var(--mz-font-display);
+  font-size: var(--mz-type-title-3-size);
+  line-height: 1.1;
+  letter-spacing: var(--mz-type-title-3-tracking);
+  font-weight: 600;
+}
+.hm-card__desc { color: var(--mz-text-on-media); font-size: var(--mz-type-callout-size); }
+
+/* ---------- Our menus ---------- */
+.hm-menus { display: flex; flex-direction: column; gap: var(--mz-space-4); }
+.hm-menus__head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--mz-space-3); }
+.hm-menus__note { font-size: var(--mz-type-footnote-size); color: var(--mz-text-secondary); }
+.hm-covers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.hm-cover { display: flex; flex-direction: column; gap: var(--mz-space-2); color: var(--mz-text); font-size: 14px; font-weight: 600; }
+.hm-cover:hover { color: var(--mz-text); }
+.hm-cover__img { width: 100%; height: auto; aspect-ratio: 595 / 842; object-fit: cover; border-radius: var(--mz-radius-sm); border: 1px solid var(--mz-line); }
+.hm-cover__pages { font-size: var(--mz-type-caption-size); font-weight: 400; color: var(--mz-text-secondary); margin-top: -6px; }
+
+/* ---------- Visit (Pearl) ---------- */
+.hm-visit { display: flex; flex-direction: column; gap: var(--mz-space-4); padding: var(--mz-space-6); border-radius: var(--mz-radius-xl); }
+.hm-visit__title {
+  margin: 0;
+  font-family: var(--mz-font-display);
+  font-size: 26px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+.hm-visit__title .mz-accent-serif { color: var(--mz-secondary-text); }
+.hm-visit__lines { display: flex; flex-direction: column; gap: 6px; font-size: var(--mz-type-callout-size); }
+.hm-visit .mz-btn { width: 100%; }
+.hm-visit__dl { margin: 0; }
+.hm-visit__dl dd a { color: inherit; text-decoration: underline; }
+
+/* ---------- Desktop (900 px and up) ---------- */
+@media (min-width: 900px) {
+  .hm-phone-only { display: none; }
+  /* Show desktop-only content with the display type its element needs. */
+  span.hm-desktop-only { display: inline; }
+  p.hm-desktop-only { display: block; }
+  div.hm-desktop-only { display: flex; }
+  dl.hm-desktop-only { display: grid; }
+  .mz-btn.hm-desktop-only { display: inline-flex; }
+
+  .hm-section {
+    width: 100%;
+    max-width: var(--mz-size-page-max);
+    margin-inline: auto;
+    padding: var(--mz-space-24) var(--mz-space-page-x) 0;
+    gap: var(--mz-space-10);
+  }
+  .hm-h2 { font-size: var(--mz-type-title-1-size); line-height: var(--mz-type-title-1-line); letter-spacing: var(--mz-type-title-1-tracking); max-width: 48rem; }
+
+  /* Hero fills the top of the page and sits behind the floating nav. */
+  .hm-hero { min-height: 820px; align-items: center; }
+  .hm-hero__logo { display: none; }
+  .hm-hero__img { object-position: center 45%; }
+  .hm-hero__scrim { background: linear-gradient(180deg, color-mix(in srgb, var(--mz-bg) 55%, transparent) 0%, color-mix(in srgb, var(--mz-bg) 10%, transparent) 30%, color-mix(in srgb, var(--mz-bg) 35%, transparent) 65%, var(--mz-bg) 100%); }
+  .hm-hero__content { width: 100%; max-width: var(--mz-size-content-max); padding: 0 var(--mz-space-page-x) var(--mz-space-24); gap: var(--mz-space-6); }
+  .hm-hero__intro { font-size: clamp(18px, 1.6vw, 22px); max-width: 40rem; }
+  .hm-hero__ctas { width: auto; margin-top: var(--mz-space-2); }
+  .hm-hero__ctas .mz-btn--primary { width: auto; }
+
+  .hm-actions { display: none; }
+
+  .hm-feat__head { flex-wrap: wrap; }
+  .hm-feat__nav { display: flex; }
+  .hm-feat__track { margin-inline: calc(var(--mz-space-page-x) * -1); padding: var(--mz-space-1) var(--mz-space-page-x) var(--mz-space-2); gap: var(--mz-space-5); scroll-padding-inline: var(--mz-space-page-x); }
+  .hm-feat__track > li { width: 260px; }
+  .hm-fcard { gap: 14px; }
+  .hm-fcard__img { border-radius: var(--mz-radius-xl); box-shadow: var(--mz-shadow-e2); }
+  .hm-fcard__name { font-family: var(--mz-font-display); font-size: var(--mz-type-title-3-size); letter-spacing: -0.01em; }
+  .hm-fcard__meta { gap: var(--mz-space-2); font-size: var(--mz-type-callout-size); }
+  .hm-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--mz-space-5); }
+  .hm-card { height: auto; min-height: 540px; border-radius: var(--mz-radius-2xl); }
+  .hm-card__scrim { background: linear-gradient(180deg, transparent 40%, color-mix(in srgb, var(--mz-bg) 90%, transparent) 100%); }
+  .hm-card__body { max-width: none; padding: var(--mz-space-8); gap: var(--mz-space-2); }
+  .hm-card__title { font-size: 32px; letter-spacing: -0.025em; }
+
+  .hm-menus {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--mz-space-12);
+    padding: clamp(32px, 5vw, 64px);
+    border-radius: var(--mz-radius-2xl);
+    background: var(--mz-surface);
+    border: 1px solid var(--mz-line);
+  }
+  .hm-menus__intro { flex: 1 1 20rem; display: flex; flex-direction: column; align-items: flex-start; gap: var(--mz-space-4); }
+  .hm-menus__text { margin: 0; color: var(--mz-text-secondary); max-width: 26rem; }
+  .hm-covers { flex: 2 1 30rem; gap: var(--mz-space-5); }
+  .hm-cover { font-size: var(--mz-type-body-size); gap: 10px; }
+  .hm-cover__img { border-radius: var(--mz-radius-md); box-shadow: var(--mz-shadow-e1); }
+  .hm-cover__pages { font-size: var(--mz-type-footnote-size); }
+
+  .hm-section:last-child { padding-bottom: var(--mz-space-24); }
+  .hm-visit { max-width: 40rem; padding: clamp(32px, 4vw, 56px); gap: var(--mz-space-7, 28px); border-radius: var(--mz-radius-2xl); }
+  .hm-visit__title { font-size: clamp(34px, 3.6vw, 52px); letter-spacing: -0.035em; line-height: 1.04; }
+  .hm-visit__dl { grid-template-columns: 7.5rem minmax(0, 1fr); gap: var(--mz-space-4) var(--mz-space-6); font-size: var(--mz-type-body-size); }
+  .hm-visit__dl dt { color: var(--mz-text-secondary); }
+  .hm-visit__dl dd { margin: 0; font-weight: 500; }
+  .hm-visit__ctas { flex-wrap: wrap; gap: var(--mz-space-3); }
+  .hm-visit .mz-btn { width: auto; }
+}

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Meduza mobile — Home</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Inter+Tight:wght@500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+<style>
+body{margin:0;background:#05070E;-webkit-font-smoothing:antialiased}
+a{color:#7AD7F0}a:hover{color:#B5E9F7}
+a:focus-visible,button:focus-visible{outline:2px solid #7AD7F0;outline-offset:2px}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 2160px; overflow: hidden; background: #05070E; color: #F5F5F7; font-family: Inter, -apple-system, 'SF Pro Text', system-ui, sans-serif; font-size: 17px; line-height: 1.47">
+
+  <!-- Hero -->
+  <header style="position: relative; height: 620px">
+    <img src="../assets/photos/tank.jpg" alt="Jellyfish aquarium wall glowing blue" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 55% center">
+    <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,7,14,0.6) 0%, rgba(5,7,14,0) 22%, rgba(5,7,14,0.25) 55%, #05070E 100%)"></div>
+    <div style="position: absolute; top: 54px; left: 20px; right: 20px; display: flex; justify-content: space-between; align-items: center">
+      <img src="../assets/logo/logo-white.png" alt="Meduza" style="height: 34px; width: auto">
+      <button type="button" aria-label="Language: English" style="height: 44px; padding: 0 14px; display: inline-flex; align-items: center; gap: 6px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.16); background: rgba(10,15,30,0.5); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); color: #F5F5F7; font-size: 14px; font-weight: 600; font-family: inherit"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.6 3.5 5.4 3.5 8.5s-1 5.9-3.5 8.5c-2.5-2.6-3.5-5.4-3.5-8.5s1-5.9 3.5-8.5Z"/></svg>EN</button>
+    </div>
+    <div style="position: absolute; left: 20px; right: 20px; bottom: 20px; display: flex; flex-direction: column; gap: 14px">
+      <span style="display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; height: 30px; padding: 0 12px; border-radius: 999px; background: rgba(10,15,30,0.55); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); color: #7FD49B; font-size: 13px; font-weight: 600"><span style="width: 7px; height: 7px; border-radius: 999px; background: #7FD49B; box-shadow: 0 0 8px #7FD49B"></span>Open now · until 02:00</span>
+      <h1 style="margin: 0; font-family: 'Inter Tight', Inter, sans-serif; font-weight: 600; font-size: 52px; line-height: 0.98; letter-spacing: -0.04em">Smoke. Sip. <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: 0; color: #7AD7F0">Relax.</span></h1>
+      <p style="margin: 0; font-size: 16px; color: #C9CCD6; line-height: 1.45">Brunch, dinner, signature cocktails and hookah beside a living jellyfish wall · 157 Nguyễn Thiện Thuật.</p>
+      <a href="m3-booking.dc.html" style="height: 56px; margin-top: 4px; display: flex; align-items: center; justify-content: center; border-radius: 999px; background: #7AD7F0; color: #05070E; font-size: 17px; font-weight: 600; text-decoration: none; box-shadow: 0 0 36px rgba(122,215,240,0.4)">Book a table</a>
+    </div>
+  </header>
+
+  <!-- Quick actions -->
+  <nav aria-label="Quick actions" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; padding: 8px 20px 0">
+    <a href="m2-menu-reader.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 6px; color: #F5F5F7; text-decoration: none; font-size: 12px; font-weight: 500"><span style="width: 56px; height: 56px; border-radius: 20px; background: #131A2E; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 3.5h12v17H6zM9 8h6M9 12h6M9 16h3"/></svg></span>Menu</a>
+    <a href="tel:" style="display: flex; flex-direction: column; align-items: center; gap: 6px; color: #F5F5F7; text-decoration: none; font-size: 12px; font-weight: 500"><span style="width: 56px; height: 56px; border-radius: 20px; background: #131A2E; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z"/></svg></span>Call</a>
+    <a href="m5-visit.dc.html" style="display: flex; flex-direction: column; align-items: center; gap: 6px; color: #F5F5F7; text-decoration: none; font-size: 12px; font-weight: 500"><span style="width: 56px; height: 56px; border-radius: 20px; background: #131A2E; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.3"/></svg></span>Directions</a>
+    <a href="#" style="display: flex; flex-direction: column; align-items: center; gap: 6px; color: #F5F5F7; text-decoration: none; font-size: 12px; font-weight: 500"><span style="width: 56px; height: 56px; border-radius: 20px; background: #131A2E; display: flex; align-items: center; justify-content: center"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 3.5V17A2.5 2.5 0 0 1 4 14.5Z"/></svg></span>Message</a>
+  </nav>
+
+  <!-- Featured carousel: Signatures (evening) or Brunch (day) -->
+  <section aria-labelledby="h-feat" style="padding-top: 40px; display: flex; flex-direction: column; gap: 14px">
+    <div style="padding: 0 20px; display: flex; justify-content: space-between; align-items: flex-end; gap: 12px">
+      <div style="display: flex; flex-direction: column; gap: 2px">
+        <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: {{featAccent}}">{{featEyebrow}}</span>
+        <h2 id="h-feat" style="margin: 0; font-family: 'Inter Tight', Inter, sans-serif; font-size: 28px; font-weight: 600; letter-spacing: -0.025em; line-height: 1.1">{{featTitle}}</h2>
+      </div>
+      <a href="m2-menu-reader.dc.html" style="flex: none; font-size: 15px; font-weight: 600; text-decoration: none; padding: 10px 0; color: {{featAccent}}">See all</a>
+    </div>
+    <div style="display: flex; gap: 12px; padding: 0 20px 4px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none">
+      <sc-for list="{{feat}}" as="c" hint-placeholder-count="4">
+        <a href="m2-menu-reader.dc.html" style="flex: none; width: 188px; scroll-snap-align: start; display: flex; flex-direction: column; gap: 10px; color: #F5F5F7; text-decoration: none">
+          <img src="{{c.img}}" alt="{{c.alt}}" style="width: 188px; height: 266px; object-fit: cover; border-radius: 20px; box-shadow: 0 16px 40px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.06)">
+          <span style="display: flex; flex-direction: column; gap: 2px; padding: 0 2px">
+            <span style="font-size: 15px; font-weight: 600; line-height: 1.3">{{c.name}}</span>
+            <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: #A7ABB8">
+              <span style="display: inline-flex; color: #7AD7F0"><sc-for list="{{c.str}}" as="k" hint-placeholder-count="2"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 11a7 7 0 0 1 14 0v.5H5Z"/><path d="M8 11.5v2.5c0 1.6-1.2 2.4-1.2 4.2M12 11.5v7.5M16 11.5v2.5c0 1.6 1.2 2.4 1.2 4.2"/></svg></sc-for></span>
+              <span style="font-variant-numeric: tabular-nums">{{c.meta}}</span>
+            </span>
+          </span>
+        </a>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- Three ways to spend the night -->
+  <section aria-labelledby="h-exp" style="padding: 40px 20px 0; display: flex; flex-direction: column; gap: 14px">
+    <h2 id="h-exp" style="margin: 0; font-family: 'Inter Tight', Inter, sans-serif; font-size: 28px; font-weight: 600; letter-spacing: -0.025em">Brunch to last call</h2>
+    <a href="m2-menu-reader.dc.html" style="position: relative; height: 200px; border-radius: 26px; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; color: #F5F5F7; text-decoration: none">
+      <img src="../assets/menu-pages/brunch-05.jpg" alt="Classic brunch plates with wine and juice" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%">
+      <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,7,14,0.88) 0%, rgba(5,7,14,0.1) 75%)"></div>
+      <div style="position: relative; padding: 20px; display: flex; flex-direction: column; gap: 2px; max-width: 220px">
+        <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #F0A860">Brunch · [HOURS]</span>
+        <span style="font-family: 'Inter Tight', Inter, sans-serif; font-size: 24px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1">Pasta Club &amp; Vietnamese brunch</span>
+      </div>
+    </a>
+    <a href="m2-menu-reader.dc.html" style="position: relative; height: 200px; border-radius: 26px; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; color: #F5F5F7; text-decoration: none">
+      <img src="../assets/menu-pages/dinner-03.jpg" alt="Beef tataki and salmon tartare plated on ocean rocks" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 78%">
+      <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,7,14,0.88) 0%, rgba(5,7,14,0.1) 75%)"></div>
+      <div style="position: relative; padding: 20px; display: flex; flex-direction: column; gap: 2px; max-width: 220px">
+        <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #F0A860">Dinner · [HOURS]</span>
+        <span style="font-family: 'Inter Tight', Inter, sans-serif; font-size: 24px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1">From the sea, to the table</span>
+      </div>
+    </a>
+    <a href="m2-menu-reader.dc.html" style="position: relative; height: 200px; border-radius: 26px; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; color: #F5F5F7; text-decoration: none">
+      <img src="../assets/photos/lounge.jpg" alt="Lounge with velvet sofas and neon sign" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+      <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,7,14,0.88) 0%, rgba(5,7,14,0.1) 75%)"></div>
+      <div style="position: relative; padding: 20px; display: flex; flex-direction: column; gap: 2px; max-width: 220px">
+        <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #7AD7F0">Lounge · until 02:00</span>
+        <span style="font-family: 'Inter Tight', Inter, sans-serif; font-size: 24px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1">Hookah from 600k ₫</span>
+      </div>
+    </a>
+  </section>
+
+  <!-- Printed menus -->
+  <section aria-labelledby="h-pdf" style="padding: 40px 20px 0; display: flex; flex-direction: column; gap: 14px">
+    <div style="display: flex; justify-content: space-between; align-items: baseline">
+      <h2 id="h-pdf" style="margin: 0; font-family: 'Inter Tight', Inter, sans-serif; font-size: 28px; font-weight: 600; letter-spacing: -0.025em">Our menus</h2>
+      <span style="font-size: 13px; color: #A7ABB8">Read in the app</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+      <a href="m2-menu-reader.dc.html" style="display: flex; flex-direction: column; gap: 8px; color: #F5F5F7; text-decoration: none; font-size: 14px; font-weight: 600"><img src="../assets/menu-pages/brunch-01.jpg" alt="" style="width: 100%; aspect-ratio: 595 / 842; object-fit: cover; border-radius: 14px; border: 1px solid rgba(255,255,255,0.08)">Brunch<span style="font-size: 12px; font-weight: 400; color: #A7ABB8; margin-top: -6px">7 pages</span></a>
+      <a href="m2-menu-reader.dc.html" style="display: flex; flex-direction: column; gap: 8px; color: #F5F5F7; text-decoration: none; font-size: 14px; font-weight: 600"><img src="../assets/menu-pages/cocktails-01.jpg" alt="" style="width: 100%; aspect-ratio: 595 / 842; object-fit: cover; border-radius: 14px; border: 1px solid rgba(255,255,255,0.08)">Cocktails<span style="font-size: 12px; font-weight: 400; color: #A7ABB8; margin-top: -6px">12 pages</span></a>
+      <a href="m2-menu-reader.dc.html" style="display: flex; flex-direction: column; gap: 8px; color: #F5F5F7; text-decoration: none; font-size: 14px; font-weight: 600"><img src="../assets/menu-pages/dinner-01.jpg" alt="" style="width: 100%; aspect-ratio: 595 / 842; object-fit: cover; border-radius: 14px; border: 1px solid rgba(255,255,255,0.08)">Dinner<span style="font-size: 12px; font-weight: 400; color: #A7ABB8; margin-top: -6px">14 pages</span></a>
+    </div>
+  </section>
+
+  <!-- Visit -->
+  <section style="padding: 40px 20px 0">
+    <div style="background: #F5F3EF; color: #1D1D1F; border-radius: 28px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+      <span style="font-family: 'Inter Tight', Inter, sans-serif; font-size: 26px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1">Find us after <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; color: #8A4E12">sunset.</span></span>
+      <div style="display: flex; flex-direction: column; gap: 6px; font-size: 15px">
+        <span><span style="color: #5E5E63">Daily</span> · 12:00 – 02:00</span>
+        <span>157 Nguyễn Thiện Thuật, Nha Trang</span>
+      </div>
+      <a href="m5-visit.dc.html" style="height: 52px; display: flex; align-items: center; justify-content: center; border-radius: 999px; background: #1D1D1F; color: #F5F3EF; font-size: 16px; font-weight: 600; text-decoration: none">Directions &amp; contacts</a>
+    </div>
+  </section>
+
+  <!-- Tab bar (sticky in the real app) -->
+  <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 150px; background: linear-gradient(180deg, rgba(5,7,14,0) 0%, #05070E 55%)"></div>
+  <nav aria-label="Tabs" style="position: absolute; left: 14px; right: 14px; bottom: 30px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 6px; border-radius: 30px; background: rgba(19,26,46,0.78); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border: 1px solid rgba(255,255,255,0.12)">
+    <a href="m1-home.dc.html" aria-current="page" style="height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #7AD7F0; text-decoration: none; font-size: 10px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M5 11a7 7 0 0 1 14 0v.5H5Z"/><path d="M8 11.5v2.5c0 1.6-1.2 2.4-1.2 4.2M12 11.5v7.5M16 11.5v2.5c0 1.6 1.2 2.4 1.2 4.2"/></svg>Meduza</a>
+    <a href="m2-menu-reader.dc.html" style="height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #A7ABB8; text-decoration: none; font-size: 10px; font-weight: 500"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 3.5h12v17H6zM9 8h6M9 12h6M9 16h3"/></svg>Menu</a>
+    <a href="m3-booking.dc.html" style="height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #A7ABB8; text-decoration: none; font-size: 10px; font-weight: 500"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Book</a>
+    <a href="m5-visit.dc.html" style="height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #A7ABB8; text-decoration: none; font-size: 10px; font-weight: 500"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.3"/></svg>Visit</a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"daypart":{"editor":"enum","options":["evening","day"],"default":"evening"},"$preview":{"width":390,"height":2160}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const B = p => p; // asset paths are already resolved
+    const r = n => Array.from({ length: n }, (_, i) => i);
+    const sig = [
+      ['../assets/menu-pages/cocktails-02.jpg', 'Eyes of Meduza', 2, '280,000 ₫'],
+      ['../assets/menu-pages/cocktails-03.jpg', 'Frozen Gaze', 2, '260,000 ₫'],
+      ['../assets/menu-pages/cocktails-04.jpg', 'The Siren Secret', 3, '260,000 ₫'],
+      ['../assets/menu-pages/cocktails-05.jpg', 'Pearl Venom', 2, '260,000 ₫'],
+      ['../assets/menu-pages/cocktails-06.jpg', 'Abyss Whisper', 2, '260,000 ₫'],
+      ['../assets/menu-pages/cocktails-07.jpg', 'Lush by Meduza', 1, '280,000 ₫'],
+      ['../assets/menu-pages/cocktails-08.jpg', 'Neptune’s Kiss', 1, '260,000 ₫'],
+      ['../assets/menu-pages/cocktails-09.jpg', 'The Oasis', 1, '260,000 ₫'],
+      ['../assets/menu-pages/cocktails-10.jpg', 'Eden Above', 3, '280,000 ₫'],
+      ['../assets/menu-pages/cocktails-11.jpg', 'Coastal Bloom', 1, '280,000 ₫']
+    ].map(([id, name, s, price]) => ({ img: B(id), alt: name + ' cocktail', name, str: r(s), meta: price }));
+    const brunch = [
+      ['../assets/menu-pages/brunch-02.jpg', 'Pasta Club', 'from 200,000 ₫'],
+      ['../assets/menu-pages/brunch-04.jpg', 'Vietnamese brunch', 'Shakshuka · steak & eggs'],
+      ['../assets/menu-pages/brunch-05.jpg', 'Classic brunch', 'Toasts · benedict'],
+      ['../assets/menu-pages/brunch-06.jpg', 'Brunch toasts', 'from 150,000 ₫'],
+      ['../assets/menu-pages/brunch-07.jpg', 'Sweet dessert', 'Crêpes · pancakes · cheesecake']
+    ].map(([id, name, meta]) => ({ img: B(id), alt: name + ' menu page', name, str: [], meta }));
+    const day = (this.props.daypart ?? 'evening') === 'day';
+    return {
+      feat: day ? brunch : sig,
+      featTitle: day ? 'Brunch today' : 'Signature cocktails',
+      featEyebrow: day ? 'Until [BRUNCH END]' : 'Rated in jellyfish',
+      featAccent: day ? '#F0A860' : '#7AD7F0'
+    };
+  }
+}
+</script>
+</body>
+</html>

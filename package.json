@@ -1,0 +1,35 @@
+{
+  "name": "meduza-web",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20 <23"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "placeholders": "node scripts/placeholders.mjs",
+    "check:tokens": "node scripts/check-tokens.mjs",
+    "icons": "node scripts/make-icons.mjs",
+    "menu:images": "node scripts/menu-images.mjs",
+    "menu:unconfirmed": "node scripts/menu-unconfirmed.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "sharp": "^0.35.5",
+    "typescript": "^5.6.0",
+    "vitest": "^5.1.0"
+  },
+  "dependencies": {
+    "next": "^15.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "zod": "^3.24.0"
+  }
+}

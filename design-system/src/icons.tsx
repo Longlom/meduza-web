@@ -1,4 +1,4 @@
-import type { SVGProps } from 'react';
+import type { ReactElement, SVGProps } from 'react';
 
 /**
  * Meduza line icons — 24px grid, 1.5px stroke, round caps. They inherit `currentColor`.
@@ -9,7 +9,7 @@ export interface IconProps extends Omit<SVGProps<SVGSVGElement>, 'children'> {
   title?: string;
 }
 
-function make(name: string, body: JSX.Element, strokeWidth = 1.5) {
+function make(name: string, body: ReactElement, strokeWidth = 1.5) {
   const Icon = ({ size = 24, title, ...rest }: IconProps) => (
     <svg
       width={size}
@@ -62,5 +62,7 @@ export const MinusIcon = make('Minus', (<path d="M5 12h14" />), 2);
 export const ChevronRightIcon = make('ChevronRight', (<path d="M9 6l6 6-6 6" />), 2);
 export const ChevronLeftIcon = make('ChevronLeft', (<path d="M15 6l-6 6 6 6" />), 2);
 export const CheckIcon = make('Check', (<path d="M5 12.5 10 17l9-10" />), 2);
+export const ShareIcon = make('Share', (<><path d="M12 15V4M8 8l4-4 4 4" /><path d="M6 12v6.5A1.5 1.5 0 0 0 7.5 20h9a1.5 1.5 0 0 0 1.5-1.5V12" /></>));
 export const CloseIcon = make('Close', (<path d="M6 6l12 12M18 6 6 18" />), 2);
 export const GlobeIcon = make('Globe', (<><circle cx="12" cy="12" r="8.5" /><path d="M3.5 12h17M12 3.5c2.5 2.6 3.5 5.4 3.5 8.5s-1 5.9-3.5 8.5c-2.5-2.6-3.5-5.4-3.5-8.5s1-5.9 3.5-8.5Z" /></>));
+export const EditIcon = make('Edit', (<path d="M4 20h4L19 9l-4-4L4 16Z" />));

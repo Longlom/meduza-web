@@ -46,6 +46,14 @@
   --mz-type-title-1-line: 1.04;
   --mz-type-title-1-tracking: -0.035em;
   --mz-type-title-1-weight: 600;
+  --mz-type-title-2-m-size: 28px;
+  --mz-type-title-2-m-line: 1.1;
+  --mz-type-title-2-m-tracking: -0.025em;
+  --mz-type-title-2-m-weight: 600;
+  --mz-type-large-title-size: 34px;
+  --mz-type-large-title-line: 1.05;
+  --mz-type-large-title-tracking: -0.03em;
+  --mz-type-large-title-weight: 600;
   --mz-type-title-2-size: clamp(30px, 3.4vw, 40px);
   --mz-type-title-2-line: 1.1;
   --mz-type-title-2-tracking: -0.025em;

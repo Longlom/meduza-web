@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Meduza — Book a table</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Inter+Tight:wght@500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+<style>
+body{margin:0;background:#05070E;-webkit-font-smoothing:antialiased}
+a{color:#7AD7F0}a:hover{color:#B5E9F7}
+button{font-family:inherit;cursor:pointer}
+input,textarea{font-family:inherit}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid #7AD7F0;outline-offset:2px}
+@media (max-width: 760px){.nav-links{display:none !important}}
+</style>
+</helmet>
+<div style="background: #05070E; color: #F5F5F7; font-family: Inter, -apple-system, 'SF Pro Text', system-ui, sans-serif; font-size: 17px; line-height: 1.47; min-height: 1900px">
+
+  <div style="padding: 20px clamp(16px, 4vw, 48px) 0">
+    <nav aria-label="Main" style="max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; padding: 0 22px; border-radius: 999px; background: rgba(19,26,46,0.7); border: 1px solid rgba(255,255,255,0.10)">
+      <a href="desktop-home.dc.html" aria-label="Meduza home" style="display: flex"><img src="../assets/logo/logo-white.png" alt="Meduza" style="height: 34px; width: auto"></a>
+      <div class="nav-links" style="display: flex; gap: 28px; font-size: 15px">
+        <a href="desktop-menu.dc.html" style="color: #F5F5F7; text-decoration: none">Menu</a>
+        <a href="desktop-home.dc.html#spaces" style="color: #F5F5F7; text-decoration: none">Spaces</a>
+        <a href="desktop-home.dc.html#visit" style="color: #F5F5F7; text-decoration: none">Visit</a>
+      </div>
+      <span style="font-size: 13px; color: #A7ABB8">EN · RU · Vietnam time</span>
+    </nav>
+  </div>
+
+  <div style="max-width: 1240px; margin: 0 auto; padding: 64px clamp(20px, 4vw, 48px) 96px; box-sizing: border-box; display: flex; flex-direction: column; gap: 40px">
+    <div style="display: flex; flex-direction: column; gap: 10px">
+      <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #7AD7F0">Restaurant-lounge booking</span>
+      <h1 style="margin: 0; font-family: 'Inter Tight', Inter, sans-serif; font-weight: 600; font-size: clamp(44px, 6vw, 80px); letter-spacing: -0.04em; line-height: 1">Book a <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: -0.01em">table</span></h1>
+      <p style="margin: 0; color: #A7ABB8; max-width: 560px">Request a table and a hostess will confirm your booking in Telegram or by phone. Opening hours 12:00–02:00 (Vietnam time).</p>
+    </div>
+
+    <sc-if value="{{sent}}" hint-placeholder-val="{{ false }}">
+      <div style="border-radius: 32px; overflow: hidden; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); background: #0B1020; border: 1px solid rgba(122,215,240,0.25)">
+        <div style="padding: clamp(32px, 5vw, 64px); display: flex; flex-direction: column; gap: 20px; align-items: flex-start">
+          <span style="width: 64px; height: 64px; border-radius: 999px; background: rgba(122,215,240,0.14); display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 0 48px rgba(122,215,240,0.35)"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7AD7F0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11a7 7 0 0 1 14 0v.5H5Z"/><path d="M8 11.5v2.5c0 1.6-1.2 2.4-1.2 4.2M12 11.5v7.5M16 11.5v2.5c0 1.6 1.2 2.4 1.2 4.2"/></svg></span>
+          <h2 style="margin: 0; font-family: 'Inter Tight', Inter, sans-serif; font-size: 44px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.05">Request sent.</h2>
+          <p style="margin: 0; font-size: 19px; color: #C9CCD6">{{summaryLine}}</p>
+          <p style="margin: 0; color: #A7ABB8">A hostess will confirm your booking in Telegram or by phone. [HOLD POLICY — e.g. how long the table is held]</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px">
+            <button type="button" style="height: 52px; padding: 0 26px; border-radius: 999px; border: 0; background: #F5F5F7; color: #05070E; font-size: 17px; font-weight: 600">Add to calendar</button>
+            <button type="button" onClick="{{reset}}" style="height: 52px; padding: 0 26px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: #F5F5F7; font-size: 17px; font-weight: 500">Change booking</button>
+          </div>
+        </div>
+        <div style="position: relative; min-height: 420px"><img src="../assets/photos/tank.jpg" alt="Jellyfish aquarium wall" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover"></div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{editing}}" hint-placeholder-val="{{ true }}">
+      <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+        <!-- Form -->
+        <div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+
+          <section aria-labelledby="h-when" style="background: #0B1020; border: 1px solid rgba(255,255,255,0.08); border-radius: 28px; padding: clamp(24px, 3vw, 32px); display: flex; flex-direction: column; gap: 20px">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px"><h2 id="h-when" style="margin: 0; font-family: 'Inter Tight', Inter, sans-serif; font-size: 24px; font-weight: 600; letter-spacing: -0.02em">Date &amp; time</h2><a href="#" style="font-size: 15px; text-decoration: none">More dates</a></div>
+            <div role="group" aria-label="Date" style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px">
+              <sc-for list="{{days}}" as="d" hint-placeholder-count="7">
+                <button type="button" onClick="{{d.pick}}" aria-pressed="{{d.on}}" aria-label="{{d.aria}}" style="height: 76px; border-radius: 18px; border: {{d.border}}; background: {{d.bg}}; color: {{d.fg}}; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; padding: 0; transition: all 240ms cubic-bezier(.2,.8,.2,1)">
+                  <span style="font-size: 12px; font-weight: 500; opacity: 0.8">{{d.dow}}</span>
+                  <span style="font-family: 'Inter Tight', Inter, sans-serif; font-size: 22px; font-weight: 600">{{d.num}}</span>
+                </button>
+              </sc-for>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: -6px"><span style="font-size: 13px; color: #A7ABB8">Time</span><span style="font-size: 13px; color: #7C8294">From 1.5 h ahead · 12:00–02:00</span></div>
+            <sc-for list="{{slotGroups}}" as="g" hint-placeholder-count="3">
+              <div role="group" aria-label="{{g.label}}" style="display: flex; flex-direction: column; gap: 8px">
+                <span style="font-size: 12px; color: #7C8294">{{g.label}}</span>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(76px, 1fr)); gap: 8px">
+                  <sc-for list="{{g.slots}}" as="t" hint-placeholder-count="10">
+                    <button type="button" onClick="{{t.pick}}" aria-pressed="{{t.on}}" disabled="{{t.off}}" style="height: 44px; border-radius: 999px; border: {{t.border}}; background: {{t.bg}}; color: {{t.fg}}; font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums; opacity: {{t.opacity}}; transition: all 240ms cubic-bezier(.2,.8,.2,1)">{{t.t}}</button>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-for>
+            <div style="display: flex; align-items: center; justify-content: space-between; background: #131A2E; border-radius: 18px; padding: 12px 12px 12px 20px">
+              <div style="display: flex; flex-direction: column"><span style="font-size: 13px; color: #A7ABB8">Guests</span><span style="font-family: 'Inter Tight', Inter, sans-serif; font-size: 28px; font-weight: 600; font-variant-numeric: tabular-nums">{{guests}}</span></div>
+              <div style="display: flex; gap: 8px">
+                <button type="button" aria-label="Fewer guests" onClick="{{dec}}" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.18); background: transparent; color: #F5F5F7; font-size: 22px; line-height: 1">−</button>
+                <button type="button" aria-label="More guests" onClick="{{inc}}" style="width: 44px; height: 44px; border-radius: 999px; border: 0; background: #F5F5F7; color: #05070E; font-size: 22px; line-height: 1">+</button>
+              </div>
+            </div>
+          </section>
+
+          <section aria-labelledby="h-you" style="background: #0B1020; border: 1px solid rgba(255,255,255,0.08); border-radius: 28px; padding: clamp(24px, 3vw, 32px); display: flex; flex-direction: column; gap: 16px">
+            <h2 id="h-you" style="margin: 0; font-family: 'Inter Tight', Inter, sans-serif; font-size: 24px; font-weight: 600; letter-spacing: -0.02em">Your details</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 12px">
+              <label style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; color: #A7ABB8">Name</span><input type="text" autocomplete="name" required placeholder="Your name" style="height: 52px; box-sizing: border-box; padding: 0 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.12); background: #131A2E; color: #F5F5F7; font-size: 17px"></label>
+              <label style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; color: #A7ABB8">Phone</span><input type="tel" autocomplete="tel" required placeholder="+84 …" style="height: 52px; box-sizing: border-box; padding: 0 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.12); background: #131A2E; color: #F5F5F7; font-size: 17px"></label>
+            </div>
+            <label style="display: flex; flex-direction: column; gap: 6px">
+              <span style="font-size: 13px; color: #A7ABB8">Instagram · optional</span>
+              <span style="position: relative; display: block">
+                <span aria-hidden="true" style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #7C8294; font-size: 17px">@</span>
+                <input type="text" autocomplete="off" autocapitalize="none" placeholder="username" style="width: 100%; height: 52px; box-sizing: border-box; padding: 0 16px 0 36px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.12); background: #131A2E; color: #F5F5F7; font-size: 17px">
+              </span>
+              <span style="font-size: 12px; color: #7C8294">Preferred contact — we’ll message you there if you add it.</span>
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; color: #A7ABB8">Special requests · optional</span><textarea rows="3" placeholder="Birthday, hookah ready on arrival, allergies…" style="box-sizing: border-box; padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.12); background: #131A2E; color: #F5F5F7; font-size: 17px; resize: vertical"></textarea></label>
+          </section>
+        </div>
+
+        <!-- Summary -->
+        <aside aria-label="Booking summary" style="flex: 1 1 340px; min-width: 0; border-radius: 28px; overflow: hidden; background: #0B1020; border: 1px solid rgba(255,255,255,0.08); display: flex; flex-direction: column">
+          <div style="position: relative; height: 240px"><img src="../assets/photos/tank.jpg" alt="Jellyfish aquarium wall at Meduza" style="width: 100%; height: 100%; object-fit: cover"></div>
+          <div style="padding: 28px; display: flex; flex-direction: column; gap: 16px">
+            <span style="font-family: 'Inter Tight', Inter, sans-serif; font-size: 24px; font-weight: 600; letter-spacing: -0.02em">Your table</span>
+            <dl style="margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 12px 16px; font-size: 15px">
+              <dt style="color: #A7ABB8">Date</dt><dd style="margin: 0; text-align: right; font-weight: 600">{{dateLabel}}</dd>
+              <dt style="color: #A7ABB8">Time</dt><dd style="margin: 0; text-align: right; font-weight: 600; font-variant-numeric: tabular-nums">{{slot}}</dd>
+              <dt style="color: #A7ABB8">Guests</dt><dd style="margin: 0; text-align: right; font-weight: 600">{{guests}}</dd>
+            </dl>
+            <button type="button" onClick="{{submit}}" style="height: 56px; border-radius: 999px; border: 0; background: #7AD7F0; color: #05070E; font-size: 17px; font-weight: 600; box-shadow: 0 0 40px rgba(122,215,240,0.35); margin-top: 8px">Book</button>
+            <span style="font-size: 13px; color: #A7ABB8; text-align: center">A hostess confirms in Telegram or by phone.</span>
+          </div>
+        </aside>
+      </div>
+    </sc-if>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1900}}'>
+class Component extends DCLogic {
+  // Demo "now" = 18:00 today, so today's first bookable slot is 19:30 (1.5 h ahead).
+  constructor(props) { super(props); this.state = { day: 0, slot: '20:30', guests: 2, sent: false }; }
+  toMin(t) { const [h, m] = t.split(':').map(Number); return (h < 12 ? h + 24 : h) * 60 + m; }
+  renderVals() {
+    const s = this.state;
+    const dows = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    const longD = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    const days = dows.map((dow, i) => {
+      const on = s.day === i;
+      return { dow: i === 0 ? 'Today' : dow, num: 16 + i, on, aria: longD[i] + ' ' + (16 + i) + ' November',
+        bg: on ? '#7AD7F0' : '#131A2E', fg: on ? '#05070E' : '#F5F5F7', border: on ? '0' : '1px solid rgba(255,255,255,0.08)',
+        pick: () => this.setState({ day: i }) };
+    });
+    const earliest = this.toMin('19:30');
+    const mk = t => {
+      const off = s.day === 0 && this.toMin(t) < earliest; const on = s.slot === t && !off;
+      return { t, on, off, opacity: off ? 0.35 : 1,
+        bg: on ? '#7AD7F0' : 'transparent', fg: on ? '#05070E' : '#F5F5F7',
+        border: on ? '1px solid #7AD7F0' : '1px solid rgba(255,255,255,0.16)',
+        pick: () => { if (!off) this.setState({ slot: t }); } };
+    };
+    const range = (a, b) => { const out = []; for (let m = this.toMin(a); m <= this.toMin(b); m += 30) { const mm = m % 1440; out.push(String(Math.floor(mm / 60)).padStart(2, '0') + ':' + String(mm % 60).padStart(2, '0')); } return out; };
+    const slotGroups = [
+      { label: 'Day', slots: range('12:00', '16:30').map(mk) },
+      { label: 'Evening', slots: range('17:00', '21:30').map(mk) },
+      { label: 'Late', slots: range('22:00', '02:00').map(mk) }
+    ];
+    const dateLabel = (s.day === 0 ? 'Today' : dows[s.day]) + ', ' + (16 + s.day) + ' Nov';
+    const guestsTxt = s.guests + (s.guests === 1 ? ' guest' : ' guests');
+    return {
+      days, slotGroups, guests: s.guests, slot: s.slot, dateLabel,
+      summaryLine: dateLabel + ' · ' + s.slot + ' · ' + guestsTxt,
+      sent: s.sent, editing: !s.sent,
+      inc: () => this.setState({ guests: Math.min(20, s.guests + 1) }),
+      dec: () => this.setState({ guests: Math.max(1, s.guests - 1) }),
+      submit: () => this.setState({ sent: true }),
+      reset: () => this.setState({ sent: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

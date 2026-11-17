@@ -63,6 +63,19 @@ a:hover { color: var(--mz-accent-hover); }
   letter-spacing: -0.01em;
 }
 .mz-secondary { color: var(--mz-text-secondary); }
+/* Text that stays in the accessibility tree and for crawlers but is not shown (never display:none). */
+.mz-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
 .mz-tertiary { color: var(--mz-text-tertiary); }
 .mz-num { font-variant-numeric: tabular-nums; }
 .mz-pretty { text-wrap: pretty; }

@@ -159,6 +159,18 @@ export const tokens = {
       "tracking": "-0.035em",
       "weight": "600"
     },
+    "title-2-m": {
+      "size": "28px",
+      "line": "1.1",
+      "tracking": "-0.025em",
+      "weight": "600"
+    },
+    "large-title": {
+      "size": "34px",
+      "line": "1.05",
+      "tracking": "-0.03em",
+      "weight": "600"
+    },
     "title-2": {
       "size": "clamp(30px, 3.4vw, 40px)",
       "line": "1.1",

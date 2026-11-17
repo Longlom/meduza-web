@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Meduza mobile — Menu</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Inter+Tight:wght@500;600;700&amp;display=swap">
+<style>
+body{margin:0;background:#05070E;-webkit-font-smoothing:antialiased}
+a{color:#7AD7F0}a:hover{color:#B5E9F7}
+button{font-family:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:2px solid #7AD7F0;outline-offset:2px}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 844px; overflow: hidden; background: #080B14; color: #F5F5F7; font-family: Inter, -apple-system, 'SF Pro Text', system-ui, sans-serif; font-size: 17px; line-height: 1.47">
+
+  <!-- Header -->
+  <div style="position: absolute; top: 54px; left: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 3">
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px">
+      <h1 style="margin: 0; font-family: 'Inter Tight', Inter, sans-serif; font-size: 34px; font-weight: 600; letter-spacing: -0.03em; line-height: 1.1">Menu</h1>
+      <div style="display: flex; gap: 8px">
+        <button type="button" onClick="{{openToc}}" style="height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.06); color: #F5F5F7; display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></svg>Contents</button>
+        <button type="button" aria-label="Share this menu" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.06); color: #F5F5F7; display: flex; align-items: center; justify-content: center"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7.5 7.5 12 3l4.5 4.5"/><path d="M5 12v6.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V12"/></svg></button>
+      </div>
+    </div>
+    <div role="tablist" aria-label="Menus" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 4px; gap: 4px; border-radius: 999px; background: #131A2E">
+      <sc-for list="{{docs}}" as="d" hint-placeholder-count="3">
+        <button type="button" role="tab" aria-selected="{{d.on}}" onClick="{{d.pick}}" style="height: 40px; border: 0; border-radius: 999px; font-size: 14px; font-weight: 600; background: {{d.bg}}; color: {{d.fg}}; box-shadow: {{d.shadow}}; transition: all 240ms cubic-bezier(.2,.8,.2,1)">{{d.label}}</button>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- Page stage -->
+  <div style="position: absolute; top: 166px; left: 0; right: 0; height: 486px">
+    <sc-if value="{{notZoomed}}" hint-placeholder-val="{{ true }}">
+      <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 6px 20px">
+        <img src="{{pageSrc}}" alt="{{pageAlt}}" style="height: 100%; max-width: 100%; object-fit: contain; border-radius: 10px; box-shadow: 0 24px 60px rgba(0,0,0,0.6)">
+      </div>
+      <button type="button" aria-label="Previous page" onClick="{{prev}}" style="position: absolute; left: 0; top: 0; bottom: 0; width: 34%; border: 0; background: transparent"></button>
+      <button type="button" aria-label="Zoom in" onClick="{{zoomIn}}" style="position: absolute; left: 34%; top: 0; bottom: 0; width: 32%; border: 0; background: transparent; cursor: zoom-in"></button>
+      <button type="button" aria-label="Next page" onClick="{{next}}" style="position: absolute; right: 0; top: 0; bottom: 0; width: 34%; border: 0; background: transparent"></button>
+    </sc-if>
+    <sc-if value="{{zoomed}}" hint-placeholder-val="{{ false }}">
+      <div style="position: absolute; inset: 0; overflow: auto; background: #0B0E18">
+        <img src="{{pageSrc}}" alt="{{pageAlt}}" style="display: block; width: 230%; max-width: none">
+      </div>
+      <span style="position: absolute; left: 50%; top: 12px; transform: translateX(-50%); height: 30px; padding: 0 12px; display: inline-flex; align-items: center; border-radius: 999px; background: rgba(10,15,30,0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); font-size: 12px; color: #C9CCD6; white-space: nowrap">Pinch or drag · tap − to fit</span>
+    </sc-if>
+  </div>
+
+  <!-- Page controls -->
+  <div style="position: absolute; left: 20px; right: 20px; bottom: 108px; display: flex; align-items: center; justify-content: space-between; gap: 8px">
+    <button type="button" aria-label="Previous page" onClick="{{prev}}" disabled="{{atStart}}" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.16); background: transparent; color: #F5F5F7; display: flex; align-items: center; justify-content: center; opacity: {{prevOpacity}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <button type="button" onClick="{{openToc}}" aria-live="polite" style="flex: 1; min-width: 0; height: 44px; border: 0; background: transparent; color: #F5F5F7; display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1.2">
+      <span style="font-size: 15px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%">{{pageName}}</span>
+      <span style="font-size: 12px; color: #A7ABB8; font-variant-numeric: tabular-nums">{{pageLabel}}</span>
+    </button>
+    <div style="display: flex; gap: 8px">
+      <button type="button" aria-label="{{zoomLabel}}" aria-pressed="{{zoomed}}" onClick="{{toggleZoom}}" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.16); background: {{zoomBg}}; color: {{zoomFg}}; display: flex; align-items: center; justify-content: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4M8.5 11h5"/><path d="{{zoomPlus}}"/></svg></button>
+      <button type="button" aria-label="Next page" onClick="{{next}}" disabled="{{atEnd}}" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.16); background: transparent; color: #F5F5F7; display: flex; align-items: center; justify-content: center; opacity: {{nextOpacity}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+    </div>
+  </div>
+
+  <!-- Tab bar -->
+  <nav aria-label="Tabs" style="position: absolute; left: 14px; right: 14px; bottom: 30px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 6px; border-radius: 30px; background: rgba(19,26,46,0.78); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border: 1px solid rgba(255,255,255,0.12); z-index: 4">
+    <a href="m1-home.dc.html" style="height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #A7ABB8; text-decoration: none; font-size: 10px; font-weight: 500"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M5 11a7 7 0 0 1 14 0v.5H5Z"/><path d="M8 11.5v2.5c0 1.6-1.2 2.4-1.2 4.2M12 11.5v7.5M16 11.5v2.5c0 1.6 1.2 2.4 1.2 4.2"/></svg>Meduza</a>
+    <a href="m2-menu-reader.dc.html" aria-current="page" style="height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #7AD7F0; text-decoration: none; font-size: 10px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M6 3.5h12v17H6zM9 8h6M9 12h6M9 16h3"/></svg>Menu</a>
+    <a href="m3-booking.dc.html" style="height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #A7ABB8; text-decoration: none; font-size: 10px; font-weight: 500"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Book</a>
+    <a href="m5-visit.dc.html" style="height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #A7ABB8; text-decoration: none; font-size: 10px; font-weight: 500"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.3"/></svg>Visit</a>
+  </nav>
+
+  <!-- Contents sheet -->
+  <sc-if value="{{tocOpen}}" hint-placeholder-val="{{ false }}">
+    <button type="button" aria-label="Close contents" onClick="{{closeToc}}" style="position: absolute; inset: 0; border: 0; background: rgba(0,0,0,0.55); cursor: default; z-index: 5"></button>
+    <div role="dialog" aria-modal="true" aria-label="{{docTitle}} contents" style="position: absolute; left: 0; right: 0; bottom: 0; max-height: 640px; z-index: 6; border-radius: 32px 32px 0 0; background: rgba(11,16,32,0.97); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border-top: 1px solid rgba(255,255,255,0.12); padding: 10px 0 34px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 -24px 64px rgba(0,0,0,0.6)">
+      <span aria-hidden="true" style="align-self: center; width: 40px; height: 5px; border-radius: 999px; background: rgba(255,255,255,0.28)"></span>
+      <div style="padding: 4px 20px 6px; display: flex; justify-content: space-between; align-items: baseline">
+        <h2 style="margin: 0; font-family: 'Inter Tight', Inter, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.015em">{{docTitle}}</h2>
+        <span style="font-size: 13px; color: #A7ABB8">{{docCount}}</span>
+      </div>
+      <div style="overflow-y: auto; padding: 0 20px">
+        <sc-for list="{{toc}}" as="t" hint-placeholder-count="8">
+          <button type="button" onClick="{{t.pick}}" aria-current="{{t.current}}" style="width: 100%; display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 8px 0; border: 0; border-bottom: 1px solid rgba(255,255,255,0.06); background: transparent; color: {{t.fg}}; text-align: left">
+            <img src="{{t.src}}" alt="" style="width: 40px; height: 56px; object-fit: cover; border-radius: 6px; border: {{t.border}}">
+            <span style="font-size: 16px; font-weight: {{t.weight}}">{{t.label}}</span>
+            <span style="font-size: 13px; color: #7C8294; font-variant-numeric: tabular-nums">{{t.num}}</span>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"startMenu":{"editor":"enum","options":["brunch","cocktail","dinner"],"default":"dinner"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { doc: null, page: 1, zoom: false, toc: false }; }
+  renderVals() {
+    const B = p => p; // asset paths are already resolved
+    const DOCS = {
+      brunch: { label: 'Brunch', title: 'Brunch menu', pages: [
+        ['../assets/menu-pages/brunch-01.jpg', 'Cover'],
+        ['../assets/menu-pages/brunch-02.jpg', 'Pasta Club'],
+        ['../assets/menu-pages/brunch-03.jpg', 'Pasta Club, continued'],
+        ['../assets/menu-pages/brunch-04.jpg', 'Vietnamese brunch'],
+        ['../assets/menu-pages/brunch-05.jpg', 'Classic brunch'],
+        ['../assets/menu-pages/brunch-06.jpg', 'Toasts and benedict'],
+        ['../assets/menu-pages/brunch-07.jpg', 'Sweet dessert']
+      ] },
+      cocktail: { label: 'Cocktails', title: 'Signature cocktails', pages: [
+        ['../assets/menu-pages/cocktails-01.jpg', 'Cover'],
+        ['../assets/menu-pages/cocktails-02.jpg', 'Eyes of Meduza'],
+        ['../assets/menu-pages/cocktails-03.jpg', 'Frozen Gaze'],
+        ['../assets/menu-pages/cocktails-04.jpg', 'The Siren Secret'],
+        ['../assets/menu-pages/cocktails-05.jpg', 'Pearl Venom'],
+        ['../assets/menu-pages/cocktails-06.jpg', 'Abyss Whisper'],
+        ['../assets/menu-pages/cocktails-07.jpg', 'Lush by Meduza'],
+        ['../assets/menu-pages/cocktails-08.jpg', 'Neptune’s Kiss'],
+        ['../assets/menu-pages/cocktails-09.jpg', 'The Oasis'],
+        ['../assets/menu-pages/cocktails-10.jpg', 'Eden Above'],
+        ['../assets/menu-pages/cocktails-11.jpg', 'Coastal Bloom'],
+        ['../assets/menu-pages/cocktails-12.jpg', 'Back cover']
+      ] },
+      dinner: { label: 'Dinner', title: 'Dinner menu', pages: [
+        ['../assets/menu-pages/dinner-01.jpg', 'Cover'],
+        ['../assets/menu-pages/dinner-02.jpg', 'Starters & snacks'],
+        ['../assets/menu-pages/dinner-03.jpg', 'Starters & snacks, continued'],
+        ['../assets/menu-pages/dinner-04.jpg', 'Salads'],
+        ['../assets/menu-pages/dinner-05.jpg', 'Salads, continued'],
+        ['../assets/menu-pages/dinner-06.jpg', 'Mexican starters'],
+        ['../assets/menu-pages/dinner-07.jpg', 'Soup'],
+        ['../assets/menu-pages/dinner-08.jpg', 'Pasta'],
+        ['../assets/menu-pages/dinner-09.jpg', 'Pasta, continued'],
+        ['../assets/menu-pages/dinner-10.jpg', 'Main courses'],
+        ['../assets/menu-pages/dinner-11.jpg', 'Main courses, continued'],
+        ['../assets/menu-pages/dinner-12.jpg', 'Desserts'],
+        ['../assets/menu-pages/dinner-13.jpg', 'Seasonal fruit'],
+        ['../assets/menu-pages/dinner-14.jpg', 'Back cover']
+      ] }
+    };
+    const s = this.state;
+    const docId = s.doc || this.props.startMenu || 'dinner';
+    const doc = DOCS[docId];
+    const n = doc.pages.length;
+    const i = Math.max(0, Math.min(s.page, n - 1));
+    const go = k => this.setState({ doc: docId, page: Math.max(0, Math.min(n - 1, k)), zoom: false, toc: false });
+    const docs = ['brunch', 'cocktail', 'dinner'].map(id => {
+      const on = docId === id;
+      return { label: DOCS[id].label, on, bg: on ? '#F5F5F7' : 'transparent', fg: on ? '#05070E' : '#A7ABB8', shadow: on ? '0 2px 10px rgba(0,0,0,0.35)' : 'none', pick: () => this.setState({ doc: id, page: 1, zoom: false }) };
+    });
+    const toc = doc.pages.map((p, k) => ({
+      src: B(p[0]), label: p[1], num: String(k + 1), current: k === i ? 'page' : 'false',
+      fg: k === i ? '#7AD7F0' : '#F5F5F7', weight: k === i ? 600 : 500,
+      border: k === i ? '2px solid #7AD7F0' : '1px solid rgba(255,255,255,0.1)', pick: () => go(k)
+    }));
+    return {
+      docs, toc, tocOpen: s.toc,
+      docTitle: doc.title, docCount: n + ' pages',
+      pageSrc: B(doc.pages[i][0]), pageAlt: doc.title + ', page ' + (i + 1) + ': ' + doc.pages[i][1],
+      pageName: doc.pages[i][1], pageLabel: (i + 1) + ' of ' + n,
+      zoomed: s.zoom, notZoomed: !s.zoom,
+      zoomLabel: s.zoom ? 'Zoom out' : 'Zoom in', zoomBg: s.zoom ? '#7AD7F0' : 'transparent', zoomFg: s.zoom ? '#05070E' : '#F5F5F7',
+      zoomPlus: s.zoom ? '' : 'M11 8.5v5',
+      atStart: i <= 0, atEnd: i >= n - 1,
+      prevOpacity: i <= 0 ? 0.35 : 1, nextOpacity: i >= n - 1 ? 0.35 : 1,
+      prev: () => go(i - 1), next: () => go(i + 1),
+      zoomIn: () => this.setState({ doc: docId, zoom: true }),
+      toggleZoom: () => this.setState({ doc: docId, zoom: !s.zoom }),
+      openToc: () => this.setState({ doc: docId, toc: true }),
+      closeToc: () => this.setState({ toc: false })
+    };
+  }
+}
+</script>
+</body>
+</html>

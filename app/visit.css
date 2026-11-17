@@ -1,0 +1,122 @@
+/*
+ * Visit (M5). Mobile first: everything below is the 390 px layout; the block at the end adds the
+ * two-column desktop layout (900 px and up). Colours, type, radii and spacing come from --mz-* tokens.
+ */
+
+.vs { display: flex; flex-direction: column; }
+.vs-info { display: flex; flex-direction: column; gap: var(--mz-space-8); padding: 0 var(--mz-space-5); }
+.vs-block { display: flex; flex-direction: column; gap: var(--mz-space-3); }
+
+.vs-h2 {
+  margin: 0;
+  font-family: var(--mz-font-display);
+  font-size: var(--mz-type-title-3-size);
+  line-height: var(--mz-type-title-3-line);
+  font-weight: 600;
+}
+
+/* ---------- Map ---------- */
+.vs-map { position: relative; height: 380px; overflow: hidden; background: var(--mz-surface); }
+.vs-map__slot {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--mz-space-3);
+  background:
+    radial-gradient(ellipse at 50% 45%, var(--mz-accent-soft), transparent 60%),
+    var(--mz-surface);
+}
+.vs-map__pin {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--mz-radius-pill);
+  background: var(--mz-accent);
+  color: var(--mz-on-accent);
+  box-shadow: var(--mz-shadow-glow);
+}
+.vs-map__marker { text-align: center; }
+.vs-map__frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.vs-map__link { position: absolute; z-index: 1; right: var(--mz-space-5); bottom: calc(var(--mz-space-8) + 60px); }
+.vs-map__fade { position: absolute; inset-inline: 0; bottom: 0; height: 120px; pointer-events: none; background: linear-gradient(180deg, transparent, var(--mz-bg)); }
+
+/* ---------- Head: title overlapping the map, address, actions ---------- */
+.vs-head { position: relative; z-index: 1; margin-top: -60px; padding: 0 var(--mz-space-5); display: flex; flex-direction: column; gap: var(--mz-space-4); margin-bottom: var(--mz-space-8); }
+.vs-title {
+  margin: 0;
+  font-family: var(--mz-font-display);
+  font-size: var(--mz-type-large-title-size);
+  line-height: var(--mz-type-large-title-line);
+  letter-spacing: var(--mz-type-large-title-tracking);
+  font-weight: var(--mz-type-large-title-weight);
+}
+.vs-address { margin: calc(var(--mz-space-2) * -1) 0 0; font-style: normal; color: var(--mz-text-secondary); }
+.vs-actions { display: flex; flex-direction: column; gap: var(--mz-space-3); }
+.vs-actions .mz-btn { width: 100%; }
+
+/* ---------- Hours card ---------- */
+.vs-card { display: flex; flex-direction: column; gap: var(--mz-space-4); padding: var(--mz-space-5); border-radius: var(--mz-radius-lg); }
+.vs-card__head { display: flex; align-items: center; justify-content: space-between; gap: var(--mz-space-3); flex-wrap: wrap; }
+.vs-rows { margin: 0; display: flex; flex-direction: column; }
+.vs-row { display: flex; align-items: center; justify-content: space-between; gap: var(--mz-space-4); min-height: 44px; border-top: 1px solid var(--mz-line); }
+.vs-row:first-child { border-top: 0; }
+.vs-row dt { color: var(--mz-text-secondary); }
+.vs-row dd { margin: 0; font-weight: 600; text-align: end; }
+.vs-tabular { font-variant-numeric: tabular-nums; }
+.vs-note { margin: 0; font-size: var(--mz-type-footnote-size); color: var(--mz-text-tertiary); }
+
+/* ---------- Contact list ---------- */
+.vs-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.vs-list li + li { border-top: 1px solid var(--mz-line); }
+.vs-list__row { display: flex; align-items: center; gap: var(--mz-space-4); min-height: 64px; padding: var(--mz-space-3) var(--mz-space-5); color: inherit; text-decoration: none; }
+a.vs-list__row:active { background: var(--mz-surface-pressed); }
+.vs-list__row[data-placeholder="true"] { opacity: 1; }
+.vs-list__mark {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--mz-radius-xs);
+  background: var(--mz-accent-soft);
+  color: var(--mz-accent-text);
+  font-size: var(--mz-type-caption-size);
+  font-weight: 700;
+}
+.vs-list__text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.vs-list__name { font-weight: 600; }
+.vs-list__value { color: var(--mz-text-secondary); font-size: var(--mz-type-footnote-size); overflow-wrap: anywhere; }
+.vs-list__chev { flex: none; color: var(--mz-text-tertiary); }
+
+/* ---------- Good to know ---------- */
+.vs-tiles { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--mz-space-3); }
+.vs-tile { display: flex; flex-direction: column; gap: var(--mz-space-1); padding: var(--mz-space-4); min-height: 88px; border-radius: var(--mz-radius-md); background: var(--mz-surface); border: 1px solid var(--mz-line); }
+.vs-tile__label { font-size: var(--mz-type-footnote-size); color: var(--mz-text-secondary); }
+.vs-tile__value { font-size: var(--mz-type-callout-size); font-weight: 600; overflow-wrap: anywhere; }
+.vs-tile__value[data-placeholder="true"], .vs-row dd[data-placeholder="true"], .vs-list__value[data-placeholder="true"] { opacity: 1; color: var(--mz-text-secondary); font-weight: 500; }
+
+/* ---------- Desktop (900 px and up) ---------- */
+@media (min-width: 900px) {
+  .vs {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    grid-template-areas: "map head" "map info";
+    grid-template-rows: auto 1fr;
+    column-gap: var(--mz-space-12);
+    max-width: var(--mz-size-content-max);
+    margin-inline: auto;
+    padding: calc(var(--site-nav-space) + var(--mz-space-8)) var(--mz-space-page-x) var(--mz-space-24);
+    align-items: start;
+  }
+  .vs-map { grid-area: map; position: sticky; top: calc(var(--site-nav-space) + var(--mz-space-4)); height: min(640px, calc(100dvh - var(--site-nav-space) - var(--mz-space-12))); border-radius: var(--mz-radius-xl); border: 1px solid var(--mz-line); }
+  .vs-map__fade { display: none; }
+  .vs-map__link { bottom: var(--mz-space-5); }
+  .vs-head { grid-area: head; margin: 0 0 var(--mz-space-6); padding: 0; }
+  .vs-actions { flex-direction: row; }
+  .vs-actions .mz-btn { width: auto; flex: 1; }
+  .vs-info { grid-area: info; padding: 0; }
+}

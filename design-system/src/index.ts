@@ -13,4 +13,5 @@ export * from './components/DateTime';
 export * from './components/Menu';
 export * from './components/Card';
 export * from './components/Navigation';
+export * from './components/BottomSheet';
 export * from './components/Theme';

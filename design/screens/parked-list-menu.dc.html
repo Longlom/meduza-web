@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Meduza mobile — Menu</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Inter+Tight:wght@500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+<style>
+body{margin:0;background:#05070E;-webkit-font-smoothing:antialiased}
+a{color:#7AD7F0}a:hover{color:#B5E9F7}
+button{font-family:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:2px solid #7AD7F0;outline-offset:2px}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 844px; overflow: hidden; background: #05070E; color: #F5F5F7; font-family: Inter, -apple-system, 'SF Pro Text', system-ui, sans-serif; font-size: 17px; line-height: 1.47">
+
+  <div style="position: absolute; inset: 0; overflow-y: auto; padding-top: 54px; padding-bottom: 130px; box-sizing: border-box">
+    <div style="padding: 4px 20px 8px; display: flex; justify-content: space-between; align-items: center">
+      <h1 style="margin: 0; font-family: 'Inter Tight', Inter, sans-serif; font-size: 34px; font-weight: 600; letter-spacing: -0.03em">Menu</h1>
+      <div style="display: flex; gap: 8px">
+        <a href="m2-menu-reader.dc.html" style="height: 44px; padding: 0 14px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.06); color: #F5F5F7; display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; text-decoration: none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3.5H7A1.5 1.5 0 0 0 5.5 5v14A1.5 1.5 0 0 0 7 20.5h10a1.5 1.5 0 0 0 1.5-1.5V8Z"/><path d="M14 3.5V8h4.5M9 13h6M9 16.5h4"/></svg>Printed menu</a>
+        <button type="button" aria-label="Search the menu" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.06); color: #F5F5F7; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg></button>
+      </div>
+    </div>
+
+    <div style="position: sticky; top: 0; z-index: 2; padding: 8px 0 10px; background: rgba(5,7,14,0.82); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); display: flex; flex-direction: column; gap: 10px; border-bottom: 1px solid rgba(255,255,255,0.06)">
+      <div role="tablist" aria-label="Menu" style="margin: 0 20px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 4px; gap: 4px; border-radius: 999px; background: #131A2E">
+        <sc-for list="{{tabs}}" as="t" hint-placeholder-count="4">
+          <button type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}" style="height: 40px; border: 0; border-radius: 999px; font-size: 14px; font-weight: 600; background: {{t.bg}}; color: {{t.fg}}; box-shadow: {{t.shadow}}; transition: all 240ms cubic-bezier(.2,.8,.2,1)">{{t.label}}</button>
+        </sc-for>
+      </div>
+      <div style="display: flex; gap: 8px; overflow-x: auto; padding: 0 20px; scrollbar-width: none">
+        <sc-for list="{{chips}}" as="c" hint-placeholder-count="5">
+          <button type="button" aria-pressed="{{c.on}}" onClick="{{c.pick}}" style="flex: none; height: 44px; padding: 0 16px; border-radius: 999px; border: {{c.border}}; background: {{c.bg}}; color: {{c.fg}}; font-size: 14px; font-weight: 600; white-space: nowrap; transition: all 240ms cubic-bezier(.2,.8,.2,1)">{{c.label}}</button>
+        </sc-for>
+      </div>
+    </div>
+
+    <sc-for list="{{sections}}" as="s" hint-placeholder-count="2">
+      <section style="padding: 24px 20px 0">
+        <sc-if value="{{s.hasBanner}}" hint-placeholder-val="{{ true }}">
+          <img src="{{s.banner}}" alt="{{s.bannerAlt}}" style="width: 100%; height: 196px; object-fit: cover; border-radius: 22px; margin-bottom: 14px">
+        </sc-if>
+        <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-bottom: 4px">
+          <div style="display: flex; flex-direction: column">
+            <h2 style="margin: 0; font-family: 'Inter Tight', Inter, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.015em">{{s.title}}</h2>
+            <span lang="ru" style="font-size: 13px; color: #A7ABB8">{{s.ru}}</span>
+          </div>
+          <span style="font-size: 12px; color: #7C8294; text-align: right">{{s.note}}</span>
+        </div>
+        <sc-for list="{{s.items}}" as="i" hint-placeholder-count="4">
+          <button type="button" onClick="{{i.open}}" style="width: 100%; text-align: left; display: grid; grid-template-columns: {{i.cols}}; gap: 2px 14px; align-items: center; padding: 14px 0; border: 0; border-bottom: 1px solid rgba(255,255,255,0.08); background: transparent; color: #F5F5F7">
+            <sc-if value="{{i.hasThumb}}" hint-placeholder-val="{{ false }}">
+              <img src="{{i.img}}" alt="" style="grid-row: span 2; width: 52px; height: 74px; object-fit: cover; border-radius: 10px">
+            </sc-if>
+            <span style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; font-size: 16px; font-weight: 600; line-height: 1.3">{{i.n}}
+              <sc-if value="{{i.veg}}" hint-placeholder-val="{{ false }}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7FD49B" stroke-width="2" stroke-linecap="round" role="img" aria-label="Vegetarian"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-12 14"/><path d="M5 19 13 11"/></svg></sc-if>
+              <sc-if value="{{i.spicy}}" hint-placeholder-val="{{ false }}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FF7A6B" stroke-width="2" stroke-linecap="round" role="img" aria-label="Spicy"><path d="M7 9c-1.5 5 1 11 7.5 11.5C19 21 20 17 17.5 13c-2-3-4-4-5-5"/><path d="M7 9c1.5-1.5 4-1.5 5.5-1"/></svg></sc-if>
+              <span style="display: inline-flex"><sc-for list="{{i.str}}" as="k" hint-placeholder-count="0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7AD7F0" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M5 11a7 7 0 0 1 14 0v.5H5Z"/><path d="M8 11.5v2.5c0 1.6-1.2 2.4-1.2 4.2M12 11.5v7.5M16 11.5v2.5c0 1.6 1.2 2.4 1.2 4.2"/></svg></sc-for></span>
+            </span>
+            <span style="font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; align-self: start">{{i.p}}</span>
+            <span lang="{{i.subLang}}" style="grid-column: {{i.subCol}}; font-size: 14px; color: #A7ABB8; line-height: 1.4">{{i.v}}</span>
+          </button>
+        </sc-for>
+      </section>
+    </sc-for>
+    <p style="margin: 0; padding: 20px; font-size: 12px; color: #7C8294">{{footnote}}</p>
+  </div>
+
+  <!-- Tab bar -->
+  <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 120px; background: linear-gradient(180deg, rgba(5,7,14,0) 0%, #05070E 60%); pointer-events: none"></div>
+  <nav aria-label="Tabs" style="position: absolute; left: 14px; right: 14px; bottom: 30px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 6px; border-radius: 30px; background: rgba(19,26,46,0.78); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border: 1px solid rgba(255,255,255,0.12)">
+    <a href="m1-home.dc.html" style="height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #A7ABB8; text-decoration: none; font-size: 10px; font-weight: 500"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M5 11a7 7 0 0 1 14 0v.5H5Z"/><path d="M8 11.5v2.5c0 1.6-1.2 2.4-1.2 4.2M12 11.5v7.5M16 11.5v2.5c0 1.6 1.2 2.4 1.2 4.2"/></svg>Meduza</a>
+    <a href="parked-list-menu.dc.html" aria-current="page" style="height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #7AD7F0; text-decoration: none; font-size: 10px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M6 3.5h12v17H6zM9 8h6M9 12h6M9 16h3"/></svg>Menu</a>
+    <a href="m3-booking.dc.html" style="height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #A7ABB8; text-decoration: none; font-size: 10px; font-weight: 500"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Book</a>
+    <a href="m5-visit.dc.html" style="height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #A7ABB8; text-decoration: none; font-size: 10px; font-weight: 500"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.3"/></svg>Visit</a>
+  </nav>
+
+  <!-- Dish sheet -->
+  <sc-if value="{{sheetOpen}}" hint-placeholder-val="{{ false }}">
+    <button type="button" aria-label="Close" onClick="{{close}}" style="position: absolute; inset: 0; border: 0; background: rgba(0,0,0,0.55); cursor: default"></button>
+    <div role="dialog" aria-modal="true" aria-label="{{sel.n}}" style="position: absolute; left: 0; right: 0; bottom: 0; border-radius: 32px 32px 0 0; background: rgba(11,16,32,0.96); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); border-top: 1px solid rgba(255,255,255,0.12); padding: 10px 20px 40px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 -24px 64px rgba(0,0,0,0.6)">
+      <span aria-hidden="true" style="align-self: center; width: 40px; height: 5px; border-radius: 999px; background: rgba(255,255,255,0.28)"></span>
+      <img src="{{sel.photo}}" alt="{{sel.n}}" style="width: 100%; height: 220px; object-fit: cover; object-position: {{sel.pos}}; border-radius: 22px">
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+          <h2 style="margin: 0; font-family: 'Inter Tight', Inter, sans-serif; font-size: 24px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15">{{sel.n}}</h2>
+          <span style="flex: none; font-size: 19px; font-weight: 600; font-variant-numeric: tabular-nums">{{sel.p}}</span>
+        </div>
+        <span lang="{{sel.subLang}}" style="font-size: 15px; color: #A7ABB8">{{sel.v}}</span>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px">
+        <sc-if value="{{sel.veg}}" hint-placeholder-val="{{ false }}"><span style="height: 32px; padding: 0 12px; display: inline-flex; align-items: center; border-radius: 999px; background: rgba(127,212,155,0.12); color: #7FD49B; font-size: 13px; font-weight: 600">Vegetarian</span></sc-if>
+        <sc-if value="{{sel.spicy}}" hint-placeholder-val="{{ false }}"><span style="height: 32px; padding: 0 12px; display: inline-flex; align-items: center; border-radius: 999px; background: rgba(255,122,107,0.12); color: #FF7A6B; font-size: 13px; font-weight: 600">Spicy</span></sc-if>
+        <sc-if value="{{sel.hasStr}}" hint-placeholder-val="{{ false }}"><span style="height: 32px; padding: 0 12px; display: inline-flex; align-items: center; border-radius: 999px; background: rgba(122,215,240,0.12); color: #7AD7F0; font-size: 13px; font-weight: 600">Strength · {{sel.strWord}}</span></sc-if>
+        <span style="height: 32px; padding: 0 12px; display: inline-flex; align-items: center; border-radius: 999px; background: rgba(255,255,255,0.06); color: #A7ABB8; font-size: 13px; font-weight: 500">{{sel.section}}</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+        <button type="button" onClick="{{close}}" style="height: 52px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.18); background: transparent; color: #F5F5F7; font-size: 16px; font-weight: 500">Close</button>
+        <a href="m3-booking.dc.html" style="height: 52px; display: flex; align-items: center; justify-content: center; border-radius: 999px; background: #7AD7F0; color: #05070E; font-size: 16px; font-weight: 600; text-decoration: none">Book a table</a>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { tab: 'dinner', cat: 'all', sel: null }; }
+  renderVals() {
+    const B = p => p; // asset paths are already resolved
+    const K = n => (n * 1000).toLocaleString('en-US') + ' ₫';
+    const words = ['', 'Light', 'Mild', 'Strong'];
+    // i(name, sub, priceInThousands, {veg, spicy, s: strength, img: blob id})
+    const i = (n, v, p, x) => Object.assign({ n, v, p: p ? K(p) : '' }, x || {});
+    const sec = (id, title, ru, banner, bannerAlt, note, items) => ({ id, title, ru, banner: banner ? B(banner) : '', bannerAlt: bannerAlt || '', note: note || '', items });
+    const DATA = {
+      brunch: [
+        sec('pasta', 'Pasta Club', 'Let together · Паста', '../assets/menu-crops/b_pasta.jpg', 'Pasta dishes with seafood and lobster', '', [
+          i('Spiny lobster pasta with tom yum', 'Паста с лобстером том-ям', 550, { spicy: 1 }),
+          i('Seafood pasta with pesto', 'Паста с морепродуктами и песто', 280),
+          i('Salmon pasta with basil bisque', 'Паста с лососем и базиликовым биском', 240),
+          i('Shrimp pasta with shiso cream', 'Паста с креветками, шисо и сливочным соусом', 240),
+          i('Truffle pasta with bacon & aged cheese', 'Паста с трюфелем, беконом и выдержанным сыром', 200),
+          i('Pasta Bolognese', 'Паста болоньезе', 200),
+          i('Steak pasta with mushroom cream', 'Паста со стейком, грибами и сливочным соусом', 340) ]),
+        sec('viet', 'Vietnamese brunch', 'Вьетнамский бранч', '../assets/menu-crops/b_viet.jpg', 'Steak and fried eggs in a cast-iron skillet', '', [
+          i('Shakshuka', 'Шакшука', 120),
+          i('Vietnamese steak & eggs in a skillet', 'Вьетнамский стейк с яйцами на сковороде', 250) ]),
+        sec('classic', 'Classic brunch', 'Классический бранч', '../assets/menu-crops/b_classic.jpg', 'Brunch toasts and eggs benedict on a dark table', '', [
+          i('Shrimp toast', 'Тост с креветками', 150),
+          i('Avocado, salmon & chili toast', 'Бранч с авокадо, лососем и чили', 150),
+          i('Smoked salmon & egg toast', 'Тост с копчёным лососем и яйцом', 150),
+          i('Chicken & pesto toast', 'Тост с курицей и песто', 150),
+          i('Classic steak benedict', 'Классический стейк бенедикт', 250) ]),
+        sec('sweet', 'Sweet dessert', 'Десерты', '../assets/menu-crops/b_dessert.jpg', 'Pancakes, cheesecake and brownie', '', [
+          i('Crêpes with seasonal fruit', 'Крепы с сезонными фруктами', 130),
+          i('Pancakes with seasonal fruit', 'Панкейки с сезонными фруктами', 160),
+          i('Basque cheesecake', 'Баскский чизкейк', 130),
+          i('Chocolate brownie, cashew, macadamia & ice cream', 'Шоколадный брауни с кешью, макадамией и мороженым', 160) ])
+      ],
+      dinner: [
+        sec('starters', 'Starters & snacks', 'Закуски', '../assets/menu-crops/d_start.jpg', 'Salmon tartare, sardine bruschetta and beef tataki', '', [
+          i('Shrimp tart', 'Тарт с креветкой', 160),
+          i('Salmon tart', 'Тарт с лососем', 160),
+          i('Salmon caviar tart', 'Тарт с красной икрой', 180),
+          i('Salmon & mango tartare, avocado mousse', 'Тартар из лосося и манго с муссом из авокадо', 240),
+          i('Sardine bruschetta', 'Брускетта с сардинами', 190),
+          i('Beef tataki, garlic chips & balsamic', 'Татаки из говядины с чипсами из чеснока', 230),
+          i('Antipasti & cheese platter', 'Антипасти и сырная тарелка', 480) ]),
+        sec('salads', 'Salads', 'Салаты', '../assets/menu-crops/d_salad.jpg', 'Pan-fried beef salad on an ocean rock', '', [
+          i('Smoked salmon salad, cream cheese dressing', 'Салат с лососем холодного копчения', 200),
+          i('Pan-fried beef salad, honey mustard', 'Салат с обжаренной говядиной', 220),
+          i('Greek salad', 'Греческий салат', 220, { veg: 1 }),
+          i('Creamy burrata with Da Lat tomatoes', 'Буррата с далатскими томатами', 220, { veg: 1 }),
+          i('Green salad, Parmesan & lime', 'Зеленый салат с пармезаном и лаймовым соусом', 110, { veg: 1 }),
+          i('Sous-vide chicken salad, tonnato', 'Салат с курицей су-вид и соусом тоннато', 170),
+          i('Seafood sauté salad, spicy mango', 'Салат с морепродуктами и острым манго', 210, { spicy: 1 }) ]),
+        sec('mexican', 'Mexican starters', 'Мексиканские закуски', '../assets/menu-crops/d_mex.jpg', 'Shrimp and beef tacos', '', [
+          i('Shrimp tacos, Romesco sauce', 'Тако с креветками и соусом ромеско', 140),
+          i('Beef tacos, tomato sauce', 'Тако с говядиной и томатным соусом', 140),
+          i('Salmon & cream cheese tacos', 'Тако с лососем и сливочным сыром', 140),
+          i('Beef nachos', 'Начос с рагу из говядины', 160) ]),
+        sec('soup', 'Soup', 'Суп', '../assets/menu-crops/d_soup.jpg', 'Tom yum with seafood and rice', '', [
+          i('Tom Yum with seafood & coconut cream', 'Том Ям с морепродуктами и кокосовыми сливками', 210, { spicy: 1 }) ]),
+        sec('pasta', 'Pasta', 'Паста', '../assets/menu-crops/d_pasta.jpg', 'Beef tenderloin pasta and bolognese', '', [
+          i('Spiny lobster, tom yum sauce', 'Лангуст и соус том ям', 550, { spicy: 1 }),
+          i('Seafood, pesto sauce', 'Морепродукты и соус песто', 240),
+          i('Salmon, basil bisque', 'Лосось и базиликовый биск', 240),
+          i('Shrimps, shiso bisque', 'Креветки и шисо-биск', 240),
+          i('Bacon, truffle cream', 'Бекон и трюфельный крем', 200),
+          i('Ragu Bolognese', 'Болоньезе', 240),
+          i('Beef tenderloin, creamy demi-glace', 'Филе миньон и сливочный демиглас', 340) ]),
+        sec('mains', 'Main courses', 'Основные блюда', '../assets/menu-crops/d_main.jpg', 'Aukobe steak and teppanyaki seafood platter', '', [
+          i('Teppanyaki seafood platter, garlic butter', 'Морепродукты в чесночном масле на теппане', 550),
+          i('Beef tenderloin, baby potato & mushroom demi-glace', 'Филе миньон с бэби-картофелем', 460),
+          i('Aukobe steak, baby potatoes & rosemary demi-glace', 'Стейк «Аукобе» с бэби-картофелем', 460),
+          i('Salmon steak, passion fruit sauce', 'Стейк лосося с соусом из маракуйи', 320),
+          i('Pan-seared seabass fillet, bean sauce', 'Филе сибаса с бобовым соусом', 320),
+          i('Beef Stroganoff, mashed potatoes', 'Бефстроганов с картофельным пюре', 300),
+          i('Grilled octopus, mash & chimichurri', 'Осьминог на гриле с пюре и чимичурри', 280),
+          i('Chicken thigh, spinach & mushroom sauce', 'Куриное бедро со шпинатом и грибным соусом', 200) ]),
+        sec('desserts', 'Desserts', 'Десерты', '../assets/menu-crops/d_dess.jpg', 'San Sebastián cheesecake, pancakes and brownie', '', [
+          i('Crêpes with seasonal fruit', 'Блины с сезонными фруктами', 130),
+          i('Pancakes with seasonal fruit', 'Панкейки с сезонными фруктами', 160),
+          i('San Sebastián cheesecake', 'Чизкейк Сан-Себастьян', 160),
+          i('Brownie, lemon zest & coconut', 'Брауни с лимонной цедрой и кокосом', 160) ]),
+        sec('fruit', 'Seasonal fruit', 'Сезонные фрукты', '../assets/menu-crops/d_fruit.jpg', 'Platter of mango, dragon fruit and passion fruit', '', [
+          i('Fruit platter · large, 1500 g', 'Большая', 250, { veg: 1 }),
+          i('Fruit platter · small, 750 g', 'Маленькая', 150, { veg: 1 }) ])
+      ],
+      drinks: [
+        sec('signature', 'Signature cocktails', 'Фирменные коктейли', '', '', '10% VAT incl.', [
+          i('Eyes of Meduza', 'Vodka · citrus · blue', 280, { s: 2, img: '../assets/menu-pages/cocktails-02.jpg' }),
+          i('Frozen Gaze', 'Gin · vanilla · crème de menthe · citrus · yuzu bitter', 260, { s: 2, img: '../assets/menu-pages/cocktails-03.jpg' }),
+          i('The Siren Secret', 'Whisky · coffee bean · tiramisu', 260, { s: 3, img: '../assets/menu-pages/cocktails-04.jpg' }),
+          i('Pearl Venom', 'Tequila · grilled coconut · mango · citrus', 260, { s: 2, img: '../assets/menu-pages/cocktails-05.jpg' }),
+          i('Abyss Whisper', 'Black rum · tea leaf · hibiscus · amaro · black walnut', 260, { s: 2, img: '../assets/menu-pages/cocktails-06.jpg' }),
+          i('Lush by Meduza', 'Gin · green apple · melon', 280, { s: 1, img: '../assets/menu-pages/cocktails-07.jpg' }),
+          i('Neptune’s Kiss', 'Vodka · guava · shiso · citrus', 260, { s: 1, img: '../assets/menu-pages/cocktails-08.jpg' }),
+          i('The Oasis', 'Tequila · ginger · green chartreuse · mint · jasmine', 260, { s: 1, img: '../assets/menu-pages/cocktails-09.jpg' }),
+          i('Eden Above', 'Whisky · tea · dry vermouth · elderflower · honey', 280, { s: 3, img: '../assets/menu-pages/cocktails-10.jpg' }),
+          i('Coastal Bloom', 'Gin · cucumber · jasmine · molasses · salt', 280, { s: 1, img: '../assets/menu-pages/cocktails-11.jpg' }) ]),
+        sec('classic', 'Classic cocktails', 'Классические коктейли', '', '', 'Old menu · confirm', [
+          i('Margarita · Aperol Spritz', 'Each', 200),
+          i('Mojito · Negroni · Old Fashioned · Espresso Martini', 'Each', 180) ]),
+        sec('tea', 'Tea & coffee', 'Чай и кофе', '', '', 'Old menu · confirm', [
+          i('Fruit tea · 900 ml pot', 'Orange · Butterfly · Taiga · Moroccan · Tropical', 140),
+          i('Coconut coffee', 'Cafe Dừa', 60) ])
+      ],
+      hookah: [
+        sec('hookah', 'Hookah', 'Кальян', '../assets/photos/lounge.jpg', 'Lounge with velvet sofas and neon sign', 'Old menu · confirm', [
+          i('Meduza Classic', '[BLEND DESCRIPTION]', 600),
+          i('Meduza Premium', '[BLEND DESCRIPTION]', 800),
+          i('Meduza on Fruits', '[BLEND DESCRIPTION]', 1000),
+          i('Meduza Signature', '[BLEND DESCRIPTION]', 1500) ])
+      ]
+    };
+    // hookah banner is an interior photo, not a menu page
+    DATA.hookah[0].banner = '../assets/photos/lounge.jpg';
+    const s = this.state;
+    const all = DATA[s.tab];
+    const sections = (s.cat === 'all' ? all : all.filter(x => x.id === s.cat)).map(sc => Object.assign({}, sc, {
+      hasBanner: !!sc.banner,
+      items: sc.items.map(it => {
+        const hasThumb = !!it.img;
+        const photo = hasThumb ? B(it.img) : sc.banner;
+        return Object.assign({}, it, {
+          veg: !!it.veg, spicy: !!it.spicy, hasThumb,
+          img: hasThumb ? B(it.img) : '',
+          str: Array.from({ length: it.s || 0 }, (_, k) => k),
+          cols: hasThumb ? '52px minmax(0, 1fr) auto' : 'minmax(0, 1fr) auto',
+          subCol: hasThumb ? '2 / -1' : '1 / -1',
+          subLang: /[а-яё]/i.test(it.v) ? 'ru' : 'en',
+          open: () => this.setState({ sel: Object.assign({}, it, {
+            photo, pos: hasThumb ? 'center 45%' : 'center', section: sc.title,
+            subLang: /[а-яё]/i.test(it.v) ? 'ru' : 'en' }) })
+        });
+      })
+    }));
+    const tabs = [['brunch', 'Brunch'], ['dinner', 'Dinner'], ['drinks', 'Drinks'], ['hookah', 'Hookah']].map(([id, label]) => {
+      const on = s.tab === id;
+      return { label, on, bg: on ? '#F5F5F7' : 'transparent', fg: on ? '#05070E' : '#A7ABB8', shadow: on ? '0 2px 10px rgba(0,0,0,0.35)' : 'none', pick: () => this.setState({ tab: id, cat: 'all' }) };
+    });
+    const chips = [{ id: 'all', title: 'All' }].concat(all).map(c => {
+      const on = s.cat === c.id;
+      return { label: c.title, on, bg: on ? '#7AD7F0' : 'transparent', fg: on ? '#05070E' : '#F5F5F7', border: on ? '1px solid #7AD7F0' : '1px solid rgba(255,255,255,0.16)', pick: () => this.setState({ cat: c.id }) };
+    });
+    const sel = s.sel ? Object.assign({ veg: false, spicy: false }, s.sel, { veg: !!s.sel.veg, spicy: !!s.sel.spicy, hasStr: (s.sel.s || 0) > 0, strWord: words[s.sel.s || 0] })
+      : { n: '', v: '', p: '', photo: '', pos: 'center', section: '', subLang: 'en', veg: false, spicy: false, hasStr: false, strWord: '' };
+    const footnote = s.tab === 'dinner' || s.tab === 'brunch'
+      ? 'Prices in VND. Photos from the printed menu. Tell your server about allergies.'
+      : 'Prices in VND, 10% VAT included.';
+    return { tabs, chips, sections, sel, sheetOpen: !!s.sel, close: () => this.setState({ sel: null }), footnote };
+  }
+}
+</script>
+</body>
+</html>

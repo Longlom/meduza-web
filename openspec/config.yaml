@@ -1,0 +1,21 @@
+schema: spec-driven
+
+# Project context: constraints an agent cannot infer from the code.
+context: |
+  Meduza web app (restaurant-lounge, Nha Trang). Read CLAUDE.md and design/HANDOFF.md first;
+  HANDOFF.md is the product spec and wins over screen files in design/screens/.
+  Mobile first (390 px), then desktop. UI uses @meduza/ui (design-system/) tokens only.
+  EN and RU copy from the start, no hardcoded user-facing strings outside lib/i18n.
+  All time logic is Asia/Ho_Chi_Minh: open 12:00-02:00, times after midnight belong to the
+  previous opening day, bookings from 1.5 h ahead, last bookable time is BOOKING_LAST_TIME.
+  Never invent prices, hours, policies or contact details: keep [PLACEHOLDER] markers and list them.
+  No seating choice in booking; the Menu tab is the PDF page reader, not a list menu.
+
+rules:
+  specs:
+    - Every capability spec includes a "Mobile first" requirement with a 390 px scenario; desktop behaviour is an enhancement.
+  proposal:
+    - State what is out of scope.
+    - List any new [PLACEHOLDER] values the change introduces.
+  tasks:
+    - Each task ends with checking the UI at 390 px and at desktop width against the matching design/screens/*.dc.html.

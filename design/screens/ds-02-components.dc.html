@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Meduza — Components</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Inter+Tight:wght@500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+<style>
+body{margin:0;background:#05070E;-webkit-font-smoothing:antialiased}
+a{color:#7AD7F0}a:hover{color:#B5E9F7}
+button{font-family:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid #7AD7F0;outline-offset:2px}
+</style>
+</helmet>
+<div style="width: 1440px; min-height: 2600px; box-sizing: border-box; background: #05070E; color: #F5F5F7; font-family: Inter, -apple-system, 'SF Pro Text', system-ui, sans-serif; font-size: 17px; line-height: 1.47; padding: 96px; display: flex; flex-direction: column; gap: 56px">
+
+  <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #7AD7F0">07 · Components</span>
+      <h2 style="margin: 0; font-family: 'Inter Tight', Inter, sans-serif; font-weight: 600; font-size: 48px; letter-spacing: -0.03em; line-height: 1.08">The kit</h2>
+    </div>
+    <p style="margin: 0; max-width: 480px; color: #A7ABB8; font-size: 15px">Every control is 44 px tall or more, pill-shaped, and works with a keyboard. Press Play to try the segmented control, stepper and time slots.</p>
+  </div>
+
+  <!-- Row: buttons + status -->
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px">
+    <div style="background: #0B1020; border: 1px solid rgba(255,255,255,0.08); border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 24px">
+      <span style="font-size: 13px; color: #A7ABB8; letter-spacing: 0.06em; text-transform: uppercase">Buttons</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center">
+        <button type="button" style="height: 52px; padding: 0 28px; border-radius: 999px; border: 0; background: #7AD7F0; color: #05070E; font-size: 17px; font-weight: 600; box-shadow: 0 0 32px rgba(122,215,240,0.35)">Book a table</button>
+        <button type="button" style="height: 52px; padding: 0 28px; border-radius: 999px; border: 0; background: #F0A860; color: #05070E; font-size: 17px; font-weight: 600">Reserve brunch</button>
+        <button type="button" style="height: 52px; padding: 0 28px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.06); color: #F5F5F7; font-size: 17px; font-weight: 500">View menu</button>
+        <a href="#" style="height: 52px; padding: 0 8px; display: inline-flex; align-items: center; gap: 6px; color: #7AD7F0; font-size: 17px; text-decoration: none">Get directions <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center">
+        <button type="button" style="height: 44px; padding: 0 20px; border-radius: 999px; border: 0; background: #7AD7F0; color: #05070E; font-size: 15px; font-weight: 600">Small</button>
+        <button type="button" disabled style="height: 44px; padding: 0 20px; border-radius: 999px; border: 0; background: #1E2742; color: #7C8294; font-size: 15px; font-weight: 600; cursor: not-allowed">Disabled</button>
+        <button type="button" aria-label="Call Meduza" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.06); display: inline-flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F5F5F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1Z"/></svg></button>
+        <button type="button" aria-label="Open map" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.06); display: inline-flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F5F5F7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.3"/></svg></button>
+      </div>
+      <span style="font-size: 13px; color: #A7ABB8">Glow = primary action at night. Lantern = primary on dining/brunch surfaces. Only one filled button per view.</span>
+    </div>
+
+    <div style="background: #0B1020; border: 1px solid rgba(255,255,255,0.08); border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 24px">
+      <span style="font-size: 13px; color: #A7ABB8; letter-spacing: 0.06em; text-transform: uppercase">Tags, status &amp; language</span>
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center">
+        <span style="display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 14px; border-radius: 999px; background: rgba(127,212,155,0.12); color: #7FD49B; font-size: 13px; font-weight: 600"><span style="width: 8px; height: 8px; border-radius: 999px; background: #7FD49B; box-shadow: 0 0 10px #7FD49B"></span>Open now · until 02:00</span>
+        <span style="display: inline-flex; align-items: center; height: 32px; padding: 0 14px; border-radius: 999px; background: rgba(240,168,96,0.14); color: #F0A860; font-size: 13px; font-weight: 600">Chef's pick</span>
+        <span style="display: inline-flex; align-items: center; height: 32px; padding: 0 14px; border-radius: 999px; background: rgba(122,215,240,0.12); color: #7AD7F0; font-size: 13px; font-weight: 600">Signature</span>
+        <span style="display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px; border-radius: 999px; background: rgba(255,255,255,0.06); color: #A7ABB8; font-size: 13px; font-weight: 500"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7FD49B" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14 0 9-5 14-12 14"/><path d="M5 19 13 11"/></svg>Vegetarian</span>
+        <span style="display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px; border-radius: 999px; background: rgba(255,255,255,0.06); color: #A7ABB8; font-size: 13px; font-weight: 500"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FF7A6B" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 9c-1.5 5 1 11 7.5 11.5C19 21 20 17 17.5 13c-2-3-4-4-5-5"/><path d="M7 9c1.5-1.5 4-1.5 5.5-1"/></svg>Spicy</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <span style="font-size: 13px; color: #A7ABB8">Language switch</span>
+        <div role="group" aria-label="Language" style="display: inline-flex; align-self: flex-start; padding: 4px; gap: 2px; border-radius: 999px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10)">
+          <sc-for list="{{langs}}" as="l" hint-placeholder-count="3">
+            <button type="button" onClick="{{l.pick}}" aria-pressed="{{l.on}}" style="height: 36px; min-width: 52px; padding: 0 14px; border: 0; border-radius: 999px; font-size: 13px; font-weight: 600; background: {{l.bg}}; color: {{l.fg}}; transition: background 240ms cubic-bezier(.2,.8,.2,1)">{{l.code}}</button>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row: segmented, stepper, inputs -->
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px">
+    <div style="background: #0B1020; border: 1px solid rgba(255,255,255,0.08); border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 20px">
+      <span style="font-size: 13px; color: #A7ABB8; letter-spacing: 0.06em; text-transform: uppercase">Segmented control</span>
+      <div role="tablist" aria-label="Experience" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 4px; gap: 4px; border-radius: 999px; background: #131A2E">
+        <sc-for list="{{segs}}" as="s" hint-placeholder-count="3">
+          <button type="button" role="tab" aria-selected="{{s.on}}" onClick="{{s.pick}}" style="height: 40px; border: 0; border-radius: 999px; font-size: 15px; font-weight: 600; background: {{s.bg}}; color: {{s.fg}}; box-shadow: {{s.shadow}}; transition: all 240ms cubic-bezier(.2,.8,.2,1)">{{s.label}}</button>
+        </sc-for>
+      </div>
+      <div style="border-radius: 18px; overflow: hidden; height: 150px; position: relative">
+        <img src="{{segImg}}" alt="{{segAlt}}" style="width: 100%; height: 100%; object-fit: cover">
+      </div>
+      <span style="font-size: 13px; color: #A7ABB8">Switches between Brunch, Dining and Lounge across Home, Menu and Booking.</span>
+    </div>
+
+    <div style="background: #0B1020; border: 1px solid rgba(255,255,255,0.08); border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 20px">
+      <span style="font-size: 13px; color: #A7ABB8; letter-spacing: 0.06em; text-transform: uppercase">Guest stepper</span>
+      <div style="display: flex; align-items: center; justify-content: space-between; background: #131A2E; border-radius: 18px; padding: 12px 12px 12px 20px">
+        <div style="display: flex; flex-direction: column">
+          <span style="font-size: 13px; color: #A7ABB8">Guests</span>
+          <span style="font-family: 'Inter Tight', Inter, sans-serif; font-size: 28px; font-weight: 600; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">{{guests}}</span>
+        </div>
+        <div style="display: flex; gap: 8px">
+          <button type="button" aria-label="Fewer guests" onClick="{{dec}}" style="width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.18); background: transparent; color: #F5F5F7; font-size: 22px; line-height: 1">−</button>
+          <button type="button" aria-label="More guests" onClick="{{inc}}" style="width: 44px; height: 44px; border-radius: 999px; border: 0; background: #F5F5F7; color: #05070E; font-size: 22px; line-height: 1">+</button>
+        </div>
+      </div>
+      <span style="font-size: 13px; color: #A7ABB8">1–12 online. Above 12 the stepper hands off to "Private event" with the hostess.</span>
+      <span style="font-size: 13px; color: #A7ABB8; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 8px">Strength meter</span>
+      <div style="display: flex; align-items: center; gap: 2px">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7AD7F0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11a7 7 0 0 1 14 0v.5H5Z"/><path d="M8 11.5v2.5c0 1.6-1.2 2.4-1.2 4.2M12 11.5v7.5M16 11.5v2.5c0 1.6 1.2 2.4 1.2 4.2"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#7AD7F0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11a7 7 0 0 1 14 0v.5H5Z"/><path d="M8 11.5v2.5c0 1.6-1.2 2.4-1.2 4.2M12 11.5v7.5M16 11.5v2.5c0 1.6 1.2 2.4 1.2 4.2"/></svg>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3A4566" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11a7 7 0 0 1 14 0v.5H5Z"/><path d="M8 11.5v2.5c0 1.6-1.2 2.4-1.2 4.2M12 11.5v7.5M16 11.5v2.5c0 1.6 1.2 2.4 1.2 4.2"/></svg>
+        <span style="font-size: 13px; color: #A7ABB8; margin-left: 8px">Mild</span>
+      </div>
+    </div>
+
+    <div style="background: #0B1020; border: 1px solid rgba(255,255,255,0.08); border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 16px">
+      <span style="font-size: 13px; color: #A7ABB8; letter-spacing: 0.06em; text-transform: uppercase">Text fields</span>
+      <label style="display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 13px; color: #A7ABB8">Name</span>
+        <input type="text" value="Linh Tran" style="height: 52px; box-sizing: border-box; padding: 0 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.12); background: #131A2E; color: #F5F5F7; font-size: 17px; font-family: inherit">
+      </label>
+      <label style="display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 13px; color: #A7ABB8">Phone</span>
+        <input type="tel" value="+84 90" style="height: 52px; box-sizing: border-box; padding: 0 16px; border-radius: 14px; border: 1.5px solid #FF7A6B; background: #131A2E; color: #F5F5F7; font-size: 17px; font-family: inherit">
+        <span style="font-size: 13px; color: #FF7A6B">Enter a full number so the hostess can confirm.</span>
+      </label>
+      <label style="display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 13px; color: #A7ABB8">Special requests · optional</span>
+        <input type="text" placeholder="Birthday, window seat, allergies…" style="height: 52px; box-sizing: border-box; padding: 0 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.12); background: #131A2E; color: #F5F5F7; font-size: 17px; font-family: inherit">
+      </label>
+    </div>
+  </div>
+
+  <!-- Row: date strip + time slots -->
+  <div style="background: #0B1020; border: 1px solid rgba(255,255,255,0.08); border-radius: 28px; padding: 32px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px">
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <span style="font-size: 13px; color: #A7ABB8; letter-spacing: 0.06em; text-transform: uppercase">Date strip</span>
+      <div style="display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px">
+        <sc-for list="{{days}}" as="d" hint-placeholder-count="7">
+          <button type="button" onClick="{{d.pick}}" aria-pressed="{{d.on}}" style="height: 76px; border-radius: 18px; border: {{d.border}}; background: {{d.bg}}; color: {{d.fg}}; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; transition: all 240ms cubic-bezier(.2,.8,.2,1)">
+            <span style="font-size: 12px; font-weight: 500; opacity: 0.8">{{d.dow}}</span>
+            <span style="font-family: 'Inter Tight', Inter, sans-serif; font-size: 22px; font-weight: 600">{{d.num}}</span>
+          </button>
+        </sc-for>
+      </div>
+      <span style="font-size: 13px; color: #A7ABB8">Today first. Swipe on phones; a full calendar opens from "More dates".</span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 16px">
+      <span style="font-size: 13px; color: #A7ABB8; letter-spacing: 0.06em; text-transform: uppercase">Time slots</span>
+      <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px">
+        <sc-for list="{{slots}}" as="t" hint-placeholder-count="10">
+          <button type="button" onClick="{{t.pick}}" aria-pressed="{{t.on}}" disabled="{{t.off}}" style="height: 44px; border-radius: 999px; border: {{t.border}}; background: {{t.bg}}; color: {{t.fg}}; font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums; text-decoration: {{t.strike}}; transition: all 240ms cubic-bezier(.2,.8,.2,1)">{{t.t}}</button>
+        </sc-for>
+      </div>
+      <span style="font-size: 13px; color: #A7ABB8">Slots open from 1.5 h ahead, 12:00–02:00 Vietnam time. Struck-through = fully booked.</span>
+    </div>
+  </div>
+
+  <!-- Row: menu row, dish card, confirmation -->
+  <div style="display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1fr); gap: 24px">
+    <div style="background: #0B1020; border: 1px solid rgba(255,255,255,0.08); border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 8px">
+      <span style="font-size: 13px; color: #A7ABB8; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px">Menu rows</span>
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 24px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.08)">
+        <div style="display: flex; align-items: center; gap: 10px"><span style="font-size: 17px; font-weight: 600">Eyes of Meduza</span><span style="display: inline-flex; gap: 0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7AD7F0" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 11a7 7 0 0 1 14 0v.5H5Z"/><path d="M8 11.5v2.5c0 1.6-1.2 2.4-1.2 4.2M12 11.5v7.5M16 11.5v2.5c0 1.6 1.2 2.4 1.2 4.2"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7AD7F0" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M5 11a7 7 0 0 1 14 0v.5H5Z"/><path d="M8 11.5v2.5c0 1.6-1.2 2.4-1.2 4.2M12 11.5v7.5M16 11.5v2.5c0 1.6 1.2 2.4 1.2 4.2"/></svg></span></div>
+        <span style="font-size: 17px; font-weight: 600; font-variant-numeric: tabular-nums">280,000 ₫</span>
+        <span style="font-size: 15px; color: #A7ABB8">Vodka · Citrus · Blue</span>
+        <span></span>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 24px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.08)">
+        <div style="display: flex; align-items: center; gap: 10px"><span style="font-size: 17px; font-weight: 600">Salmon Steak</span><span style="display: inline-flex; align-items: center; height: 22px; padding: 0 8px; border-radius: 999px; background: rgba(240,168,96,0.14); color: #F0A860; font-size: 11px; font-weight: 600">Chef's pick</span></div>
+        <span style="font-size: 17px; font-weight: 600; font-variant-numeric: tabular-nums">320,000 ₫</span>
+        <span style="font-size: 15px; color: #A7ABB8">Mango · passion fruit sauce</span>
+        <span></span>
+        <span style="font-size: 13px; color: #7C8294">Cá Hồi Áp Chảo / Sốt Xoài Chanh Dây</span>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 4px 20px; padding: 16px 0; align-items: baseline">
+        <span style="font-size: 17px; font-weight: 600">Hendrick's Gin</span>
+        <span style="font-size: 15px; font-variant-numeric: tabular-nums"><span style="color: #7C8294; font-size: 12px">45 ml </span>220,000</span>
+        <span style="font-size: 15px; font-variant-numeric: tabular-nums"><span style="color: #7C8294; font-size: 12px">700 ml </span>3,590,000</span>
+      </div>
+    </div>
+
+    <article style="background: #0B1020; border: 1px solid rgba(255,255,255,0.08); border-radius: 28px; overflow: hidden; display: flex; flex-direction: column">
+      <div style="position: relative; height: 220px">
+        <img src="../assets/photos/lotus.jpg" alt="Dining room with lotus sculpture and rattan chairs" style="width: 100%; height: 100%; object-fit: cover">
+        <span style="position: absolute; top: 14px; left: 14px; height: 28px; display: inline-flex; align-items: center; padding: 0 12px; border-radius: 999px; background: rgba(245,243,239,0.75); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); color: #1D1D1F; font-size: 12px; font-weight: 600">Dining room</span>
+      </div>
+      <div style="padding: 24px; display: flex; flex-direction: column; gap: 8px">
+        <h3 style="margin: 0; font-family: 'Inter Tight', Inter, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.015em">Lotus Garden</h3>
+        <p style="margin: 0; font-size: 15px; color: #A7ABB8">Rattan armchairs under woven lanterns, framed by bead curtains. Best for dinner for two to six.</p>
+        <a href="#" style="font-size: 15px; font-weight: 600; text-decoration: none; margin-top: 4px">Book this space</a>
+      </div>
+    </article>
+
+    <div style="background: linear-gradient(180deg, #0F2135 0%, #0B1020 100%); border: 1px solid rgba(122,215,240,0.25); border-radius: 28px; padding: 32px; display: flex; flex-direction: column; gap: 16px; align-items: flex-start">
+      <span style="width: 56px; height: 56px; border-radius: 999px; background: rgba(122,215,240,0.14); display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 0 40px rgba(122,215,240,0.3)"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#7AD7F0" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11a7 7 0 0 1 14 0v.5H5Z"/><path d="M8 11.5v2.5c0 1.6-1.2 2.4-1.2 4.2M12 11.5v7.5M16 11.5v2.5c0 1.6 1.2 2.4 1.2 4.2"/></svg></span>
+      <h3 style="margin: 0; font-family: 'Inter Tight', Inter, sans-serif; font-size: 26px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.15">Request received.</h3>
+      <p style="margin: 0; font-size: 15px; color: #A7ABB8">Fri 14 Nov · 20:30 · 4 guests · Lounge. A hostess will confirm in Telegram or by phone within 15 minutes.</p>
+      <div style="display: flex; gap: 10px; margin-top: auto">
+        <button type="button" style="height: 44px; padding: 0 18px; border-radius: 999px; border: 0; background: #F5F5F7; color: #05070E; font-size: 15px; font-weight: 600">Add to calendar</button>
+        <button type="button" style="height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.18); background: transparent; color: #F5F5F7; font-size: 15px; font-weight: 500">Change</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row: navigation -->
+  <div style="display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 24px">
+    <div style="position: relative; border-radius: 28px; overflow: hidden; min-height: 260px">
+      <img src="../assets/photos/bar.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%">
+      <div style="position: relative; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+        <span style="font-size: 13px; color: #F5F5F7; letter-spacing: 0.06em; text-transform: uppercase">Global nav · desktop</span>
+        <nav aria-label="Main" style="display: flex; align-items: center; justify-content: space-between; height: 64px; padding: 0 12px 0 24px; border-radius: 999px; background: rgba(10,15,30,0.55); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border: 1px solid rgba(255,255,255,0.14)">
+          <img src="../assets/logo/logo-white.png" alt="Meduza" style="height: 34px; width: auto">
+          <div style="display: flex; gap: 28px; font-size: 15px">
+            <a href="#" style="color: #F5F5F7; text-decoration: none">Menu</a>
+            <a href="#" style="color: #F5F5F7; text-decoration: none">Brunch</a>
+            <a href="#" style="color: #F5F5F7; text-decoration: none">Lounge</a>
+            <a href="#" style="color: #F5F5F7; text-decoration: none">Spaces</a>
+            <a href="#" style="color: #F5F5F7; text-decoration: none">Visit</a>
+          </div>
+          <div style="display: flex; gap: 12px; align-items: center">
+            <span style="font-size: 13px; color: #A7ABB8">EN</span>
+            <a href="#" style="height: 44px; padding: 0 20px; display: inline-flex; align-items: center; border-radius: 999px; background: #7AD7F0; color: #05070E; font-size: 15px; font-weight: 600; text-decoration: none">Book a table</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div style="background: #0B1020; border: 1px solid rgba(255,255,255,0.08); border-radius: 28px; padding: 24px; display: flex; flex-direction: column; gap: 12px; justify-content: space-between">
+      <span style="font-size: 13px; color: #A7ABB8; letter-spacing: 0.06em; text-transform: uppercase">Tab bar · phone</span>
+      <nav aria-label="Tabs" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 8px; border-radius: 28px; background: rgba(19,26,46,0.8); border: 1px solid rgba(255,255,255,0.10)">
+        <a href="#" style="height: 56px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #7AD7F0; text-decoration: none; font-size: 11px; font-weight: 600"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11a7 7 0 0 1 14 0v.5H5Z"/><path d="M8 11.5v2.5c0 1.6-1.2 2.4-1.2 4.2M12 11.5v7.5M16 11.5v2.5c0 1.6 1.2 2.4 1.2 4.2"/></svg>Meduza</a>
+        <a href="#" style="height: 56px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #A7ABB8; text-decoration: none; font-size: 11px; font-weight: 500"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5h12v17H6zM9 8h6M9 12h6M9 16h3"/></svg>Menu</a>
+        <a href="#" style="height: 56px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #A7ABB8; text-decoration: none; font-size: 11px; font-weight: 500"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Book</a>
+        <a href="#" style="height: 56px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #A7ABB8; text-decoration: none; font-size: 11px; font-weight: 500"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.3"/></svg>Visit</a>
+      </nav>
+      <span style="font-size: 13px; color: #A7ABB8">Four tabs maximum. "Book" stays reachable in one tap from anywhere.</span>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2600}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { seg: 2, guests: 4, day: 2, slot: '20:30', lang: 'EN' };
+  }
+  renderVals() {
+    const s = this.state;
+    const imgs = [
+      ['../assets/photos/booth.jpg', 'Rattan booth under a woven lantern'],
+      ['../assets/photos/roundtable.jpg', 'Round dining table framed by bead curtains'],
+      ['../assets/photos/lounge.jpg', 'Lounge with sofas and neon sign']
+    ];
+    const segs = ['Brunch', 'Dining', 'Lounge'].map((label, i) => ({
+      label, on: s.seg === i,
+      bg: s.seg === i ? '#F5F5F7' : 'transparent',
+      fg: s.seg === i ? '#05070E' : '#A7ABB8',
+      shadow: s.seg === i ? '0 2px 10px rgba(0,0,0,0.35)' : 'none',
+      pick: () => this.setState({ seg: i })
+    }));
+    const dows = ['Thu', 'Fri', 'Sat', 'Sun', 'Mon', 'Tue', 'Wed'];
+    const days = dows.map((dow, i) => {
+      const on = s.day === i;
+      return { dow: i === 0 ? 'Today' : dow, num: 12 + i, on,
+        bg: on ? '#7AD7F0' : '#131A2E', fg: on ? '#05070E' : '#F5F5F7',
+        border: on ? '0' : '1px solid rgba(255,255,255,0.08)',
+        pick: () => this.setState({ day: i }) };
+    });
+    const full = ['20:00', '21:00'];
+    const slots = ['18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00', '22:30'].map(t => {
+      const off = full.indexOf(t) >= 0; const on = s.slot === t && !off;
+      return { t, on, off,
+        bg: on ? '#7AD7F0' : 'transparent', fg: on ? '#05070E' : (off ? '#7C8294' : '#F5F5F7'),
+        border: on ? '1px solid #7AD7F0' : '1px solid rgba(255,255,255,0.16)',
+        strike: off ? 'line-through' : 'none',
+        pick: () => { if (!off) this.setState({ slot: t }); } };
+    });
+    const langs = ['EN', 'RU', 'VI'].map(code => ({ code, on: s.lang === code,
+      bg: s.lang === code ? '#F5F5F7' : 'transparent', fg: s.lang === code ? '#05070E' : '#A7ABB8',
+      pick: () => this.setState({ lang: code }) }));
+    return {
+      segs, days, slots, langs,
+      segImg: imgs[s.seg][0], segAlt: imgs[s.seg][1],
+      guests: s.guests,
+      inc: () => this.setState({ guests: Math.min(12, s.guests + 1) }),
+      dec: () => this.setState({ guests: Math.max(1, s.guests - 1) })
+    };
+  }
+}
+</script>
+</body>
+</html>

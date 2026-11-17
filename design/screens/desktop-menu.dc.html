@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Meduza — Menu</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Inter+Tight:wght@500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+<style>
+body{margin:0;background:#05070E;-webkit-font-smoothing:antialiased}
+a{color:#7AD7F0}a:hover{color:#B5E9F7}
+button{font-family:inherit;cursor:pointer}
+a:focus-visible,button:focus-visible{outline:2px solid #7AD7F0;outline-offset:3px}
+@media (max-width: 760px){.nav-links{display:none !important}}
+</style>
+</helmet>
+<div style="background: #080B14; color: #F5F5F7; font-family: Inter, -apple-system, 'SF Pro Text', system-ui, sans-serif; font-size: 17px; line-height: 1.47; min-height: 1300px">
+
+  <!-- Nav -->
+  <div style="padding: 20px clamp(16px, 4vw, 48px) 0">
+    <nav aria-label="Main" style="max-width: 1240px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 64px; padding: 0 10px 0 22px; border-radius: 999px; background: rgba(19,26,46,0.7); border: 1px solid rgba(255,255,255,0.10)">
+      <a href="desktop-home.dc.html" aria-label="Meduza home" style="display: flex"><img src="../assets/logo/logo-white.png" alt="Meduza" style="height: 34px; width: auto"></a>
+      <div class="nav-links" style="display: flex; gap: 28px; font-size: 15px">
+        <a href="desktop-home.dc.html" style="color: #F5F5F7; text-decoration: none">Meduza</a>
+        <a href="desktop-menu.dc.html" aria-current="page" style="color: #7AD7F0; text-decoration: none; font-weight: 600">Menu</a>
+        <a href="desktop-booking.dc.html" style="color: #F5F5F7; text-decoration: none">Book</a>
+        <a href="desktop-home.dc.html#visit" style="color: #F5F5F7; text-decoration: none">Visit</a>
+      </div>
+      <a href="desktop-booking.dc.html" style="height: 44px; padding: 0 20px; display: inline-flex; align-items: center; border-radius: 999px; background: #7AD7F0; color: #05070E; font-size: 15px; font-weight: 600; text-decoration: none">Book a table</a>
+    </nav>
+  </div>
+
+  <div style="max-width: 1240px; margin: 0 auto; padding: 48px clamp(20px, 4vw, 48px) 80px; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px">
+    <!-- Title row -->
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <span style="font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #7AD7F0">Cocktails &amp; Cuisine</span>
+        <h1 style="margin: 0; font-family: 'Inter Tight', Inter, sans-serif; font-weight: 600; font-size: clamp(44px, 5.5vw, 72px); letter-spacing: -0.04em; line-height: 1">The <span style="font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: -0.01em">menu</span></h1>
+      </div>
+      <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap">
+        <div role="tablist" aria-label="Menus" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 4px; gap: 4px; border-radius: 999px; background: #131A2E; min-width: min(380px, 100%)">
+          <sc-for list="{{docs}}" as="d" hint-placeholder-count="3">
+            <button type="button" role="tab" aria-selected="{{d.on}}" onClick="{{d.pick}}" style="height: 44px; border: 0; border-radius: 999px; font-size: 15px; font-weight: 600; background: {{d.bg}}; color: {{d.fg}}; box-shadow: {{d.shadow}}; transition: all 240ms cubic-bezier(.2,.8,.2,1)">{{d.label}}</button>
+          </sc-for>
+        </div>
+        <button type="button" aria-label="Share this menu" style="width: 52px; height: 52px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.06); color: #F5F5F7; display: flex; align-items: center; justify-content: center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7.5 7.5 12 3l4.5 4.5"/><path d="M5 12v6.5A1.5 1.5 0 0 0 6.5 20h11a1.5 1.5 0 0 0 1.5-1.5V12"/></svg></button>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+      <!-- Contents -->
+      <aside aria-label="Contents" style="flex: 1 1 260px; min-width: 0; background: #0B1020; border: 1px solid rgba(255,255,255,0.08); border-radius: 28px; padding: 20px 12px; display: flex; flex-direction: column; gap: 4px">
+        <div style="padding: 0 10px 10px; display: flex; justify-content: space-between; align-items: baseline"><span style="font-size: 17px; font-weight: 600">Contents</span><span style="font-size: 13px; color: #A7ABB8">{{docCount}}</span></div>
+        <sc-for list="{{toc}}" as="t" hint-placeholder-count="8">
+          <button type="button" onClick="{{t.pick}}" aria-current="{{t.current}}" style="display: grid; grid-template-columns: 36px minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 6px 10px; border: 0; border-radius: 14px; background: {{t.bg}}; color: {{t.fg}}; text-align: left; min-height: 44px">
+            <img src="{{t.src}}" alt="" style="width: 36px; height: 50px; object-fit: cover; border-radius: 5px">
+            <span style="font-size: 15px; font-weight: {{t.weight}}">{{t.label}}</span>
+            <span style="font-size: 12px; color: #7C8294; font-variant-numeric: tabular-nums">{{t.num}}</span>
+          </button>
+        </sc-for>
+      </aside>
+
+      <!-- Reader -->
+      <main style="flex: 999 1 620px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+        <sc-if value="{{notZoomed}}" hint-placeholder-val="{{ true }}">
+          <div style="border-radius: 28px; background: radial-gradient(120% 90% at 50% 0%, rgba(122,215,240,0.08), transparent 60%), #0B1020; border: 1px solid rgba(255,255,255,0.08); padding: clamp(20px, 3vw, 40px); display: flex; justify-content: center; gap: 4px; flex-wrap: wrap">
+            <sc-for list="{{spread}}" as="p" hint-placeholder-count="2">
+              <button type="button" onClick="{{p.zoom}}" aria-label="Zoom into {{p.alt}}" style="padding: 0; border: 0; background: transparent; cursor: zoom-in; flex: 0 1 380px; min-width: 0">
+                <img src="{{p.src}}" alt="{{p.alt}}" style="display: block; width: 100%; aspect-ratio: 595 / 842; object-fit: cover; border-radius: {{p.radius}}; box-shadow: 0 30px 70px rgba(0,0,0,0.6)">
+              </button>
+            </sc-for>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
+            <button type="button" onClick="{{prev}}" disabled="{{atStart}}" style="height: 48px; padding: 0 20px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.16); background: transparent; color: #F5F5F7; display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; opacity: {{prevOpacity}}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>Previous</button>
+            <div aria-live="polite" style="display: flex; flex-direction: column; align-items: center; text-align: center; min-width: 0"><span style="font-size: 17px; font-weight: 600">{{spreadName}}</span><span style="font-size: 13px; color: #A7ABB8; font-variant-numeric: tabular-nums">{{spreadLabel}}</span></div>
+            <button type="button" onClick="{{next}}" disabled="{{atEnd}}" style="height: 48px; padding: 0 20px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.16); background: transparent; color: #F5F5F7; display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; opacity: {{nextOpacity}}">Next<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+          </div>
+          <span style="font-size: 13px; color: #7C8294; text-align: center">Use ← → keys to turn pages · click a page to zoom</span>
+        </sc-if>
+        <sc-if value="{{zoomed}}" hint-placeholder-val="{{ false }}">
+          <div style="position: relative; border-radius: 28px; background: #0B1020; border: 1px solid rgba(255,255,255,0.08); overflow: hidden">
+            <div style="max-height: 860px; overflow: auto">
+              <img src="{{zoomSrc}}" alt="{{zoomAlt}}" style="display: block; width: 100%">
+            </div>
+            <button type="button" onClick="{{unzoom}}" style="position: absolute; top: 16px; right: 16px; height: 44px; padding: 0 16px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.18); background: rgba(10,15,30,0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); color: #F5F5F7; display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>Back to spread</button>
+          </div>
+        </sc-if>
+      </main>
+    </div>
+
+    <p style="margin: 0; font-size: 13px; color: #7C8294">Food prices include 8% VAT · drinks and hookah 10% VAT. A text version of the menu is included on this page for search engines and screen readers.</p>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"startMenu":{"editor":"enum","options":["brunch","cocktail","dinner"],"default":"dinner"},"$preview":{"width":1440,"height":1300}}'>
+class Component extends DCLogic {
+  constructor(props) { super(props); this.state = { doc: null, spread: 1, zoom: null }; }
+  renderVals() {
+    const B = p => p; // asset paths are already resolved
+    const DOCS = {
+      brunch: { label: 'Brunch', title: 'Brunch menu', pages: [
+        ['../assets/menu-pages/brunch-01.jpg', 'Cover'], ['../assets/menu-pages/brunch-02.jpg', 'Pasta Club'], ['../assets/menu-pages/brunch-03.jpg', 'Pasta Club, continued'],
+        ['../assets/menu-pages/brunch-04.jpg', 'Vietnamese brunch'], ['../assets/menu-pages/brunch-05.jpg', 'Classic brunch'], ['../assets/menu-pages/brunch-06.jpg', 'Toasts and benedict'],
+        ['../assets/menu-pages/brunch-07.jpg', 'Sweet dessert'] ] },
+      cocktail: { label: 'Cocktails', title: 'Signature cocktails', pages: [
+        ['../assets/menu-pages/cocktails-01.jpg', 'Cover'], ['../assets/menu-pages/cocktails-02.jpg', 'Eyes of Meduza'], ['../assets/menu-pages/cocktails-03.jpg', 'Frozen Gaze'],
+        ['../assets/menu-pages/cocktails-04.jpg', 'The Siren Secret'], ['../assets/menu-pages/cocktails-05.jpg', 'Pearl Venom'], ['../assets/menu-pages/cocktails-06.jpg', 'Abyss Whisper'],
+        ['../assets/menu-pages/cocktails-07.jpg', 'Lush by Meduza'], ['../assets/menu-pages/cocktails-08.jpg', 'Neptune’s Kiss'], ['../assets/menu-pages/cocktails-09.jpg', 'The Oasis'],
+        ['../assets/menu-pages/cocktails-10.jpg', 'Eden Above'], ['../assets/menu-pages/cocktails-11.jpg', 'Coastal Bloom'], ['../assets/menu-pages/cocktails-12.jpg', 'Back cover'] ] },
+      dinner: { label: 'Dinner', title: 'Dinner menu', pages: [
+        ['../assets/menu-pages/dinner-01.jpg', 'Cover'], ['../assets/menu-pages/dinner-02.jpg', 'Starters & snacks'], ['../assets/menu-pages/dinner-03.jpg', 'Starters & snacks, continued'],
+        ['../assets/menu-pages/dinner-04.jpg', 'Salads'], ['../assets/menu-pages/dinner-05.jpg', 'Salads, continued'], ['../assets/menu-pages/dinner-06.jpg', 'Mexican starters'],
+        ['../assets/menu-pages/dinner-07.jpg', 'Soup'], ['../assets/menu-pages/dinner-08.jpg', 'Pasta'], ['../assets/menu-pages/dinner-09.jpg', 'Pasta, continued'],
+        ['../assets/menu-pages/dinner-10.jpg', 'Main courses'], ['../assets/menu-pages/dinner-11.jpg', 'Main courses, continued'], ['../assets/menu-pages/dinner-12.jpg', 'Desserts'],
+        ['../assets/menu-pages/dinner-13.jpg', 'Seasonal fruit'], ['../assets/menu-pages/dinner-14.jpg', 'Back cover'] ] }
+    };
+    const s = this.state;
+    const docId = s.doc || this.props.startMenu || 'dinner';
+    const doc = DOCS[docId];
+    const n = doc.pages.length;
+    // Spreads like a printed book: cover alone, then pairs.
+    const spreads = [[0]];
+    for (let k = 1; k < n; k += 2) spreads.push(k + 1 < n ? [k, k + 1] : [k]);
+    const si = Math.max(0, Math.min(s.spread, spreads.length - 1));
+    const cur = spreads[si];
+    const go = k => this.setState({ doc: docId, spread: Math.max(0, Math.min(spreads.length - 1, k)), zoom: null });
+    const spreadOf = p => spreads.findIndex(sp => sp.indexOf(p) >= 0);
+    const alt = k => doc.title + ', page ' + (k + 1) + ': ' + doc.pages[k][1];
+    const spread = cur.map((k, j) => ({
+      src: B(doc.pages[k][0]), alt: alt(k),
+      radius: cur.length === 1 ? '10px' : (j === 0 ? '10px 2px 2px 10px' : '2px 10px 10px 2px'),
+      zoom: () => this.setState({ doc: docId, zoom: k })
+    }));
+    const docs = ['brunch', 'cocktail', 'dinner'].map(id => {
+      const on = docId === id;
+      return { label: DOCS[id].label, on, bg: on ? '#F5F5F7' : 'transparent', fg: on ? '#05070E' : '#A7ABB8', shadow: on ? '0 2px 10px rgba(0,0,0,0.35)' : 'none', pick: () => this.setState({ doc: id, spread: 1, zoom: null }) };
+    });
+    const toc = doc.pages.map((p, k) => {
+      const on = cur.indexOf(k) >= 0;
+      return { src: B(p[0]), label: p[1], num: String(k + 1), current: on ? 'page' : 'false',
+        bg: on ? 'rgba(122,215,240,0.12)' : 'transparent', fg: on ? '#7AD7F0' : '#F5F5F7', weight: on ? 600 : 500,
+        pick: () => go(spreadOf(k)) };
+    });
+    const names = cur.map(k => doc.pages[k][1]);
+    return {
+      docs, toc, spread, docCount: n + ' pages',
+      spreadName: names.join(' · '),
+      spreadLabel: cur.length === 1 ? 'Page ' + (cur[0] + 1) + ' of ' + n : 'Pages ' + (cur[0] + 1) + '–' + (cur[1] + 1) + ' of ' + n,
+      notZoomed: s.zoom === null, zoomed: s.zoom !== null,
+      zoomSrc: s.zoom !== null ? B(doc.pages[s.zoom][0]) : '', zoomAlt: s.zoom !== null ? alt(s.zoom) : '',
+      unzoom: () => this.setState({ zoom: null }),
+      atStart: si <= 0, atEnd: si >= spreads.length - 1,
+      prevOpacity: si <= 0 ? 0.35 : 1, nextOpacity: si >= spreads.length - 1 ? 0.35 : 1,
+      prev: () => go(si - 1), next: () => go(si + 1)
+    };
+  }
+}
+</script>
+</body>
+</html>

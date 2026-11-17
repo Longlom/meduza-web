@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Meduza mobile — Visit</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Inter+Tight:wght@500;600;700&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+<style>
+body{margin:0;background:#05070E;-webkit-font-smoothing:antialiased}
+a{color:#7AD7F0}a:hover{color:#B5E9F7}
+a:focus-visible{outline:2px solid #7AD7F0;outline-offset:2px}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 1180px; overflow: hidden; background: #05070E; color: #F5F5F7; font-family: Inter, -apple-system, 'SF Pro Text', system-ui, sans-serif; font-size: 17px; line-height: 1.47">
+
+  <!-- Map placeholder -->
+  <div role="img" aria-label="Map placeholder: dark-styled map with a single glowing pin at Meduza" style="position: relative; height: 380px; background: radial-gradient(circle at 55% 55%, rgba(122,215,240,0.18), transparent 40%), repeating-linear-gradient(28deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 46px), repeating-linear-gradient(118deg, rgba(255,255,255,0.05) 0 2px, transparent 2px 70px), #0A0F1C">
+    <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 140px; background: linear-gradient(180deg, rgba(5,7,14,0) 0%, #05070E 100%)"></div>
+    <span aria-hidden="true" style="position: absolute; left: 50%; top: 52%; transform: translate(-50%, -50%); width: 56px; height: 56px; border-radius: 999px; background: rgba(122,215,240,0.18); box-shadow: 0 0 40px rgba(122,215,240,0.6); display: flex; align-items: center; justify-content: center; color: #7AD7F0"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M5 11a7 7 0 0 1 14 0v.5H5Z"/><path d="M8 11.5v2.5c0 1.6-1.2 2.4-1.2 4.2M12 11.5v7.5M16 11.5v2.5c0 1.6 1.2 2.4 1.2 4.2"/></svg></span>
+    <span style="position: absolute; left: 20px; top: 62px; font-size: 12px; color: #7C8294">[MAP EMBED]</span>
+  </div>
+
+  <div style="padding: 0 20px; margin-top: -60px; position: relative; display: flex; flex-direction: column; gap: 20px">
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <h1 style="margin: 0; font-family: 'Inter Tight', Inter, sans-serif; font-size: 34px; font-weight: 600; letter-spacing: -0.03em">Visit</h1>
+      <span style="font-size: 16px; color: #C9CCD6">[STREET ADDRESS], Nha Trang, Khánh Hòa</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+      <a href="#" style="height: 56px; display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: 999px; background: #7AD7F0; color: #05070E; font-size: 16px; font-weight: 600; text-decoration: none">Directions</a>
+      <a href="#" style="height: 56px; display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.06); color: #F5F5F7; font-size: 16px; font-weight: 500; text-decoration: none">Open in Grab</a>
+    </div>
+
+    <!-- Hours -->
+    <section aria-labelledby="h-hours" style="background: #0B1020; border: 1px solid rgba(255,255,255,0.08); border-radius: 24px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px">
+      <div style="display: flex; justify-content: space-between; align-items: center">
+        <h2 id="h-hours" style="margin: 0; font-size: 17px; font-weight: 600">Hours</h2>
+        <span style="display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0 10px; border-radius: 999px; background: rgba(127,212,155,0.12); color: #7FD49B; font-size: 12px; font-weight: 600"><span style="width: 7px; height: 7px; border-radius: 999px; background: #7FD49B"></span>Open now</span>
+      </div>
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; font-size: 15px">
+        <span style="color: #A7ABB8">Every day</span><span style="font-variant-numeric: tabular-nums; font-weight: 600">12:00 – 02:00</span>
+        <span style="color: #A7ABB8">Brunch</span><span style="font-variant-numeric: tabular-nums">[HOURS]</span>
+        <span style="color: #A7ABB8">Kitchen closes</span><span style="font-variant-numeric: tabular-nums">[TIME]</span>
+      </div>
+      <span style="font-size: 12px; color: #7C8294">Vietnam time (GMT+7)</span>
+    </section>
+
+    <!-- Contact -->
+    <section aria-labelledby="h-contact" style="display: flex; flex-direction: column; gap: 8px">
+      <h2 id="h-contact" style="margin: 0 0 4px; font-family: 'Inter Tight', Inter, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.015em">Talk to the hostess</h2>
+      <div style="background: #0B1020; border: 1px solid rgba(255,255,255,0.08); border-radius: 24px; overflow: hidden">
+        <sc-for list="{{contacts}}" as="c" hint-placeholder-count="4">
+          <a href="#" style="display: grid; grid-template-columns: 40px minmax(0, 1fr) 20px; gap: 14px; align-items: center; min-height: 64px; padding: 0 16px; border-bottom: 1px solid rgba(255,255,255,0.06); color: #F5F5F7; text-decoration: none">
+            <span style="width: 40px; height: 40px; border-radius: 12px; background: #131A2E; display: flex; align-items: center; justify-content: center; color: #7AD7F0; font-size: 14px; font-weight: 700">{{c.mark}}</span>
+            <span style="display: flex; flex-direction: column"><span style="font-size: 16px; font-weight: 600">{{c.name}}</span><span style="font-size: 13px; color: #A7ABB8">{{c.value}}</span></span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7C8294" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
+          </a>
+        </sc-for>
+      </div>
+    </section>
+
+    <!-- Good to know -->
+    <section aria-labelledby="h-know" style="display: flex; flex-direction: column; gap: 10px">
+      <h2 id="h-know" style="margin: 0; font-family: 'Inter Tight', Inter, sans-serif; font-size: 22px; font-weight: 600; letter-spacing: -0.015em">Good to know</h2>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+        <div style="background: #0B1020; border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #A7ABB8">Dress code</span><span style="font-size: 15px; font-weight: 600">[DRESS CODE]</span></div>
+        <div style="background: #0B1020; border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #A7ABB8">Payment</span><span style="font-size: 15px; font-weight: 600">[CARDS · CASH · QR]</span></div>
+        <div style="background: #0B1020; border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #A7ABB8">Hookah</span><span style="font-size: 15px; font-weight: 600">[AGE / ZONE RULE]</span></div>
+        <div style="background: #0B1020; border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #A7ABB8">Languages</span><span style="font-size: 15px; font-weight: 600">EN · RU · VI</span></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Tab bar -->
+  <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 120px; background: linear-gradient(180deg, rgba(5,7,14,0) 0%, #05070E 60%); pointer-events: none"></div>
+  <nav aria-label="Tabs" style="position: absolute; left: 14px; right: 14px; bottom: 30px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 6px; border-radius: 30px; background: rgba(19,26,46,0.78); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border: 1px solid rgba(255,255,255,0.12)">
+    <a href="m1-home.dc.html" style="height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #A7ABB8; text-decoration: none; font-size: 10px; font-weight: 500"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M5 11a7 7 0 0 1 14 0v.5H5Z"/><path d="M8 11.5v2.5c0 1.6-1.2 2.4-1.2 4.2M12 11.5v7.5M16 11.5v2.5c0 1.6 1.2 2.4 1.2 4.2"/></svg>Meduza</a>
+    <a href="m2-menu-reader.dc.html" style="height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #A7ABB8; text-decoration: none; font-size: 10px; font-weight: 500"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M6 3.5h12v17H6zM9 8h6M9 12h6M9 16h3"/></svg>Menu</a>
+    <a href="m3-booking.dc.html" style="height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #A7ABB8; text-decoration: none; font-size: 10px; font-weight: 500"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Book</a>
+    <a href="m5-visit.dc.html" aria-current="page" style="height: 52px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: #7AD7F0; text-decoration: none; font-size: 10px; font-weight: 600"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11Z"/><circle cx="12" cy="10" r="2.3"/></svg>Visit</a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1180}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      contacts: [
+        { mark: 'TG', name: 'Telegram', value: '[@HANDLE]' },
+        { mark: 'Z', name: 'Zalo', value: '[ZALO NUMBER]' },
+        { mark: 'IG', name: 'Instagram', value: '[@HANDLE]' },
+        { mark: 'Tel', name: 'Call', value: '[PHONE]' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
