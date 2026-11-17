@@ -65,7 +65,6 @@ export const en = {
     title: "Visit",
     mapLabel: "Map of Meduza, 157 Nguyễn Thiện Thuật, Nha Trang",
     openInMaps: "Open in Maps",
-    grab: "Open in Grab",
     hoursTitle: "Hours",
     everyDay: "Every day",
     brunch: "Brunch",

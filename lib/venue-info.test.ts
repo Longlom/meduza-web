@@ -21,7 +21,6 @@ describe("placeholders", () => {
   it("never gives a link for a placeholder", () => {
     expect(contactHref("phone")).toBeNull();
     expect(contactHref("telegram")).toBeNull();
-    expect(contactHref("grab")).toBeNull();
   });
 
   it("always gives a directions link with the encoded address", () => {

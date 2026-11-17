@@ -31,9 +31,6 @@ export default async function Page({ params }: { params: Promise<{ locale: strin
           <VenueAction kind="directions" className="mz-btn mz-btn--primary mz-btn--lg">
             {t.venue.directions}
           </VenueAction>
-          <VenueAction kind="grab" className="mz-btn mz-btn--secondary mz-btn--lg">
-            {t.visit.grab}
-          </VenueAction>
         </div>
       </header>
       <div className="vs-info">

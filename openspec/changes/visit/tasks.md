@@ -3,12 +3,12 @@
 ## 1. Content
 
 - [x] 1.1 Add the `visit` namespace to the EN and RU dictionaries (labels, tiles, notes). Verify `npm run typecheck` passes and fails when a Russian key is removed.
-- [x] 1.2 Add the Grab pickup, map embed, brunch hours, kitchen closing, dress code, payment and hookah rule entries to `lib/venue-info.ts` as flagged placeholders. Verify `npm run placeholders` lists them.
+- [x] 1.2 Add the map embed, brunch hours, kitchen closing, dress code, payment and hookah rule entries to `lib/venue-info.ts` as flagged placeholders. Verify `npm run placeholders` lists them.
 
 ## 2. Location
 
 - [x] 2.1 Build the map slot (placeholder block with address and "Open in Maps", or the embed when configured). Verify both states with a temporary configured value, and check at 390 px against `design/screens/m5-visit.dc.html`.
-- [x] 2.2 Build the Directions and "Open in Grab" actions with `VenueAction`. Verify Directions opens the right address and Grab shows plain text while a placeholder; check at 390 px.
+- [x] 2.2 Build the Directions action with `VenueAction` (the "Open in Grab" button was removed at the owner's request). Verify Directions opens the right address; check at 390 px.
 
 ## 3. Practical info
 

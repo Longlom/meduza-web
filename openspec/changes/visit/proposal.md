@@ -6,14 +6,14 @@ Guests who are on their way, or deciding whether to come, need the practical fac
 
 ## What Changes
 
-- Add `/{locale}/visit` with the map area, Directions and "Open in Grab", the hours card with live status, and the contact list.
+- Add `/{locale}/visit` with the map area, Directions, the hours card with live status, and the contact list.
 - Use the shared venue record and placeholder rules, so unconfirmed values show as plain bracketed text and never as dead links.
 - Provide a desktop layout. There is no desktop Visit screen in the design, so it is derived from the visit block on the desktop Home screen.
 
 ## Capabilities
 
 ### New Capabilities
-- `visit-location`: map area, directions and Grab action.
+- `visit-location`: map area and directions.
 - `visit-practical-info`: hours card and contact list.
 
 ### Modified Capabilities
@@ -33,4 +33,4 @@ Guests who are on their way, or deciding whether to come, need the practical fac
 
 ## New [PLACEHOLDER] values
 
-`[MAP EMBED]`, `[GRAB PICKUP POINT]`, `[BRUNCH HOURS]`, `[KITCHEN CLOSES]`, plus the contact placeholders from `app-shell` (`[PHONE]`, `[TELEGRAM @HANDLE]`, `[ZALO NUMBER]`, `[INSTAGRAM @HANDLE]`). The design file shows `[STREET ADDRESS]`, which is superseded: the address is given in `HANDOFF.md` and the venue record.
+`[MAP EMBED]`, `[BRUNCH HOURS]`, `[KITCHEN CLOSES]`, plus the contact placeholders from `app-shell` (`[PHONE]`, `[TELEGRAM @HANDLE]`, `[ZALO NUMBER]`, `[INSTAGRAM @HANDLE]`). The design file shows `[STREET ADDRESS]`, which is superseded: the address is given in `HANDOFF.md` and the venue record.

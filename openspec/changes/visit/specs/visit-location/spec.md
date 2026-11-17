@@ -24,22 +24,15 @@ A "Directions" action SHALL open the guest's maps app with the venue address as 
 - **WHEN** a guest taps Directions
 - **THEN** a maps link with the venue address as destination opens
 
-### Requirement: Open in Grab
-An "Open in Grab" action SHALL open Grab with the pickup point set to the venue entrance when the pickup point is confirmed. While it is a placeholder, the action SHALL be shown as plain text with `[GRAB PICKUP POINT]` and SHALL NOT be a link.
-
-#### Scenario: Grab pickup not confirmed
-- **WHEN** the Grab pickup point is a placeholder
-- **THEN** "Open in Grab" is not a link and shows the placeholder marker
-
 ### Requirement: Layout on phone and desktop
-On a phone the map area SHALL be full width at the top with the two actions beneath it. On desktop the map and actions SHALL sit beside the hours and contacts in two columns.
+On a phone the map area SHALL be full width at the top with the Directions action beneath it. On desktop the map and actions SHALL sit beside the hours and contacts in two columns.
 
 #### Scenario: Desktop columns
 - **WHEN** a guest opens `/en/visit` at 1280 px
 - **THEN** the map column and the information column are side by side
 
 ### Requirement: Mobile first
-The location area SHALL be designed for a phone first: the map and the Directions and Grab actions SHALL be reachable by thumb at 390 px, and the desktop two-column layout is an enhancement from 900 px.
+The location area SHALL be designed for a phone first: the map and the Directions action SHALL be reachable by thumb at 390 px, and the desktop two-column layout is an enhancement from 900 px.
 
 #### Scenario: Phone first
 - **WHEN** a guest opens Visit at 390 px

@@ -26,7 +26,6 @@ export const VENUE = {
   telegram: venueValue("[TELEGRAM @HANDLE]"),
   zalo: venueValue("[ZALO NUMBER]"),
   instagram: venueValue("[INSTAGRAM @HANDLE]"),
-  grabPickup: venueValue("[GRAB PICKUP POINT]"),
   /** An embeddable map address (https URL). While it is a placeholder the Visit page shows the address and a maps link instead. */
   mapEmbed: venueValue("[MAP EMBED]"),
   brunchHours: venueValue("[BRUNCH HOURS]"),
@@ -38,14 +37,14 @@ export const VENUE = {
 
 export type VenueRecord = typeof VENUE;
 
-export type ContactKind = "phone" | "telegram" | "zalo" | "instagram" | "grab" | "directions";
+export type ContactKind = "phone" | "telegram" | "zalo" | "instagram" | "directions";
 
 const handle = (v: string) => v.trim().replace(/^@+/, "");
 
 /** The real link for a contact, or null while its value is still a placeholder. */
 export function contactHref(kind: ContactKind, venue: VenueRecord = VENUE): string | null {
   if (kind === "directions") return directionsHref();
-  const v = venue[kind === "grab" ? "grabPickup" : kind];
+  const v = venue[kind];
   if (v.placeholder) return null;
   switch (kind) {
     case "phone":
@@ -56,9 +55,6 @@ export function contactHref(kind: ContactKind, venue: VenueRecord = VENUE): stri
       return `https://zalo.me/${v.value.replace(/\D/g, "")}`;
     case "instagram":
       return `https://instagram.com/${handle(v.value)}`;
-    case "grab":
-      // Needs a confirmed pickup point; a deep link format is decided when it is supplied.
-      return null;
   }
 }
 

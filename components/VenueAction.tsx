@@ -7,7 +7,6 @@ const valueOf = (venue: VenueRecord) =>
     telegram: venue.telegram,
     zalo: venue.zalo,
     instagram: venue.instagram,
-    grab: venue.grabPickup,
     directions: venue.address
   }) as const;
 
