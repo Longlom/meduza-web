@@ -8,7 +8,7 @@
 ## 2. Confirmation and Book tab
 
 - [x] 2.1 Add "View my booking" to `SentView` linking to the ticket. Check at 390 px and desktop width against `design/screens/m3-booking.dc.html` and `desktop-booking.dc.html`.
-- [x] 2.2 Make `SiteTabBar` link Book to the ticket while a record is active, correcting after hydration. Verify with and without a record, with no hydration warning; check at 390 px.
+- [x] 2.2 Make `SiteTabBar` link Book to the ticket while a record is active, correcting after hydration (removed for now: the Book tab always opens the form; `useActiveReference` in `lib/my-bookings.ts` is kept for later). Verified before removal; check at 390 px.
 
 ## 3. Ticket page
 

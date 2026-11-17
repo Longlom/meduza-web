@@ -22,7 +22,7 @@ The booking form (`components/BookingFlow.tsx`), the API route (`app/api/booking
 
 **Ticket page is a client page.** `/booking/[ref]` renders a client component that reads the record, because the server cannot know it. Unknown reference gets the "not on this device" state. The page is not indexable (`robots: noindex`).
 
-**Book tab target.** `SiteTabBar` reads `activeBooking` through the same hook and links Book to `/booking/{ref}` while one is active, else `/book`. It renders the form link on the server and corrects after hydration to avoid a mismatch.
+**Book tab target.** The Book tab always links to `/book` for now. `useActiveReference` (`lib/my-bookings.ts`) is kept so the tab can open the active ticket again later.
 
 **Cancel.** New route `app/api/booking/cancel/route.ts` accepts `{ reference, date, time, name, phone, locale, website }`, reuses the booking rate limiter and honeypot, validates the reference format (`^MDZ-\d{4}$`) and fields, and sends a Telegram message via new `formatCancelMessage`. The server cannot verify the booking exists, so the message says "requested" and the hostess confirms by phone or Telegram. In dry-run mode it prints instead of sending.
 

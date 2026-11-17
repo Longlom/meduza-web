@@ -15,7 +15,7 @@ After a request succeeds, the app SHALL store it on the guest's device only: ref
 
 #### Scenario: Expired record
 - **WHEN** the guest opens the app after the booking's opening day ended
-- **THEN** the record is removed and the Book tab shows the booking form
+- **THEN** the record is removed
 
 ### Requirement: Ticket page
 `/{locale}/booking/[ref]` SHALL show a ticket with the area photo, a status badge, the date and time in large type, the guest count and the reference. A pending booking SHALL show the badge "Request sent" with a slow pulse. The page SHALL include the tab bar and a timeline: Request sent (with the time sent), Arrive. Until bookings have a backend, nothing on the ticket SHALL mention the hostess confirming.
@@ -42,15 +42,15 @@ If no record matches the reference on this device, the page SHALL say it cannot 
 - **WHEN** a guest opens `/en/booking/MDZ-4821` on a device without that record
 - **THEN** the page explains the booking is not on this device and shows the two actions
 
-### Requirement: Book tab shows the active booking
-While a record is active, the Book tab SHALL open that booking's ticket; otherwise it SHALL open the booking form. After a successful request the guest SHALL land on that booking's ticket; there is no separate confirmation screen.
+### Requirement: Landing on the ticket
+After a successful request the guest SHALL land on that booking's ticket; there is no separate confirmation screen. For now the Book tab always opens the booking form, even when the guest has an active booking.
 
-#### Scenario: Active booking
-- **WHEN** a guest with an active booking taps the Book tab
+#### Scenario: After booking
+- **WHEN** a request succeeds
 - **THEN** the ticket opens
 
-#### Scenario: No booking
-- **WHEN** a guest without an active booking taps the Book tab
+#### Scenario: Book tab with an active booking
+- **WHEN** a guest with an active booking taps the Book tab
 - **THEN** the booking form opens
 
 ### Requirement: Ticket actions

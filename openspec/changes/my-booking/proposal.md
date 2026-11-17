@@ -8,7 +8,7 @@ After a guest sends a booking request they want to see it again, add it to their
 
 - Document the booking behaviour that already exists as the `table-booking` capability, so later changes have a contract to modify.
 - Keep each request on the guest's device and add the "My booking" ticket page `/{locale}/booking/[ref]` (status, timeline, actions).
-- Make the Book tab open the ticket while the guest has an active booking, and add "View my booking" to the confirmation screen.
+- After a request the guest lands on its ticket. (The Book tab opening the ticket for an active booking was tried and removed for now: the tab always opens the form.)
 - Add Change (reopens the form pre-filled) and Cancel booking, both sent to the hostess in Telegram as requests she verifies.
 - Add Directions, Message us and Add to calendar to the ticket.
 - Design the local storage so a database can replace it later and bring real Confirmed and Declined statuses.
