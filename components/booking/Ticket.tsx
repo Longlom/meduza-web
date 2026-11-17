@@ -23,7 +23,7 @@ import {
   useMyBookings,
   type MyBooking
 } from "@/lib/my-bookings";
-import { CANCEL_POLICY_PLACEHOLDER, HOLD_POLICY_PLACEHOLDER, type Locale } from "@/lib/venue";
+import type { Locale } from "@/lib/venue";
 import type { ErrorCode } from "@/lib/validation";
 
 type Step = { key: string; label: string; sub: string; time: string; done: boolean; href?: string };
@@ -205,7 +205,6 @@ function TicketBody({ locale, booking, now }: { locale: Locale; booking: MyBooki
               <span className="tk-ticket__refvalue">{booking.reference}</span>
             </div>
             {note ? <p className="tk-ticket__note">{note}</p> : null}
-            {pending ? <p className="tk-ticket__policy">{HOLD_POLICY_PLACEHOLDER}</p> : null}
             {cancelledNote ? (
               <p className="tk-ticket__note tk-ticket__note--ok" role="status">
                 {t.cancelSent}
@@ -296,7 +295,6 @@ function TicketBody({ locale, booking, now }: { locale: Locale; booking: MyBooki
             · {t.guests(booking.guests)} · {booking.reference}
           </p>
           <p className="mz-body mz-secondary">{t.cancelIntro}</p>
-          <p className="mz-footnote mz-secondary">{CANCEL_POLICY_PLACEHOLDER}</p>
           {error ? (
             <p className="bk-alert" role="alert">
               {dict.errors[error]}

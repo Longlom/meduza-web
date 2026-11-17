@@ -27,10 +27,10 @@ export const MAX_DAYS_AHEAD = 60;
 /** [MAX_GUESTS] — unconfirmed by the owner; 20 for now. */
 export const MAX_GUESTS = 20;
 
-/** [HOLD POLICY] — shown on the confirmation screen until the owner confirms the real text. */
+/** [HOLD POLICY] — not shown anywhere for now (it needs the owner's real text); keep the marker for when it is. */
 export const HOLD_POLICY_PLACEHOLDER = "[HOLD POLICY]";
 
-/** [DEPOSIT / CANCELLATION POLICY] — shown in the cancel confirmation until the owner confirms the real text. */
+/** [DEPOSIT / CANCELLATION POLICY] — not shown anywhere for now (it needs the owner's real text); keep the marker for when it is. */
 export const CANCEL_POLICY_PLACEHOLDER = "[DEPOSIT / CANCELLATION POLICY]";
 
 /** [EVENING_STARTS] — not confirmed by the owner. 17:00, the start of the Evening booking group, for now. */

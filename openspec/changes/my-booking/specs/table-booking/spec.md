@@ -76,7 +76,7 @@ A hidden form field SHALL silently discard bot submissions, returning a normal s
 - **THEN** the request is rejected with "Too many requests"
 
 ### Requirement: After the request
-After success the guest SHALL land on the booking's ticket page (the Book tab), which shows date, time, guests, reference, the `[HOLD POLICY]` text, "Add to calendar" and "Make another booking", without any wording about the hostess confirming.
+After success the guest SHALL land on the booking's ticket page (the Book tab), which shows date, time, guests, reference, "Add to calendar" and "Make another booking", without any wording about the hostess confirming and without the hold policy, which is hidden until the owner supplies it.
 
 #### Scenario: Landing
 - **WHEN** a request succeeds

@@ -7,7 +7,7 @@ Lets a guest ask the hostess to change or cancel a booking without a database, t
 ## ADDED Requirements
 
 ### Requirement: Cancel request
-"Cancel booking" SHALL ask for confirmation in a destructive-styled dialog that shows the date, time and the `[DEPOSIT / CANCELLATION POLICY]` text. Confirming SHALL send a cancellation request to the hostess in Telegram with the reference and details, mark the local record Cancelled, and show "Cancellation request sent."
+"Cancel booking" SHALL ask for confirmation in a destructive-styled dialog that shows the date and time (the deposit and cancellation policy is hidden until the owner supplies it). Confirming SHALL send a cancellation request to the hostess in Telegram with the reference and details, mark the local record Cancelled, and show "Cancellation request sent."
 
 #### Scenario: Confirmed cancel
 - **WHEN** a guest confirms the cancellation
