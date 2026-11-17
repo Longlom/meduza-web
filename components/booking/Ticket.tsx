@@ -26,6 +26,9 @@ import {
 import type { Locale } from "@/lib/venue";
 import type { ErrorCode } from "@/lib/validation";
 
+/** The Change button is hidden for now. The /book?change=… flow still works; set this to true to bring the button back. */
+const SHOW_CHANGE = false;
+
 type Step = { key: string; label: string; sub: string; time: string; done: boolean; href?: string };
 
 /** The ticket page body. It reads the record from this device, so it is a client component. */
@@ -247,7 +250,7 @@ function TicketBody({ locale, booking, now }: { locale: Locale; booking: MyBooki
                   <CalendarIcon size={20} aria-hidden="true" />
                   <span>{t.addToCalendar}</span>
                 </button>
-                {open ? (
+                {SHOW_CHANGE && open ? (
                   <Link className="tk-tile" href={`/${locale}/book?change=${booking.reference}`}>
                     <EditIcon size={20} aria-hidden="true" />
                     <span>{t.change}</span>

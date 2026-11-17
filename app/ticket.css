@@ -111,6 +111,8 @@
   text-decoration: none;
   cursor: pointer;
 }
+/* An odd last tile (Change hidden) takes the full row. */
+.tk-actions > .tk-tile:last-child:nth-child(odd) { grid-column: 1 / -1; }
 .tk-tile svg { flex: none; color: var(--mz-accent-text); }
 .tk-tile:active { background: var(--mz-surface-pressed); }
 .tk-tile[data-placeholder="true"] { cursor: default; opacity: 1; color: var(--mz-text-secondary); flex-wrap: wrap; padding-block: var(--mz-space-2); }
