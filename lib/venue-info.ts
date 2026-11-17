@@ -23,8 +23,8 @@ export const VENUE = {
   address: venueValue("157 Nguyễn Thiện Thuật, Nha Trang"),
   addressFull: venueValue("157 Nguyễn Thiện Thuật, Nha Trang, Khánh Hòa"),
   phone: venueValue("+84889761669"),
-  /** A phone number: Telegram opens the chat by number (t.me/+…). A handle such as "@name" also works. */
-  telegram: venueValue("+84 889761669"),
+  /** Needs a Telegram username. A phone number does not work: t.me/+number says "no such user" unless the owner is findable by number. */
+  telegram: venueValue("[TELEGRAM @HANDLE]"),
   zalo: venueValue("+84889761669"),
   instagram: venueValue("@meduza_nhatrang"),
   /** An embeddable map address (https URL). While it is a placeholder the Visit page shows the address and a maps link instead. */
@@ -51,11 +51,8 @@ export function contactHref(kind: ContactKind, venue: VenueRecord = VENUE): stri
   switch (kind) {
     case "phone":
       return `tel:${v.value.replace(/[^\d+]/g, "")}`;
-    case "telegram": {
-      // A phone number (digits, spaces, +) opens the chat by number; anything else is a handle.
-      const isNumber = /^\+?[\d\s()-]+$/.test(v.value.trim());
-      return isNumber ? `https://t.me/+${v.value.replace(/\D/g, "")}` : `https://t.me/${handle(v.value)}`;
-    }
+    case "telegram":
+      return `https://t.me/${handle(v.value)}`;
     case "zalo":
       return `https://zalo.me/${v.value.replace(/\D/g, "")}`;
     case "instagram":
@@ -65,6 +62,11 @@ export function contactHref(kind: ContactKind, venue: VenueRecord = VENUE): stri
 
 /** The venue's Google Maps place link. Directions and "Open in Maps" both use it. */
 export const MAPS_LINK = "https://maps.app.goo.gl/aCXWFbkuG3wcHPTB6";
+
+/** True once a Telegram username is confirmed. Until then every Telegram button and row is hidden. */
+export function telegramAvailable(venue: VenueRecord = VENUE): boolean {
+  return !venue.telegram.placeholder;
+}
 
 /** Opens the venue in the guest's maps app. */
 export function directionsHref(): string {

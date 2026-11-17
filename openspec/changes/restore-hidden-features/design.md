@@ -58,6 +58,12 @@ Full old strings: `git show 5b4bf5b:lib/i18n/en.ts` and `git show 5b4bf5b:lib/i1
 | D3 | Ticket timeline subtitle **"via meduza-nt.com"** under Request sent | `4c96371` | Re-add `sentSub` (EN "via meduza-nt.com", RU "через meduza-nt.com") to both dictionaries and pass it as `sub` for the `sent` step in `Ticket.tsx`. |
 | D4 | **Phone EN / RU pill on every page** (now home only) | `939ee24` | In `app/[locale]/(site)/layout.tsx` render the `site-mobile-lang` wrapper with `LanguageSwitch` on every page again (drop the pathname check in `components/MobileLanguageSwitch.tsx`) and set `--site-lang-space` in `app/booking.css` back to `calc(env(safe-area-inset-top) + 52px)`. |
 
+### E. Contacts hidden until confirmed
+
+| # | Item | Where | Hidden in | Precondition |
+|---|---|---|---|---|
+| E1 | **Telegram buttons**: Home quick action "Написать" / "Message", ticket "Message us" tile (and the one in the unknown-booking state), and the Telegram row in the Visit contact list | `telegramAvailable()` in `lib/venue-info.ts` hides them while `VENUE.telegram` is the placeholder `[TELEGRAM @HANDLE]` | this commit ("Telegram: stop linking by phone number") | The owner gives a Telegram **username**. Linking by phone number (`https://t.me/+84889761669`) was tried and Telegram answered "no such user" because the number is not searchable. Put the username in `VENUE.telegram` and the buttons return by themselves. |
+
 ## Decisions
 
 - **Flags over deletion** where the feature is a button on an existing screen (A1–A3), so restoring is a one-line change. Wording and content items were removed or reworded, so their original text is recorded here instead.

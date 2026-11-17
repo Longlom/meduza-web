@@ -1,7 +1,7 @@
 import { ChevronRightIcon } from "@meduza/ui";
 import { getDict } from "@/lib/i18n";
 import type { Locale } from "@/lib/venue";
-import { VENUE, contactHref, type ContactKind, type VenueRecord } from "@/lib/venue-info";
+import { VENUE, contactHref, telegramAvailable, type ContactKind, type VenueRecord } from "@/lib/venue-info";
 
 const ROWS = [
   { kind: "telegram", mark: "TG" },
@@ -20,7 +20,7 @@ export function VisitContacts({ locale, venue = VENUE }: { locale: Locale; venue
     <section className="vs-block" aria-labelledby="vs-contact">
       <h2 id="vs-contact" className="vs-h2">{t.contactTitle}</h2>
       <ul className="mz-card mz-card--flush vs-list">
-        {ROWS.map(({ kind, mark }) => {
+        {ROWS.filter((r) => r.kind !== "telegram" || telegramAvailable(venue)).map(({ kind, mark }) => {
           const value = venue[kind];
           const href = contactHref(kind, venue);
           const body = (

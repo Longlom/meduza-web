@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { MAPS_LINK, VENUE, contactHref, directionsHref, openStatus, venueValue } from "@/lib/venue-info";
+import { MAPS_LINK, VENUE, contactHref, directionsHref, openStatus, telegramAvailable, venueValue } from "@/lib/venue-info";
 
 // What the record looked like before the owner confirmed the contacts.
 const unconfirmed = {
@@ -38,8 +38,11 @@ describe("placeholders", () => {
     expect(contactHref("phone")).toBe("tel:+84889761669");
     expect(contactHref("zalo")).toBe("https://zalo.me/84889761669");
     expect(contactHref("instagram")).toBe("https://instagram.com/meduza_nhatrang");
-    // Telegram is a phone number, so it opens the chat by number.
-    expect(contactHref("telegram")).toBe("https://t.me/+84889761669");
+    // Telegram needs a username (a phone number gives "no such user"), so it stays unconfirmed and hidden.
+    expect(contactHref("telegram")).toBeNull();
+    expect(telegramAvailable()).toBe(false);
+    expect(telegramAvailable({ ...VENUE, telegram: venueValue("@meduza_nt") })).toBe(true);
+    expect(contactHref("telegram", { ...VENUE, telegram: venueValue("@meduza_nt") })).toBe("https://t.me/meduza_nt");
   });
 
   it("holds the confirmed hours", () => {

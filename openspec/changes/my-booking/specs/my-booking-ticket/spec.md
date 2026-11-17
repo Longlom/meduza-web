@@ -54,15 +54,15 @@ After a successful request the guest SHALL land on that booking's ticket; there 
 - **THEN** the booking form opens
 
 ### Requirement: Ticket actions
-The ticket SHALL offer Directions, Message us, Add to calendar, Change and Cancel booking. Message us SHALL be a link only when the Telegram handle is confirmed. Add to calendar SHALL download an event for the booking time in Vietnam time.
+The ticket SHALL offer Directions, Message us, Add to calendar, Change and Cancel booking. Message us SHALL be shown, as a link, only when the Telegram username is confirmed; until then it is hidden. Add to calendar SHALL download an event for the booking time in Vietnam time.
 
 #### Scenario: Add to calendar
 - **WHEN** a guest taps Add to calendar for 20:30
 - **THEN** a calendar file downloads with the event at 20:30 Vietnam time and the reference in its title
 
-#### Scenario: Message placeholder
-- **WHEN** the Telegram handle is a placeholder
-- **THEN** "Message us" shows plain text and is not a link
+#### Scenario: Telegram not confirmed
+- **WHEN** the Telegram username is a placeholder
+- **THEN** "Message us" is not shown
 
 ### Requirement: Mobile first
 The ticket SHALL be designed for a phone first, readable at arm's length at the table, with actions of at least 44 px; the desktop layout is an enhancement from 900 px.

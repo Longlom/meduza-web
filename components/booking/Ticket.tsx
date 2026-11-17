@@ -14,6 +14,7 @@ import {
 } from "@meduza/ui";
 import { VenueAction } from "@/components/VenueAction";
 import { buildIcs, downloadIcs } from "@/lib/calendar";
+import { telegramAvailable } from "@/lib/venue-info";
 import { formatDayShort, formatVenueTime } from "@/lib/format";
 import { getDict } from "@/lib/i18n";
 import {
@@ -70,9 +71,11 @@ function Unknown({ locale }: { locale: Locale }) {
         <Button variant="inverse" size="lg" href={`/${locale}/book`}>
           {t.newBooking}
         </Button>
-        <VenueAction kind="telegram" className="mz-btn mz-btn--secondary mz-btn--lg">
-          {t.messageUs}
-        </VenueAction>
+        {telegramAvailable() ? (
+          <VenueAction kind="telegram" className="mz-btn mz-btn--secondary mz-btn--lg">
+            {t.messageUs}
+          </VenueAction>
+        ) : null}
       </div>
     </main>
   );
@@ -244,10 +247,12 @@ function TicketBody({ locale, booking, now }: { locale: Locale; booking: MyBooki
                   <LocationIcon size={20} aria-hidden="true" />
                   <span>{t.directions}</span>
                 </VenueAction>
-                <VenueAction kind="telegram" className="tk-tile">
-                  <MessageIcon size={20} aria-hidden="true" />
-                  <span>{t.messageUs}</span>
-                </VenueAction>
+                {telegramAvailable() ? (
+                  <VenueAction kind="telegram" className="tk-tile">
+                    <MessageIcon size={20} aria-hidden="true" />
+                    <span>{t.messageUs}</span>
+                  </VenueAction>
+                ) : null}
                 <button type="button" className="tk-tile" onClick={addToCalendar}>
                   <CalendarIcon size={20} aria-hidden="true" />
                   <span>{t.addToCalendar}</span>
@@ -264,10 +269,12 @@ function TicketBody({ locale, booking, now }: { locale: Locale; booking: MyBooki
                 <Button variant="inverse" size="lg" href={`/${locale}/book`}>
                   {t.newBooking}
                 </Button>
-                <VenueAction kind="telegram" className="tk-tile">
-                  <MessageIcon size={20} aria-hidden="true" />
-                  <span>{t.messageUs}</span>
-                </VenueAction>
+                {telegramAvailable() ? (
+                  <VenueAction kind="telegram" className="tk-tile">
+                    <MessageIcon size={20} aria-hidden="true" />
+                    <span>{t.messageUs}</span>
+                  </VenueAction>
+                ) : null}
               </>
             )}
           </div>

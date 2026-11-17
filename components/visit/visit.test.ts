@@ -26,7 +26,9 @@ describe("VisitContacts", () => {
   it("shows no links while every value is a placeholder", () => {
     const html = renderToStaticMarkup(h(VisitContacts, { locale: "en", venue: unconfirmed }));
     expect(html).not.toContain("<a");
-    for (const m of ["[TELEGRAM @HANDLE]", "[ZALO NUMBER]", "[INSTAGRAM @HANDLE]", "[PHONE]"]) expect(html).toContain(m);
+    for (const m of ["[ZALO NUMBER]", "[INSTAGRAM @HANDLE]", "[PHONE]"]) expect(html).toContain(m);
+    // The Telegram row is hidden until there is a username.
+    expect(html).not.toContain("Telegram");
   });
 
   it("turns confirmed values into the right links", () => {

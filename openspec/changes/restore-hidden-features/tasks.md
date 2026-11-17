@@ -22,6 +22,8 @@ Every task is unchecked on purpose: it is done only when its precondition is met
 - [ ] 3.3 "Good to know" tiles (C3): supply dress code, payment and hookah rule; restore `VisitKnow`, the strings and `.vs-tiles` styles from `549f6ea^`. Verify at 390 px and 1280 px.
 - [ ] 3.4 Open in Grab (C4): supply the pickup point and link format; restore the button, strings and `grabPickup` from `08630d9^`. Verify it opens Grab and is plain text while unconfirmed.
 
+- [ ] 3.5 Telegram contact (E1): the owner supplies a Telegram username; set `VENUE.telegram` in `lib/venue-info.ts` (for example `@meduza_nhatrang`) and check the Home action, the ticket tile and the Visit row appear and open `https://t.me/<username>`.
+
 ## 4. Behaviour and UI
 
 - [ ] 4.1 Book tab opens the active ticket (D1): use `useActiveReference` in `SiteTabBar`; do it together with 1.3.
