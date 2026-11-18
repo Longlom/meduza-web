@@ -2,7 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 
 const LOCALES = ["en", "ru"];
 
-/** Everything lives under /en or /ru. Old and bare URLs (/, /booking, /book) are redirected. */
+/** Everything lives under /en or /ru. Old and bare URLs (/, /booking, /book, and the retired /call) are redirected. */
 export function middleware(req: NextRequest) {
   const { pathname, search } = req.nextUrl;
   const first = pathname.split("/")[1];
@@ -17,9 +17,12 @@ export function middleware(req: NextRequest) {
       ? `/${locale}`
       : clean === "/booking" || clean === "/book"
         ? `/${locale}/book`
-        : `/${locale}${clean}`;
+        : clean === "/call" || clean.startsWith("/call/")
+          ? `/${locale}` // the old table QR "call staff" page is gone: land on home instead of a 404
+          : `/${locale}${clean}`;
 
-  return NextResponse.redirect(new URL(`${target}${search}`, req.url));
+  const dropQuery = clean === "/call" || clean.startsWith("/call/");
+  return NextResponse.redirect(new URL(`${target}${dropQuery ? "" : search}`, req.url));
 }
 
 export const config = {

@@ -64,6 +64,12 @@ Full old strings: `git show 5b4bf5b:lib/i18n/en.ts` and `git show 5b4bf5b:lib/i1
 |---|---|---|---|---|
 | E1 | **Telegram buttons**: Home quick action "Написать" / "Message", ticket "Message us" tile (and the one in the unknown-booking state), and the Telegram row in the Visit contact list | `telegramAvailable()` in `lib/venue-info.ts` hides them while `VENUE.telegram` is the placeholder `[TELEGRAM @HANDLE]` | this commit ("Telegram: stop linking by phone number") | The owner gives a Telegram **username**. Linking by phone number (`https://t.me/+84889761669`) was tried and Telegram answered "no such user" because the number is not searchable. Put the username in `VENUE.telegram` and the buttons return by themselves. |
 
+### F. Features of the old booking site that were not carried over
+
+| # | Item | Where it lives | Status |
+|---|---|---|---|
+| F1 | **Table QR "call staff" page** `/call?table=N`: guests scan a QR code on a table to call a waiter or hookah master; the server sends a Telegram message with the table number; the roster of staff on shift comes from a Google Sheet (`STAFF_SHEET_URL`) and photos from Google Drive (`/api/staff-photo`); routes `/api/call-staff`, `/api/staff-photo`. The hostess guide for it is `docs/HOSTESS_GUIDE.md` in the old repo. | Old repo `Longlom/meduza_bookingkjkj` (GitHub), last production deploy before the switch to the new app. | Dropped when meduza-nt.com moved to the new app (owner said it is not needed). `/call` now redirects to the home page so old QR codes do not 404. Rebuild it from the old repo if table QR calling is wanted again. |
+
 ## Decisions
 
 - **Flags over deletion** where the feature is a button on an existing screen (A1–A3), so restoring is a one-line change. Wording and content items were removed or reworded, so their original text is recorded here instead.
