@@ -30,7 +30,7 @@
 - [x] 5.1 Add all strings to the EN and RU dictionaries. Verify `npm run typecheck` fails when a Russian key is removed and passes when complete.
 - [x] 5.2 Add a privacy note about data kept on the device to the README and verify it matches the stored fields.
 - [x] 5.3 Run `npm run typecheck`, `npm test`, `npm run check:tokens`, `npm run placeholders` and `npm run build`, and confirm all pass.
-- [ ] 5.4 Send one clearly marked test booking, change and cancel to the real Telegram group only after the owner agrees, and verify the three messages read correctly.
+- [x] 5.4 Send one clearly marked test booking, change and cancel to the real Telegram group only after the owner agrees, and verify the three messages read correctly. (Done 2026-11-18 through https://meduza-nt.com; the owner confirmed all three arrived and read correctly.)
 
 ## Workflow follow-up
 
