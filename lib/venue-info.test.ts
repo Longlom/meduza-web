@@ -47,6 +47,7 @@ describe("placeholders", () => {
 
   it("holds the confirmed hours", () => {
     expect(VENUE.brunchHours.value).toBe("12:00 – 16:00");
+    expect(VENUE.dinnerHours.value).toBe("16:00 – 00:30");
     expect(VENUE.kitchenCloses.value).toBe("00:30");
     expect(VENUE.brunchEnd.value).toBe("16:00");
   });

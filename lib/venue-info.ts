@@ -30,7 +30,7 @@ export const VENUE = {
   /** An embeddable map address (https URL). While it is a placeholder the Visit page shows the address and a maps link instead. */
   mapEmbed: venueValue("[MAP EMBED]"),
   brunchHours: venueValue("12:00 – 16:00"),
-  dinnerHours: venueValue("[DINNER HOURS]"),
+  dinnerHours: venueValue("16:00 – 00:30"),
   kitchenCloses: venueValue("00:30"),
   eveningStarts: venueValue("[EVENING_STARTS]"),
   /** Brunch runs 12:00–16:00, so it ends at 16:00. */
