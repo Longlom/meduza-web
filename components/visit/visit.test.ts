@@ -45,18 +45,21 @@ describe("VisitContacts", () => {
 });
 
 describe("VisitMap", () => {
-  it("shows the address slot with the marker while the embed is a placeholder", () => {
+  it("shows the OpenStreetMap embed with a credit and a tap-through link", () => {
     const html = renderToStaticMarkup(h(VisitMap, { locale: "en" }));
+    expect(html).toContain("<iframe");
+    expect(html).toContain("https://www.openstreetmap.org/export/embed.html");
+    expect(html).toContain("bbox=109.1924764%2C12.2352777%2C109.1956764%2C12.2384777");
+    expect(html).toContain("© OpenStreetMap contributors");
+    expect(html).toContain("https://maps.app.goo.gl/aCXWFbkuG3wcHPTB6");
+    expect(html).not.toContain("[MAP EMBED]");
+  });
+
+  it("falls back to the pin and the marker if the embed is a placeholder", () => {
+    const html = renderToStaticMarkup(h(VisitMap, { locale: "en", venue: { ...VENUE, mapEmbed: venueValue("[MAP EMBED]") } }));
     expect(html).not.toContain("<iframe");
     expect(html).toContain("[MAP EMBED]");
     expect(html).toContain("Open in Maps");
-  });
-
-  it("embeds the map once configured", () => {
-    const html = renderToStaticMarkup(h(VisitMap, { locale: "en", venue: confirmed }));
-    expect(html).toContain('<iframe');
-    expect(html).toContain("maps/embed?pb=test");
-    expect(html).not.toContain("[MAP EMBED]");
   });
 
   it("ignores a non-https embed value", () => {

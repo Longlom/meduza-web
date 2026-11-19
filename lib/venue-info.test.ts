@@ -24,7 +24,7 @@ describe("placeholders", () => {
       .every(([, v]) => v.placeholder);
     expect(flagged).toBe(true);
     expect(VENUE.address.placeholder).toBe(false);
-    expect(VENUE.mapEmbed.placeholder).toBe(true);
+    expect(VENUE.mapEmbed.placeholder).toBe(false);
   });
 
   it("never gives a link for a placeholder", () => {

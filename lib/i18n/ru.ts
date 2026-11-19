@@ -71,6 +71,7 @@ export const ru: Dict = {
     title: "Визит",
     mapLabel: "Карта: Meduza, 157 Nguyễn Thiện Thuật, Нячанг",
     openInMaps: "Открыть в Картах",
+    mapCredit: "© участники OpenStreetMap",
     hoursTitle: "Часы работы",
     everyDay: "Каждый день",
     brunch: "Бранч",

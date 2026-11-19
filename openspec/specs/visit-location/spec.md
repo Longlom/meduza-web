@@ -6,15 +6,22 @@ Shows guests where Meduza is and gets them there with the maps or ride app they 
 ## Requirements
 
 ### Requirement: Map area
-The top of the Visit page SHALL show a map area with the address "157 Nguyễn Thiện Thuật, Nha Trang, Khánh Hòa". When a map embed is supplied it SHALL be shown in the dark style with one glowing pin. Until then the area SHALL show the address and an "Open in Maps" action in place of the map, with the `[MAP EMBED]` marker.
+The top of the Visit page SHALL show a map area with the address "157 Nguyễn Thiện Thuật, Nha Trang, Khánh Hòa" and an OpenStreetMap embed centred on the venue with a marker and the "© OpenStreetMap contributors" credit. The map SHALL be darkened in the dark theme.
 
-#### Scenario: Map not supplied
-- **WHEN** the map embed is still a placeholder
-- **THEN** the area shows the address, the `[MAP EMBED]` marker and a working "Open in Maps" link, and no empty frame
+#### Scenario: Map shown
+- **WHEN** a guest opens the Visit page
+- **THEN** the area shows the OpenStreetMap map with its credit and a marker
 
-#### Scenario: Map supplied
-- **WHEN** a map embed is configured
-- **THEN** the area shows the map with the dark style and a single pin
+#### Scenario: Map embed unavailable
+- **WHEN** the map embed is a placeholder
+- **THEN** the area shows a pin, the `[MAP EMBED]` marker and a working "Open in Maps" link, and no empty frame
+
+### Requirement: Map does not trap scrolling
+The map SHALL NOT capture touch or mouse gestures, and a tap on it SHALL open the venue in Google Maps.
+
+#### Scenario: Swipe over the map
+- **WHEN** a guest swipes down starting on the map at 390 px
+- **THEN** the page scrolls and the map does not move
 
 ### Requirement: Directions
 A "Directions" action SHALL open the guest's maps app with the venue address as destination.

@@ -40,7 +40,26 @@
   box-shadow: var(--mz-shadow-glow);
 }
 .vs-map__marker { text-align: center; }
-.vs-map__frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+/* The frame is a little larger than the block so the map's own zoom buttons and attribution bar fall outside it
+   (the credit link below stays visible). The map centre is then a few px below the block centre, which the pin allows for. */
+.vs-map__frame { position: absolute; top: -48px; left: -48px; width: calc(100% + 96px); height: calc(100% + 112px); border: 0; pointer-events: none; }
+.vs-map__pin--on-map { position: absolute; z-index: 1; left: 50%; top: calc(50% + 8px); transform: translate(-50%, -50%); }
+/* A tap anywhere on the map opens Google Maps; the map itself never captures a swipe, so the page scrolls freely. */
+.vs-map__tap { position: absolute; inset: 0; z-index: 1; }
+.vs-map__credit {
+  position: absolute;
+  z-index: 2;
+  left: var(--mz-space-3);
+  bottom: calc(var(--mz-space-8) + 60px);
+  padding: 2px var(--mz-space-2);
+  border-radius: var(--mz-radius-xs);
+  background: var(--mz-glass-bg);
+  color: var(--mz-text-on-media);
+  font-size: var(--mz-type-caption-size);
+  text-decoration: none;
+}
+/* Google's map is light: in the dark theme invert it and turn the hues back so it fits the page. */
+:root[data-theme="abyss"] .vs-map__frame { filter: invert(92%) hue-rotate(180deg) saturate(0.85) brightness(0.95); }
 .vs-map__link { position: absolute; z-index: 1; right: var(--mz-space-5); bottom: calc(var(--mz-space-8) + 60px); }
 .vs-map__fade { position: absolute; inset-inline: 0; bottom: 0; height: 120px; pointer-events: none; background: linear-gradient(180deg, transparent, var(--mz-bg)); }
 

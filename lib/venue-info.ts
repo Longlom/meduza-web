@@ -16,6 +16,13 @@ export function venueValue(value: string): VenueValue {
 
 export const VENUE_NAME = "Meduza — Cocktails & Cuisine";
 
+/**
+ * OpenStreetMap embed centred on the venue (12.23688, 109.19408); the app draws its own glowing pin on the
+ * centre. No key or account needed. The bounding box is about 350 m across, which is street level.
+ */
+export const MAP_EMBED_URL =
+  "https://www.openstreetmap.org/export/embed.html?bbox=109.1924764%2C12.2352777%2C109.1956764%2C12.2384777&layer=mapnik";
+
 /** Lowest hookah price (Meduza Classic), VND. Shown as "from …" on Home. */
 export const HOOKAH_FROM_VND = 600_000;
 
@@ -27,8 +34,8 @@ export const VENUE = {
   telegram: venueValue("[TELEGRAM @HANDLE]"),
   zalo: venueValue("+84889761669"),
   instagram: venueValue("@meduza_nhatrang"),
-  /** An embeddable map address (https URL). While it is a placeholder the Visit page shows the address and a maps link instead. */
-  mapEmbed: venueValue("[MAP EMBED]"),
+  /** The embeddable map address (an https URL). If it is ever a placeholder the Visit page shows a pin and a maps link instead. */
+  mapEmbed: venueValue(MAP_EMBED_URL),
   brunchHours: venueValue("12:00 – 16:00"),
   dinnerHours: venueValue("16:00 – 00:30"),
   kitchenCloses: venueValue("00:30"),
